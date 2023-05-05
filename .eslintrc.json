@@ -39,6 +39,12 @@
 		}
 	},
 	"rules": {
+		"@typescript-eslint/consistent-type-imports": [
+			"error",
+			{
+				"prefer": "type-imports"
+			}
+		],
 		"linebreak-style": "off",
 		// Configure prettier
 		"prettier/prettier": [
