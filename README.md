@@ -21,39 +21,3 @@
 3. Don't use `default export` for functions.
 4. Don't use `useEffect` to fetch data. Use `rtk-query` instead.
 5. Don't write inline functions in Components bodies that return JSX.
-
-##### File structure
-
-src/
-├── components/
-│ ├── component1/
-│ │ ├── component1.tsx
-│ │ └── component1.types.ts
-│ ├── component2/
-│ │ ├── component2.tsx
-│ │ └── component2.types.ts
-│ └── index.ts  
-│  
-├── pages/
-│ ├── page1/
-│ │ ├── Page1.tsx
-│ │ └── Page1.types.ts
-│ ├── page2/
-│ │ ├── page2.tsx
-│ │ └── page2.types.ts
-│ └── index.ts
-│  
-├── redux/
-│ ├── api/
-│ │ └── auth.api.ts
-│ │ └── ...
-│ ├── slices/
-│ │ └── auth.slice.ts
-│ └── index.ts
-│  
-├── routes/
-├── model/
-├── utils/
-│  
-├── App.tsx
-└── index.tsx
