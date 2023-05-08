@@ -1,5 +1,7 @@
-import React, { forwardRef, Ref } from "react";
-import { TextField, TextFieldProps, styled } from "@mui/material";
+import { TextField, styled } from "@mui/material";
+import React, { forwardRef } from "react";
+import type { TextFieldProps } from "@mui/material";
+import type { Ref } from "react";
 
 interface IInputProps {
   value: string;
