@@ -1,15 +1,28 @@
-import { TextField, styled } from "@mui/material";
-import { FC } from "react";
-import { INTERFACE_INPUTPROPS } from "../../../model/interfaces";
+import React, { forwardRef, Ref } from "react";
+import { TextField, TextFieldProps, styled } from "@mui/material";
 
-export const Input: FC<INTERFACE_INPUTPROPS> = ({
-  value,
-  onChange,
-  error,
-  ...props
-}): JSX.Element => {
-  return <InputStyled {...props} value={value} onChange={onChange} error={Boolean(error)} />;
-};
+interface IInputProps {
+  value: string;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  error?: boolean;
+}
+
+export const Input = forwardRef(
+  (
+    { value, onChange, error, ...props }: IInputProps & TextFieldProps,
+    ref: Ref<HTMLInputElement>
+  ) => {
+    return (
+      <InputStyled
+        {...props}
+        value={value}
+        onChange={onChange}
+        error={Boolean(error)}
+        inputRef={ref}
+      />
+    );
+  }
+);
 
 Input.displayName = "Input";
 
