@@ -1,9 +1,9 @@
-import { useEffect } from "react";
 import type { FC } from "react";
 
 export const App: FC = (): JSX.Element => {
-  useEffect(() => {
-    console.log("Hello");
-  }, []);
-  return <div />;
+  return (
+    <div>
+      <h1>MyApp</h1>
+    </div>
+  );
 };
