@@ -27,9 +27,8 @@ export const theme = createTheme({
       styleOverrides: {
         root: {
           borderRadius: "0.5rem",
-          fontSize: "14px",
+          fontSize: "0.875rem",
           fontWeight: "700",
-          width: "82px",
           "&.Mui-disabled": {
             background: "#fff",
             border: "2px solid #C4C4C4",
