@@ -1,7 +1,6 @@
-import { ThemeProvider } from "@emotion/react";
 import React from "react";
 
-import { ThemeProvider } from "@mui/material";
+import { ThemeProvider } from "@emotion/react";
 import ReactDOM from "react-dom/client";
 
 import "./index.css";
