@@ -1,6 +1,6 @@
 import React from "react";
 
-import { ThemeProvider } from "@emotion/react";
+import { ThemeProvider } from "@mui/material";
 import ReactDOM from "react-dom/client";
 
 import "./index.css";
