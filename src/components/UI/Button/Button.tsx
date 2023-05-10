@@ -1,5 +1,4 @@
-import styled from "@emotion/styled";
-import { Button as MuiButton } from "@mui/material";
+import { Button as MuiButton, styled } from "@mui/material";
 
 import type { ButtonProps } from "@mui/material";
 
