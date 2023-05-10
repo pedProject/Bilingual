@@ -5,6 +5,8 @@
 3. `Redux Toolkit Query` -
 4. `Material UI` - UI library. `@mui/styled-engine
 5. `React Router` - Routing
+6. `React Hook Form` - Form management (use ref's instead regular states)
+7. `Zod` - Schema-based data validation, type inference, and parsing
 
 ### Do's
 
