@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import type { FC } from "react";
 
 export const App: FC = (): JSX.Element => {
