@@ -30,11 +30,13 @@
     "linebreak-style": "off",
     "quotes": ["error", "double"],
     "semi": ["error", "always"],
-    "react/react-in-jsx-scope": 0,
+    "react/react-in-jsx-scope": "off",
     "react/jsx-uses-react": 0,
     "no-unused-vars": "off",
     "@typescript-eslint/no-unused-vars": "error",
     "react/self-closing-comp": ["error", { "component": true, "html": true }],
+    "prettier/prettier": ["error", { "endOfLine": "auto" }],
+
     "@typescript-eslint/consistent-type-imports": [
       "error",
       {
