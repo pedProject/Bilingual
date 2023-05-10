@@ -7,8 +7,8 @@ type Props = {
 
 export const IconButton = ({ Icon, onClick }: Props): JSX.Element => {
   return (
-    <div>
+    <>
       <Icon onClick={onClick} />
-    </div>
+    </>
   );
 };

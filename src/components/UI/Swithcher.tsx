@@ -56,13 +56,13 @@ export const Swithcher = (): JSX.Element => {
     },
   }));
   return (
-    <div>
+    <>
       <IOSSwitch
         sx={{ m: 1 }}
         checked={checked}
         onChange={handleChange}
         inputProps={{ "aria-label": "controlled" }}
       />
-    </div>
+    </>
   );
 };
