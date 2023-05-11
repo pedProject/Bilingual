@@ -1,33 +1,38 @@
+import { forwardRef } from "react";
+import type { ForwardedRef } from "react";
+
 import { TextareaAutosize, styled } from "@mui/material";
 
 import type { TextareaAutosizeProps } from "@mui/material";
 
 interface ITextareaProps {
-  placeholder?: string;
   value: string;
   onChange: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
+  placeholder?: string;
 }
 
-const Textarea = ({
-  placeholder,
-  value,
-  onChange
-}: ITextareaProps & TextareaAutosizeProps): JSX.Element => {
-  return (
-    <StyledTextarea
-      style={{ height: "131px" }}
-      placeholder={placeholder}
-      value={value}
-      onChange={onChange}
-    />
-  );
-};
+export const Textarea = forwardRef(
+  (
+    { placeholder, value, onChange, ...props }: ITextareaProps & TextareaAutosizeProps,
+    ref: ForwardedRef<HTMLTextAreaElement>
+  ): JSX.Element => {
+    return (
+      <StyledTextarea
+        {...props}
+        ref={ref}
+        placeholder={placeholder}
+        value={value}
+        onChange={onChange}
+      />
+    );
+  }
+);
 
-export default Textarea;
+Textarea.displayName = "Textarea";
 
 const StyledTextarea = styled(TextareaAutosize)(() => ({
   "&": {
-    padding: "14px 0 0 14px",
+    padding: "0.8rem 0 0 0.8rem",
     width: "100%",
     outline: "none",
     resize: "none",
@@ -35,8 +40,8 @@ const StyledTextarea = styled(TextareaAutosize)(() => ({
     border: "1px solid #D4D0D0",
     borderRadius: "8px",
     fontWeight: "400",
-    fontSize: "16px",
-    lineHeight: "18px",
+    fontSize: "1rem",
+    lineHeight: "1.3rem",
     color: "#4C4859",
     caretColor: "#3A10E5",
 
