@@ -1,13 +1,55 @@
-import type { ReactNode } from "react";
+import { Menu, styled } from "@mui/material";
 
-import { Menu } from "@mui/material";
+import type { MenuProps } from "@mui/material";
 
-// interface IMenuProps {
-//   children: ReactNode;
-// }
+interface IMenuProps {
+  onClose: () => void;
+  vertical?: number | "center" | "bottom" | "top";
+  horizontal?: number | "center" | "left" | "right";
+}
 
-// const Dropdown = ({ children }: IMenuProps): JSX.Element => {
-//   return <Menu>{children}</Menu>;
-// };
+export const Dropdown = ({
+  children,
+  open,
+  onClose,
+  vertical = "bottom",
+  horizontal = "left",
+  anchorEl,
+  ...props
+}: IMenuProps & MenuProps): JSX.Element => {
+  return (
+    <StyledMenu
+      {...props}
+      open={open}
+      onClose={onClose}
+      PopoverClasses={{ paper: "paper" }}
+      anchorOrigin={{
+        vertical,
+        horizontal
+      }}
+      anchorEl={anchorEl}
+      disablePortal
+      autoFocus={false}
+    >
+      {children}
+    </StyledMenu>
+  );
+};
 
-// export default Dropdown;
+const StyledMenu = styled(Menu)(() => ({
+  "& .paper": {
+    background: "#fffff",
+    boxShadow: "0px 4px 16px rgba(0, 0, 0, 0.1)",
+    borderRadius: "4px",
+    padding: "0",
+    minWidth: "142px"
+  },
+  "& .MuiMenuItem-root": {
+    color: "#292929",
+    transitionDuration: "0.3s"
+  },
+
+  "&:hover .MuiMenuItem-root": {
+    background: "transparent"
+  }
+}));
