@@ -8,7 +8,7 @@ type Props = {
   onChange: () => (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-export const Swithcher = ({ value, onChange }: Props): JSX.Element => {
+export const Swithcher = ({ value, onChange, ...props }: Props & SwitchProps): JSX.Element => {
   const IOSSwitch = styled((props: SwitchProps) => (
     <Switch focusVisibleClassName=".Mui-focusVisible" disableRipple {...props} />
   ))(({ theme }) => ({
@@ -58,6 +58,7 @@ export const Swithcher = ({ value, onChange }: Props): JSX.Element => {
   }));
   return (
     <IOSSwitch
+      {...props}
       sx={{ m: 1 }}
       checked={value}
       onChange={onChange}
