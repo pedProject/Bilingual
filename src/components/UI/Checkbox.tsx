@@ -1,11 +1,18 @@
-import Checkbox from "@mui/material/Checkbox";
-import { ReactComponent as CheckedIcon } from "../../assets/icons/checked.svg";
-import { ReactComponent as UnCheckedIcon } from "../../assets/icons/unchecked.svg";
+import { Checkbox as MuiCheckbox } from "@mui/material";
 
-export const Checkboxx = (): JSX.Element => {
+import { CheckedIcon, UnCheckedIcon } from "./../../assets/index";
+
+type Props = {
+  value: boolean | undefined;
+  onChange: () => (event: React.ChangeEvent<HTMLInputElement>) => void;
+};
+export const Checkbox = ({ value, onChange }: Props): JSX.Element => {
   return (
-    <>
-      <Checkbox checkedIcon={<CheckedIcon />} icon={<UnCheckedIcon />} />
-    </>
+    <MuiCheckbox
+      checkedIcon={<CheckedIcon />}
+      icon={<UnCheckedIcon />}
+      checked={value}
+      onChange={onChange}
+    />
   );
 };

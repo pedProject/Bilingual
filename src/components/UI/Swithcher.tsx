@@ -1,13 +1,14 @@
-import Switch, { SwitchProps } from "@mui/material/Switch";
+import Switch from "@mui/material/Switch";
 import { styled } from "@mui/material/styles";
-import { useState } from "react";
 
-export const Swithcher = (): JSX.Element => {
-  const [checked, setChecked] = useState(true);
+import type { SwitchProps } from "@mui/material/Switch";
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setChecked(event.target.checked);
-  };
+type Props = {
+  value: boolean | undefined;
+  onChange: () => (event: React.ChangeEvent<HTMLInputElement>) => void;
+};
+
+export const Swithcher = ({ value, onChange }: Props): JSX.Element => {
   const IOSSwitch = styled((props: SwitchProps) => (
     <Switch focusVisibleClassName=".Mui-focusVisible" disableRipple {...props} />
   ))(({ theme }) => ({
@@ -24,45 +25,43 @@ export const Swithcher = (): JSX.Element => {
         "& + .MuiSwitch-track": {
           backgroundColor: theme.palette.mode === "dark" ? "#2ECA45" : "#65C466",
           opacity: 1,
-          border: 0,
+          border: 0
         },
         "&.Mui-disabled + .MuiSwitch-track": {
-          opacity: 0.5,
-        },
+          opacity: 0.5
+        }
       },
       "&.Mui-focusVisible .MuiSwitch-thumb": {
         color: "#33cf4d",
-        border: "6px solid #fff",
+        border: "6px solid #fff"
       },
       "&.Mui-disabled .MuiSwitch-thumb": {
-        color: theme.palette.mode === "light" ? theme.palette.grey[100] : theme.palette.grey[600],
+        color: theme.palette.mode === "light" ? theme.palette.grey[100] : theme.palette.grey[600]
       },
       "&.Mui-disabled + .MuiSwitch-track": {
-        opacity: theme.palette.mode === "light" ? 0.7 : 0.3,
-      },
+        opacity: theme.palette.mode === "light" ? 0.7 : 0.3
+      }
     },
     "& .MuiSwitch-thumb": {
       boxSizing: "border-box",
       width: 22,
-      height: 22,
+      height: 22
     },
     "& .MuiSwitch-track": {
       borderRadius: 26 / 2,
       backgroundColor: theme.palette.mode === "light" ? "#E9E9EA" : "#39393D",
       opacity: 1,
       transition: theme.transitions.create(["background-color"], {
-        duration: 500,
-      }),
-    },
+        duration: 500
+      })
+    }
   }));
   return (
-    <>
-      <IOSSwitch
-        sx={{ m: 1 }}
-        checked={checked}
-        onChange={handleChange}
-        inputProps={{ "aria-label": "controlled" }}
-      />
-    </>
+    <IOSSwitch
+      sx={{ m: 1 }}
+      checked={value}
+      onChange={onChange}
+      inputProps={{ "aria-label": "controlled" }}
+    />
   );
 };

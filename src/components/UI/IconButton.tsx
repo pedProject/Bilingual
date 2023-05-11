@@ -1,4 +1,4 @@
-import { FunctionComponent } from "react";
+import type { FunctionComponent } from "react";
 
 type Props = {
   Icon: FunctionComponent<React.SVGProps<SVGSVGElement>>;
@@ -6,9 +6,5 @@ type Props = {
 };
 
 export const IconButton = ({ Icon, onClick }: Props): JSX.Element => {
-  return (
-    <>
-      <Icon onClick={onClick} />
-    </>
-  );
+  return <Icon onClick={onClick} />;
 };
