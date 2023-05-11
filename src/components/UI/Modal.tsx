@@ -1,16 +1,12 @@
-import type { ReactNode } from "react";
+import { Dialog } from "@mui/material";
 
-import Dialog from "@mui/material/Dialog";
+import type { ModalProps } from "@mui/material";
 
-interface ModalProps {
-  handleClose: () => void;
-  open: boolean;
-  children: ReactNode;
-}
+type Props = ModalProps;
 
-export const Modal = ({ open, handleClose, children }: ModalProps) => {
+export const Modal = ({ open, onClose, children }: Props): JSX.Element => {
   return (
-    <Dialog open={open} onClose={handleClose}>
+    <Dialog open={open} onClose={onClose}>
       {children}
     </Dialog>
   );
