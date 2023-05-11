@@ -1,6 +1,4 @@
-import type { FC } from "react";
-
-export const App: FC = (): JSX.Element => {
+export const App = (): JSX.Element => {
   return (
     <div>
       <h1>MyApp</h1>
