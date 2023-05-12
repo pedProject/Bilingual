@@ -3,3 +3,6 @@ import { ReactComponent as UnCheckedIcon } from "./icons/unchecked.svg";
 export { UnCheckedIcon, CheckedIcon };
 
 export { ReactComponent as CloseIcon } from "./icons/close-icon.svg";
+
+// Main Logo
+export { ReactComponent as LogoIcon } from "./icons/logo.svg";
