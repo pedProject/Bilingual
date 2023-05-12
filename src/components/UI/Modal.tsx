@@ -9,9 +9,15 @@ type Props = ModalProps & {
   closeIcon?: boolean;
 };
 
-export const Modal = ({ open, onClose, children, closeIcon = false }: Props): JSX.Element => {
+export const Modal = ({
+  open,
+  onClose,
+  children,
+  closeIcon = false,
+  ...props
+}: Props): JSX.Element => {
   return (
-    <StyledDialog open={open} onClose={onClose}>
+    <StyledDialog open={open} onClose={onClose} {...props}>
       {closeIcon ? (
         <StyledDialogTitle>
           <IconButton onClick={onClose}>
