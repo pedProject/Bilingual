@@ -49,3 +49,5 @@ export const CFeedbacksData = [
     rating: 0
   }
 ];
+
+export const CPartnersData = [{}];

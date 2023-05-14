@@ -1,124 +1,178 @@
-import { useState } from "react";
-import type { CSSProperties, MouseEventHandler } from "react";
+import { Box, Rating, styled } from "@mui/material";
+import { Navigation, Pagination, Autoplay, A11y } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
 
-import { Box, styled } from "@mui/material";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-
-import { ArrowFeedback } from "../../assets";
+import "swiper/swiper-bundle.min.css";
+import { ArrowFeedbacksIcon } from "../../assets";
 import { CFeedbacksData } from "../../utils/constants";
 
-interface IArrowsProps {
-  onClick?: () => MouseEventHandler<HTMLOrSVGElement>;
-  style?: CSSProperties;
-  className?: string;
-}
-
-const NextArrow = ({ onClick, style, className }: IArrowsProps): JSX.Element => (
-  <ArrowFeedback
-    onClick={onClick}
-    className={className}
-    style={{
-      ...style
-    }}
-  />
-);
-
-const PrevArrow = ({ onClick, style, className }: IArrowsProps): JSX.Element => (
-  <ArrowFeedback
-    onClick={onClick}
-    className={className}
-    style={{
-      ...style
-    }}
-  />
-);
-
 export const Feedbacks = (): JSX.Element => {
-  const [slideIndex, setSlideIndex] = useState(0);
-
-  const settings = {
-    infinity: true,
-    speed: 1000,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    // autoplay: true,
-    autoplaySpeed: 3000,
-    centerMode: true,
-    beforeChange: (current: number, next: number) => setSlideIndex(next),
-    nextArrow: <NextArrow />,
-    prevArrow: <PrevArrow />
-  };
-
   return (
-    <StyledSlider>
-      <Slider {...settings} variableWidth={true}>
-        {CFeedbacksData.map((feedback, index) => (
-          <Box key={index} className={index === slideIndex ? "slide slide-active" : "slide"}>
-            {/* {feedback.id} */}
-          </Box>
+    <>
+      <StyledTitle>Why people love Bilingual</StyledTitle>
+
+      <StyledSwiper
+        modules={[Navigation, Pagination, Autoplay, A11y]}
+        slidesPerView={3}
+        navigation={{
+          nextEl: ".my-next-button",
+          prevEl: ".my-prev-button"
+        }}
+        pagination={{ clickable: true }}
+        loop={true}
+        autoplay={{ delay: 3000 }}
+      >
+        <div className="my-prev-button swiper-button-prev">
+          <ArrowFeedbacksIcon />
+        </div>
+        <div className="my-next-button swiper-button-next">
+          <ArrowFeedbacksIcon />
+        </div>
+
+        {CFeedbacksData.map((slide) => (
+          <SwiperSlide key={slide.id}>
+            <Box className="slide">
+              <img className="avatar" src={slide.image} alt={slide.userName} />
+
+              <p className="text">{slide.text}</p>
+
+              <p className="name">- {slide.userName}</p>
+
+              <Rating readOnly value={slide.rating} />
+            </Box>
+          </SwiperSlide>
         ))}
-      </Slider>
-    </StyledSlider>
+      </StyledSwiper>
+    </>
   );
 };
 
-const StyledSlider = styled(Box)(() => ({
-  width: "98vw",
-  display: "flex",
-  justifyContent: "center",
+const StyledTitle = styled("p")(() => ({
+  fontFamily: "Gilroy",
+  fontWeight: "700",
+  fontSize: "40px",
+  lineHeight: "48px",
+  color: "#3752B4",
+  textAlign: "center",
+  margin: "0 0 60px"
+}));
 
-  "& .slick-slider": {
-    height: "80vh"
+const StyledSwiper = styled(Swiper)(() => ({
+  "&.swiper": {
+    height: "700px",
+    background: "#fef5e8"
   },
 
-  "& .slick-list": {
-    width: "70vw",
-    height: "80vh",
-    display: "flex",
-    alignItems: "center",
+  "& .swiper-wrapper": {
+    left: "4.1%"
+  },
 
-    "& .slick-track": {
-      display: "flex"
+  "& .swiper-slide-next": {
+    "& .slide": {
+      background: "#666CA7",
+      // height: "622px",
+
+      "& .avatar": {
+        marginTop: "40px",
+        width: "73%",
+        height: "40vh"
+      },
+
+      "& .text": {
+        marginTop: "52px",
+        color: "white"
+      },
+
+      "& .name": {
+        color: "white"
+      }
     }
   },
 
-  "& .slick-center .slide-active": {
-    height: "65vh",
-    background: "#666CA7",
-    borderRadius: "40px",
-    transform: "scaleY(1.1)"
-  },
-
-  "& .slick-slide": {
-    width: "20vw",
-    height: "65vh",
+  "& .slide": {
+    height: "564px",
+    width: "25vw",
     background: "#E5E5E5",
-    borderRadius: "40px"
+    borderRadius: "40px",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+
+    "& .avatar": {
+      marginTop: "70px",
+      width: "62%",
+      height: "35vh"
+    },
+
+    "& .text": {
+      marginTop: "38px",
+      padding: "0 30px"
+    },
+
+    "& .name": {
+      color: "#3A10E5",
+      fontWeight: "600"
+    },
+
+    "& .MuiRating-root": {
+      fontSize: "1.2rem",
+      "& path": {
+        fill: "#F99808"
+      }
+    }
   },
 
-  "& .slick-next": {
-    right: "0",
-    transform: "rotate(180deg)"
-  },
-
-  "& .slick-prev": {
-    left: "0",
-    transform: "rotate(360deg)",
-    zIndex: "1"
-  },
-
-  "& .slick-arrow": {
+  "& .my-next-button": {
     width: "60px",
     height: "60px",
+    transform: "rotate(180deg)",
+    top: "270px",
 
-    "&:hover": {
+    "svg:hover": {
       fill: "#3A10E5",
 
       "& path": {
         fill: "white"
       }
+    }
+  },
+
+  "& .my-prev-button": {
+    width: "60px",
+    height: "60px",
+    top: "270px",
+
+    "svg:hover": {
+      fill: "#3A10E5",
+
+      "& path": {
+        fill: "white"
+      }
+    }
+  },
+
+  "& .swiper-button-next:after": {
+    content: "''"
+  },
+  "& .swiper-button-prev:after": {
+    content: "''"
+  },
+
+  "& .swiper-pagination": {
+    height: "300px",
+    bottom: "-200px",
+
+    "& .swiper-pagination-bullet": {
+      height: "16px",
+      width: "6px",
+      background: "rgba(59, 16, 229, 0.354)",
+      borderRadius: "20px",
+      transform: "matrix(1, 0, 0, -1, 0, 0)"
+    },
+
+    "& .swiper-pagination-bullet-active": {
+      height: "30px",
+      background: "#3A10E5"
     }
   }
 }));
