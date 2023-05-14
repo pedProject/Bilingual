@@ -1,4 +1,12 @@
-import { PhotoAibekFeedback, PhotoAlinaFeedback, PhotoMinuraFeedback } from "../assets";
+import {
+  PhotoAibekFeedback,
+  PhotoAlinaFeedback,
+  PhotoFirstPartner,
+  PhotoFourthPartner,
+  PhotoMinuraFeedback,
+  PhotoSecondPartner,
+  PhotoThirdPartner
+} from "../assets";
 
 export const CFeedbacksData = [
   {
@@ -50,4 +58,37 @@ export const CFeedbacksData = [
   }
 ];
 
-export const CPartnersData = [{}];
+export const CPartnersData = [
+  {
+    id: 1,
+    image: PhotoFirstPartner
+  },
+  {
+    id: 2,
+    image: PhotoSecondPartner
+  },
+  {
+    id: 3,
+    image: PhotoThirdPartner
+  },
+  {
+    id: 4,
+    image: PhotoFourthPartner
+  },
+  {
+    id: 5,
+    image: PhotoFirstPartner
+  },
+  {
+    id: 6,
+    image: PhotoSecondPartner
+  },
+  {
+    id: 7,
+    image: PhotoThirdPartner
+  },
+  {
+    id: 8,
+    image: PhotoFourthPartner
+  }
+];
