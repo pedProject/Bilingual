@@ -5,23 +5,10 @@ import Accordion from "@mui/material/Accordion";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import AccordionSummary from "@mui/material/AccordionSummary";
 
-// import LogoBilingual from "../assets/images/LogoFooter.svg";
-// import FacebookIcon from "../assets/images/landingPage/facebookIcon.svg";
-// import InstagramIcon from "../assets/images/landingPage/instagramInstgramIcon.svg";
-// import YoutubeIcon from "../assets/images/landingPage/youtubeIcon.svg";
-
-// import IconButtonStyled from "./UI/IconButtonStyled";
-
 import type { StyledComponent } from "@emotion/styled";
 import type { AccordionProps } from "@mui/material/Accordion";
 
 export const Accordions = () => {
-  //   const [expanded, setExpanded] = React.useState(false);
-
-  //   const handleChange = (panel: any) => (e: any, isExpanded: any) => {
-  // setExpanded(isExpanded ? panel : false);
-  //   };
-
   const Footerdata = [
     {
       question: "What is Bilingual? ",
@@ -75,13 +62,7 @@ export const Accordions = () => {
           );
         })}
       </StyledContainer>
-      <StyledFooterInline>
-        {/* <StyledImage src={LogoBilingual} />
-        <StyledText>© Copyright PeakSoft. All Rights Reserved</StyledText>
-        <IconButtonStyled Icon={YoutubeIcon} />
-        <IconButtonStyled Icon={FacebookIcon} />
-        <IconButtonStyled Icon={InstagramIcon} /> */}
-      </StyledFooterInline>
+      <StyledFooterInline />
     </StyledFooter>
   );
 };
@@ -115,7 +96,7 @@ const StyledFooterInline = styled("div")`
 //   color: #98a2b3;
 // `;
 const StyledAccordionSummary = styled((props) => (
-  <AccordionSummary expandIcon={<AddIcon sx={{ color: "#ffffff" }} />} {...props} />
+  <AccordionSummary expandIcon={<div>hello</div>} {...props} />
 ))(() => ({
   background: "#262626",
   flexDirection: "row",
