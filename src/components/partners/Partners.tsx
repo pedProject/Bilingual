@@ -1,4 +1,4 @@
-import { styled } from "@mui/material";
+import { Box, styled } from "@mui/material";
 import Slider from "react-slick";
 
 import "slick-carousel/slick/slick.css";
@@ -41,7 +41,7 @@ export const Partners = (): JSX.Element => {
   };
 
   return (
-    <>
+    <StyledBox>
       <StyledTitle>Partners</StyledTitle>
 
       <StyledSlider {...settings}>
@@ -51,9 +51,14 @@ export const Partners = (): JSX.Element => {
           </div>
         ))}
       </StyledSlider>
-    </>
+    </StyledBox>
   );
 };
+
+const StyledBox = styled(Box)(() => ({
+  background: "#fef5e8",
+  paddingTop: "50px"
+}));
 
 const StyledTitle = styled("p")(() => ({
   fontFamily: "Gilroy",
