@@ -92,3 +92,8 @@ export const CPartnersData = [
     image: PhotoFourthPartner
   }
 ];
+
+export enum ROLES {
+  CLIENT = "CLIENT",
+  ADMIN = "ADMIN"
+}

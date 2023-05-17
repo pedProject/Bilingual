@@ -12,3 +12,6 @@ export { ReactComponent as ArrowFeedbacksIcon } from "./icons/arrows/arrow-icon.
 export { ReactComponent as CheckedIcon } from "./icons/checked-icon.svg";
 export { ReactComponent as UnCheckedIcon } from "./icons/unchecked-icon.svg";
 export { ReactComponent as CloseIcon } from "./icons/close-icon.svg";
+
+// Main Logo
+export { ReactComponent as LogoIcon } from "./icons/logo.svg";
