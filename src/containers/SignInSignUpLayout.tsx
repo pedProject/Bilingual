@@ -1,6 +1,5 @@
 import React from "react";
 import type { ReactNode } from "react";
-
 import { styled } from "@mui/material";
 import { BookIcon, GoogleIcon } from "../assets/index";
 import { Button } from "../components/UI/Button/Button";
@@ -25,7 +24,15 @@ const SignInSignUpLayout: React.FC<SignInSignUpLayoutProps> = ({
   return (
     <VioletBackground>
       <Form>
-        <FlexBoxContainer JK="center" AI="center" width="80%" gap="15px" FD="column" height="100%">
+        <FlexBoxContainer
+          padding="1rem 0 1rem 0"
+          JK="center"
+          AI="center"
+          gap="1.1rem"
+          width="80%"
+          FD="column"
+          height="100%"
+        >
           <BookIcon />
           <h3>{title}</h3>
           {children}

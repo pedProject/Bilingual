@@ -4,7 +4,7 @@ import FlexBoxContainer from "../layout/FlexBoxContainer";
 
 import SignInSignUpLayout from "./SignInSignUpLayout";
 
-const SignInPage = () => {
+const SignInPage = (): JSX.Element => {
   return (
     <SignInSignUpLayout
       question={{ questionText: "ALREADY HAVE AN ACCOUNT?", answer: "LOG IN" }}

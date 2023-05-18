@@ -1,8 +1,7 @@
 import { Input } from "../components/UI/input/Input";
-
 import SignInSignUpLayout from "./SignInSignUpLayout";
 
-const SignUpPage = () => {
+const SignUpPage = (): JSX.Element => {
   return (
     <SignInSignUpLayout
       question={{ questionText: "DON'T HAVE AN ACCOUNT?", answer: "LOG IN" }}
