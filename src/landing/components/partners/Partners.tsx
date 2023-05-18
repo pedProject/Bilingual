@@ -3,7 +3,47 @@ import Slider from "react-slick";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { CPartnersData } from "../../utils/constants";
+import {
+  PhotoFirstPartner,
+  PhotoFourthPartner,
+  PhotoSecondPartner,
+  PhotoThirdPartner
+} from "../../../assets/index";
+
+const data = [
+  {
+    id: 1,
+    image: PhotoFirstPartner
+  },
+  {
+    id: 2,
+    image: PhotoSecondPartner
+  },
+  {
+    id: 3,
+    image: PhotoThirdPartner
+  },
+  {
+    id: 4,
+    image: PhotoFourthPartner
+  },
+  {
+    id: 5,
+    image: PhotoFirstPartner
+  },
+  {
+    id: 6,
+    image: PhotoSecondPartner
+  },
+  {
+    id: 7,
+    image: PhotoThirdPartner
+  },
+  {
+    id: 8,
+    image: PhotoFourthPartner
+  }
+];
 
 export const Partners = (): JSX.Element => {
   const settings = {
@@ -45,10 +85,10 @@ export const Partners = (): JSX.Element => {
       <StyledTitle>Partners</StyledTitle>
 
       <StyledSlider {...settings}>
-        {CPartnersData.map((item) => (
-          <div key={item.id} style={{ margin: "0px 15px" }}>
-            <img src={item.image} alt="" style={{ height: "126px", width: "255px" }} />
-          </div>
+        {data.map((item) => (
+          <Box className="partner" key={item.id}>
+            <img className="image" src={item.image} alt="image partner" />
+          </Box>
         ))}
       </StyledSlider>
     </StyledBox>
@@ -57,7 +97,16 @@ export const Partners = (): JSX.Element => {
 
 const StyledBox = styled(Box)(() => ({
   background: "#fef5e8",
-  paddingTop: "50px"
+  paddingTop: "50px",
+
+  "& .partner": {
+    margin: "0px 15px",
+
+    "& .image": {
+      height: "126px",
+      width: "255px"
+    }
+  }
 }));
 
 const StyledTitle = styled("p")(() => ({

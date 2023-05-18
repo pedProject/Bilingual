@@ -3,8 +3,62 @@ import { Navigation, Pagination, Autoplay, A11y } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/swiper-bundle.min.css";
-import { ArrowFeedbacksIcon } from "../../assets";
-import { CFeedbacksData } from "../../utils/constants";
+import {
+  ArrowFeedbacksIcon,
+  PhotoAibekFeedback,
+  PhotoAlinaFeedback,
+  PhotoMinuraFeedback
+} from "../../../assets";
+
+const data = [
+  {
+    id: 1,
+    image: PhotoAibekFeedback,
+    text: "Great way to learn a language. Fun, interactive, and engaging. I am enjoying the course immensely and would recommend it to anyone who wishes to learn a second language.",
+    userName: "Aibek Atabekov",
+    rating: 5
+  },
+
+  {
+    id: 2,
+    image: PhotoAlinaFeedback,
+    text: "Bilingual has helped me to get a good grasp of the language in a fun and challenging way. I enjoy the dialogues and scenarios, which include helpful phrases that can be used in various situations.",
+    userName: "Alina Begishova",
+    rating: 4
+  },
+
+  {
+    id: 3,
+    image: PhotoMinuraFeedback,
+    text: "I have tried other language apps and found them boring but with Bilingual, it is easy and fun to practice every day.",
+    userName: "Minura Telegenova",
+    rating: 3
+  },
+
+  {
+    id: 4,
+    image: PhotoAibekFeedback,
+    text: "Great way to learn a language. Fun, interactive, and engaging. I am enjoying the course immensely and would recommend it to anyone who wishes to learn a second language.",
+    userName: "Alisher Jumanov",
+    rating: 2
+  },
+
+  {
+    id: 5,
+    image: PhotoAlinaFeedback,
+    text: "Great way to learn a language. Fun, interactive, and engaging. I am enjoying the course immensely and would recommend it to anyone who wishes to learn a second language.",
+    userName: "Elizar Aitbekov",
+    rating: 1
+  },
+
+  {
+    id: 6,
+    image: PhotoMinuraFeedback,
+    text: "Great way to learn a language. Fun, interactive, and engaging. I am enjoying the course immensely and would recommend it to anyone who wishes to learn a second language.",
+    userName: "Bekbolsun Azamatov",
+    rating: 0
+  }
+];
 
 export const Feedbacks = (): JSX.Element => {
   return (
@@ -30,7 +84,7 @@ export const Feedbacks = (): JSX.Element => {
           <ArrowFeedbacksIcon />
         </div>
 
-        {CFeedbacksData.map((slide) => (
+        {data.map((slide) => (
           <SwiperSlide key={slide.id}>
             <Box className="slide">
               <img className="avatar" src={slide.image} alt={slide.userName} />
@@ -71,8 +125,8 @@ const StyledBox = styled(Box)(() => ({
 
       "& .avatar": {
         marginTop: "40px",
-        width: "73%",
-        height: "37vh"
+        width: "20vw",
+        height: "40vh"
       },
 
       "& .text": {
@@ -97,8 +151,8 @@ const StyledBox = styled(Box)(() => ({
 
     "& .avatar": {
       marginTop: "70px",
-      width: "62%",
-      height: "35vh"
+      width: "180px",
+      height: "180px"
     },
 
     "& .text": {
@@ -108,10 +162,12 @@ const StyledBox = styled(Box)(() => ({
 
     "& .name": {
       color: "#3A10E5",
+      marginTop: "40px",
       fontWeight: "600"
     },
 
     "& .MuiRating-root": {
+      marginTop: "10px",
       fontSize: "1.2rem",
       "& path": {
         fill: "#F99808"
