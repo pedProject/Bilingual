@@ -1,4 +1,4 @@
-import { Slider } from "./components/landing/slider/Slider";
+import Slider from "./landing/components/slider/Slider";
 
 export const App = (): JSX.Element => {
   return (
