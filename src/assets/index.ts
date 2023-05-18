@@ -12,6 +12,10 @@ export { ReactComponent as ArrowFeedbacksIcon } from "./icons/arrows/arrow-icon.
 export { ReactComponent as CheckedIcon } from "./icons/checked-icon.svg";
 export { ReactComponent as UnCheckedIcon } from "./icons/unchecked-icon.svg";
 export { ReactComponent as CloseIcon } from "./icons/close-icon.svg";
+export { ReactComponent as AddIcon } from "../assets/icons/add-icon.svg";
+export { ReactComponent as FacebookIcon } from "../assets/icons/facebook.svg";
+export { ReactComponent as InstaIcon } from "../assets/icons/instagram.svg";
+export { ReactComponent as YoutubeIcon } from "../assets/icons/youtube.svg";
 
-// Main Logo
+//? Main Logo
 export { ReactComponent as LogoIcon } from "./icons/logo.svg";
