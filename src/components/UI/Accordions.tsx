@@ -5,49 +5,44 @@ import Accordion from "@mui/material/Accordion";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import AccordionSummary from "@mui/material/AccordionSummary";
 
-import { ReactComponent as Logo } from "../../assets/icons/Bilingual.svg";
-import { ReactComponent as AddIcon } from "../../assets/icons/addIcon.svg";
-import { ReactComponent as FacebookIcon } from "../../assets/icons/facebook.svg";
-import { ReactComponent as InstaIcon } from "../../assets/icons/instagram.svg";
-import { ReactComponent as YoutubeIcon } from "../../assets/icons/youtube.svg";
+import { Logo, AddIcon, FacebookIcon, InstaIcon, YoutubeIcon } from "../../assets/index";
 
 import type { StyledComponent } from "@emotion/styled";
 import type { AccordionProps } from "@mui/material/Accordion";
 
+const Footerdata = [
+  {
+    question: "What is Bilingual? ",
+    panel: 1,
+    answer:
+      "Please take the test in a separate, quiet room. Close all other windows and close all other programs before starting the test.An external USB keyboard or mouse can be used during the test. However, when answering test questions, you should only type on one keyboard and use one mouse. Don't switch between multiple keyboards or mice."
+  },
+  {
+    question: "How can I show what I am typing during the test? ",
+    panel: 2,
+    answer:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+  },
+  {
+    question: "Why should I take the Bilingual English Test? ",
+    panel: 3,
+    answer:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+  },
+  {
+    question: "How can I make sure my microphone picks up my voice clearly?",
+    panel: 4,
+    answer:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+  },
+  {
+    question: "How can I allow a test to record my computer's screen? ",
+    panel: 5,
+    answer:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+  }
+];
 export const Accordions = () => {
-  const Footerdata = [
-    {
-      question: "What is Bilingual? ",
-      panel: 1,
-      answer:
-        "Please take the test in a separate, quiet room. Close all other windows and close all other programs before starting the test.An external USB keyboard or mouse can be used during the test. However, when answering test questions, you should only type on one keyboard and use one mouse. Don't switch between multiple keyboards or mice."
-    },
-    {
-      question: "How can I show what I am typing during the test? ",
-      panel: 2,
-      answer:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
-    },
-    {
-      question: "Why should I take the Bilingual English Test? ",
-      panel: 3,
-      answer:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
-    },
-    {
-      question: "How can I make sure my microphone picks up my voice clearly?",
-      panel: 4,
-      answer:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
-    },
-    {
-      question: "How can I allow a test to record my computer's screen? ",
-      panel: 5,
-      answer:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
-    }
-  ];
-
   return (
     <StyledFooter>
       <StyledContainer>
@@ -90,7 +85,7 @@ const StyledFooterInline = styled("div")`
 
 const Text = styled("h3")`
   font-family: Poppins;
-  font-size: 14px;
+  font-size: 0.875rem;
   color: #98a2b3;
   text-align: center;
 `;
@@ -108,7 +103,7 @@ const StyledAccordionSummary = styled(AccordionSummary)(() => ({
     height: "40px",
     fontFamily: "Poppins",
     fontWeight: "600",
-    fontSize: "20px",
+    fontSize: "1rem",
     lineHeight: "40px"
   }
 }));
@@ -133,7 +128,7 @@ const Header = styled("h1")`
   color: #ffffff;
   font-family: "Gilroy";
   font-weight: 700;
-  font-size: 40px;
+  font-size: 2.5rem;
   margin-bottom: 30px;
 `;
 
@@ -146,7 +141,7 @@ const StyledTypographyAccordion = styled(Typography)`
   width: 100%;
   font-family: "Poppins";
   font-weight: 300;
-  font-size: 18px;
+  font-size: 1rem;
   line-height: 150%;
   color: #ffffff;
   border-radius: none;
