@@ -112,8 +112,8 @@ const StyledBox = styled(Box)(() => ({
 const StyledTitle = styled("p")(() => ({
   fontFamily: "Gilroy",
   fontWeight: "700",
-  fontSize: "40px",
-  lineHeight: "48px",
+  fontSize: "2.5rem",
+  lineHeight: "2.9rem",
   color: "#3752B4",
   textAlign: "center",
   margin: "0 0 40px"
