@@ -7,9 +7,6 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 
 import { Logo, AddIcon, FacebookIcon, InstaIcon, YoutubeIcon } from "../../assets/index";
 
-import type { StyledComponent } from "@emotion/styled";
-import type { AccordionProps } from "@mui/material/Accordion";
-
 const Footerdata = [
   {
     question: "What is Bilingual? ",
@@ -107,9 +104,7 @@ const StyledAccordionSummary = styled(AccordionSummary)(() => ({
     lineHeight: "40px"
   }
 }));
-const StyledAccordion: StyledComponent<AccordionProps & { children?: React.ReactNode }> = styled(
-  (props: AccordionProps & { children?: React.ReactNode }) => <Accordion {...props} />
-)(() => ({
+const StyledAccordion = styled(Accordion)(() => ({
   backgroundColor: "#262626",
   borderBottom: "1px solid #4A4A4A",
 
