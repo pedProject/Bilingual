@@ -1,7 +1,10 @@
+import SignUpPage from "./containers/SignUpPage";
+
 export const App = (): JSX.Element => {
   return (
     <div>
-      <h1>MyApp</h1>
+      <SignUpPage />
+      {/* <h1>MyApp</h1> */}
     </div>
   );
 };

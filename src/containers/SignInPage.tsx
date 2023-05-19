@@ -14,7 +14,7 @@ const SignInPage = (): JSX.Element => {
       <Input placeholder="Email" value="" onChange={() => console.log("onchange")} />
       <Input placeholder="Password" value="" onChange={() => console.log("onchange")} />
       <FlexBoxContainer width="100%" JK="flex-start" AI="center">
-        <Checkbox value={true} onChange={(event) => console.log(event.target.checked)} /> To
+        <Checkbox checked={true} onChange={(event) => console.log(event.target.checked)} /> To
         remember me
       </FlexBoxContainer>
     </SignInSignUpLayout>

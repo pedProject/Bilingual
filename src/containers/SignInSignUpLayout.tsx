@@ -5,7 +5,7 @@ import { BookIcon, GoogleIcon } from "../assets/index";
 import { Button } from "../components/UI/Button/Button";
 import FlexBoxContainer from "../layout/FlexBoxContainer";
 
-type SignInSignUpLayoutProps = {
+type LayoutProps = {
   children: ReactNode;
   title: string;
   buttonText: string;
@@ -15,12 +15,7 @@ type SignInSignUpLayoutProps = {
   };
 };
 
-const SignInSignUpLayout: React.FC<SignInSignUpLayoutProps> = ({
-  children,
-  title,
-  buttonText,
-  question
-}) => {
+const SignInSignUpLayout: React.FC<LayoutProps> = ({ children, title, buttonText, question }) => {
   return (
     <VioletBackground>
       <Form>
@@ -36,14 +31,12 @@ const SignInSignUpLayout: React.FC<SignInSignUpLayoutProps> = ({
           <BookIcon />
           <h3>{title}</h3>
           {children}
-          <Button style={{ height: "45px", borderRadius: "6px" }} fullWidth>
-            {buttonText}
-          </Button>
+          <SignInButton fullWidth>{buttonText}</SignInButton>
           <GoogleButton>
             <GoogleIcon /> SIGN UP WITH GOOGLE
           </GoogleButton>
           <p>
-            {question.questionText} <span style={{ color: "#3A10E5" }}>{question.answer}</span>
+            {question.questionText} <LoginOrSignUpButton>{question.answer}</LoginOrSignUpButton>
           </p>
         </FlexBoxContainer>
       </Form>
@@ -61,7 +54,6 @@ const VioletBackground = styled("div")`
   align-items: center;
   background: linear-gradient(45deg, #6b0fa9 0%, #520fb6 100%);
 `;
-
 const Form = styled("form")`
   background-color: white;
   width: 45%;
@@ -71,17 +63,22 @@ const Form = styled("form")`
   flex-direction: column;
   align-items: center;
 `;
-
-const GoogleButton = styled("button")`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+const GoogleButton = styled(Button)`
   gap: 7px;
-  width: 240px;
-  height: 45px;
-  outline: none;
-  background: #ffffff;
+  background-color: #ffffff;
+  width: 17vw;
   border: 1px solid #bdbdbd;
   box-shadow: 0px 1px 2px rgba(3, 3, 3, 0.2);
-  border-radius: 8px;
+  &.MuiButtonBase-root {
+    background-color: #ffffff;
+    color: black;
+  }
+`;
+const SignInButton = styled(Button)`
+  height: 45px;
+  border-radius: 6px;
+`;
+const LoginOrSignUpButton = styled("span")`
+  cursor: pointer;
+  color: #3a10e5;
 `;
