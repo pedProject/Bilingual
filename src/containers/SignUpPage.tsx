@@ -1,4 +1,5 @@
 import { Input } from "../components/UI/input/Input";
+
 import SignInSignUpLayout from "./SignInSignUpLayout";
 
 const SignUpPage = (): JSX.Element => {

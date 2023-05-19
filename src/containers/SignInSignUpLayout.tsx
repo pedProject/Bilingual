@@ -1,8 +1,13 @@
 import React from "react";
+
 import type { ReactNode } from "react";
+
 import { styled } from "@mui/material";
+
 import { BookIcon, GoogleIcon } from "../assets/index";
+
 import { Button } from "../components/UI/Button/Button";
+
 import FlexBoxContainer from "../layout/FlexBoxContainer";
 
 type LayoutProps = {
