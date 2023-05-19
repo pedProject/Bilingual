@@ -4,13 +4,18 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 import { ArrowIcon } from "../../../assets/index";
 
-import img from "./../../../assets/images/slider.png";
-
 import "swiper/swiper-bundle.min.css";
 
-const Slider = () => {
+interface Imaga {
+  img: string;
+}
+
+type Props = {
+  images: Imaga[];
+};
+export const Slider = ({ images }: Props) => {
   return (
-    <div>
+    <>
       <CustomSwiper
         cssMode={true}
         navigation={{
@@ -29,26 +34,23 @@ const Slider = () => {
         <div className="next-element swiper-button-next ">
           <CustomArrowIcon />
         </div>
-
-        <SwiperSlide>
-          <Img src={img} />
-        </SwiperSlide>
-        <SwiperSlide>
-          {" "}
-          <Img src={img} />
-        </SwiperSlide>
-        <SwiperSlide>
-          {" "}
-          <Img src={img} />
-        </SwiperSlide>
+        {images.map((el) => {
+          return (
+            <>
+              <SwiperSlide>
+                <Img src={el.img} />
+              </SwiperSlide>
+            </>
+          );
+        })}
       </CustomSwiper>
-    </div>
+    </>
   );
 };
 
 const CustomSwiper = styled(Swiper)(() => ({
   "& .swiper-wrapper": {
-    height: "650px"
+    height: "670px"
   },
   "& .swiper-slide": {
     display: "flex",
@@ -63,7 +65,8 @@ const CustomSwiper = styled(Swiper)(() => ({
     position: "none",
     fontFamily: "none",
     marginLeft: "630px",
-    marginRight: "635px"
+    marginRight: "635px",
+    transform: "rotate(180deg)"
   },
   "& .swiper-button-next:after": {
     fontFamily: "none",
@@ -116,5 +119,3 @@ const Img = styled("img")(() => ({
 const CustomArrowIcon = styled(ArrowIcon)(() => ({
   rotate: "180deg"
 }));
-
-export default Slider;
