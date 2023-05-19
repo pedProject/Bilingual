@@ -1,6 +1,7 @@
 import { styled } from "@mui/material";
 
-import { VoiceIcon } from "../../../assets";
+import { DeleteIcon, VoiceIcon } from "../../../assets";
+import { Checkbox } from "../Checkbox";
 
 export default function SelectWordItem() {
   return (
@@ -11,40 +12,30 @@ export default function SelectWordItem() {
         <span>WORD {1}</span>
       </Content>
       <Actions>
-        {/* <Checkbox
-          value={false}
-          onChange={(e: ChangeEvent<HTMLInputElement>) => console.log(e.target.checked)}
-        /> */}
-        icon
+        <Checkbox value={false} />
+        <DeleteIcon />
       </Actions>
     </Main>
   );
 }
 
 const Main = styled("div")`
-  width: 261px;
-  height: 46px;
+  width: 240px;
   display: flex;
   align-items: center;
   border: 1.53px solid #d4d0d0;
   border-radius: 8px;
+  padding: 8px;
+  gap: 30px;
 `;
 
 const Content = styled("div")`
   display: flex;
   align-items: center;
-  span {
-    :nth-child(1) {
-      margin-left: 16px;
-    }
-    :nth-child(2) {
-      margin: 0 12px 0 15px;
-    }
-  }
+  gap: 13px;
 `;
 const Actions = styled("div")`
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin: 0 14px 0 auto;
+  gap: 7px;
 `;

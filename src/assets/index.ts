@@ -16,3 +16,5 @@ import { ReactComponent as UnCheckedIcon } from "./icons/unchecked.svg";
 export { UnCheckedIcon, CheckedIcon };
 
 export { ReactComponent as VoiceIcon } from "./icons/voice.svg";
+
+export { ReactComponent as DeleteIcon } from "./icons/delete-icon.svg";
