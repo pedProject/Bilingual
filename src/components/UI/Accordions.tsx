@@ -1,5 +1,3 @@
-import * as React from "react";
-
 import { Container, styled, Typography } from "@mui/material";
 import Accordion from "@mui/material/Accordion";
 import AccordionDetails from "@mui/material/AccordionDetails";
