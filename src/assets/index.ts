@@ -15,15 +15,16 @@ import { ReactComponent as CheckedIcon } from "./icons/checked.svg";
 import { ReactComponent as UnCheckedIcon } from "./icons/unchecked.svg";
 export { UnCheckedIcon, CheckedIcon };
 export { ReactComponent as ArrowIcon } from "./icons/arrowIcon.svg";
+import sliderImg from "./images/slider.png";
 
 export const sliderImages = [
   {
-    img: "./images/slider.png"
+    img: sliderImg
   },
   {
-    img: "./images/slider.png"
+    img: sliderImg
   },
   {
-    img: "./images/slider.png"
+    img: sliderImg
   }
 ];

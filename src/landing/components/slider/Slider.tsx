@@ -1,19 +1,12 @@
 import { styled } from "@mui/material";
-import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper";
+import { Navigation, Pagination, Mousewheel, Keyboard, Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-import { ArrowIcon } from "../../../assets/index";
+import { ArrowIcon, sliderImages } from "../../../assets/index";
 
 import "swiper/swiper-bundle.min.css";
 
-interface Imaga {
-  img: string;
-}
-
-type Props = {
-  images: Imaga[];
-};
-export const Slider = ({ images }: Props) => {
+export const Slider = () => {
   return (
     <>
       <CustomSwiper
@@ -25,16 +18,20 @@ export const Slider = ({ images }: Props) => {
         pagination={true}
         mousewheel={true}
         keyboard={true}
-        modules={[Navigation, Pagination, Mousewheel, Keyboard]}
+        modules={[Navigation, Pagination, Mousewheel, Keyboard, Autoplay]}
         className="mySwiper"
+        loop={true}
+        autoplay={true}
+        speed={2000}
       >
         <div className="prev-element swiper-button-prev">
           <ArrowIcon />
         </div>
         <div className="next-element swiper-button-next ">
-          <CustomArrowIcon />
+          <ArrowIcon />
         </div>
-        {images.map((el) => {
+
+        {sliderImages.map((el) => {
           return (
             <>
               <SwiperSlide>
@@ -56,6 +53,11 @@ const CustomSwiper = styled(Swiper)(() => ({
     display: "flex",
     justifyContent: "center"
   },
+
+  "& .next-element": {
+    transform: "rotate(180deg)"
+  },
+
   "& .swiper-button-prev,.swiper-button-next": {
     width: "60px",
     height: "60px",
@@ -65,8 +67,7 @@ const CustomSwiper = styled(Swiper)(() => ({
     position: "none",
     fontFamily: "none",
     marginLeft: "630px",
-    marginRight: "635px",
-    transform: "rotate(180deg)"
+    marginRight: "635px"
   },
   "& .swiper-button-next:after": {
     fontFamily: "none",
@@ -114,8 +115,4 @@ const CustomSwiper = styled(Swiper)(() => ({
 const Img = styled("img")(() => ({
   width: "1028px",
   height: "440px"
-}));
-
-const CustomArrowIcon = styled(ArrowIcon)(() => ({
-  rotate: "180deg"
 }));
