@@ -2,10 +2,21 @@ import { styled } from "@mui/material";
 import { Navigation, Pagination, Mousewheel, Keyboard, Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-import { ArrowIcon, sliderImages } from "../../../assets/index";
+import { ArrowIcon, PhotoSlider } from "../../../assets/index";
 
 import "swiper/swiper-bundle.min.css";
 
+export const sliderImages = [
+  {
+    img: PhotoSlider
+  },
+  {
+    img: PhotoSlider
+  },
+  {
+    img: PhotoSlider
+  }
+];
 export const Slider = () => {
   return (
     <>
