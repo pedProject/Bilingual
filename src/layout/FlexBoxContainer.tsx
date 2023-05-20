@@ -16,7 +16,6 @@ type FlexBoxContainerProps = {
   border?: CSSProperties["border"];
   margin?: CSSProperties["margin"];
   padding?: CSSProperties["padding"];
-  items?: CSSProperties["alignItems"];
   onClick?: (event: MouseEvent<HTMLDivElement>) => void;
 };
 
@@ -32,7 +31,6 @@ const FlexBoxContainer: React.FC<FlexBoxContainerProps> = ({
   border,
   margin,
   padding,
-  items,
   onClick
 }) => {
   return (
@@ -48,7 +46,6 @@ const FlexBoxContainer: React.FC<FlexBoxContainerProps> = ({
       border={border}
       margin={margin}
       padding={padding}
-      items={items}
     >
       {children}
     </StyledFlexBoxContainer>
@@ -68,7 +65,6 @@ type StyledFlexBoxContainerProps = {
   border?: CSSProperties["border"];
   margin?: CSSProperties["margin"];
   padding?: CSSProperties["padding"];
-  items?: CSSProperties["alignItems"];
 };
 
 const StyledFlexBoxContainer = styled("div")<StyledFlexBoxContainerProps>`
