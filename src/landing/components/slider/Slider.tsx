@@ -34,6 +34,8 @@ export const Slider = () => {
         loop={true}
         autoplay={true}
         speed={2000}
+        observer={true}
+        observeParents={true}
       >
         <div className="prev-element swiper-button-prev">
           <ArrowIcon />
@@ -66,7 +68,9 @@ const CustomSwiper = styled(Swiper)(() => ({
   },
 
   "& .next-element": {
-    transform: "rotate(180deg)"
+    // transform: "rotate(180deg)"
+    // transformOrigin: "right"
+    // transform: "scaleX(-1)"
   },
 
   "& .swiper-button-prev,.swiper-button-next": {
