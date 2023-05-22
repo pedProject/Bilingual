@@ -8,7 +8,12 @@ import { CheckedIcon, UnCheckedIcon } from "./../../assets/index";
 import type { CheckboxProps } from "@mui/material";
 
 export const Checkbox = forwardRef(
-  ({ value, onChange, ...props }: CheckboxProps, ref: Ref<HTMLInputElement>): JSX.Element => {
+
+  (
+    { value, onChange, ...props }: CheckboxProps & { value: boolean },
+    ref: Ref<HTMLInputElement>
+  ): JSX.Element => {
+
     return (
       <MuiCheckbox
         {...props}
