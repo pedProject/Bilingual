@@ -4,12 +4,12 @@ import { Input } from "../components/UI/input/Input";
 
 import FlexBoxContainer from "../layout/FlexBoxContainer";
 
-import SignInSignUpLayout from "./SignInSignUpLayout";
+import AuthForm from "./AuthForm";
 
 const SignInPage = (): JSX.Element => {
   return (
-    <SignInSignUpLayout
-      question={{ questionText: "ALREADY HAVE AN ACCOUNT?", answer: "LOG IN" }}
+    <AuthForm
+      question={{ questionText: "ALREADY HAVE AN ACCOUNT?", answer: "LOG IN", path: "/login" }}
       buttonText="SIGN IN"
       title="Sign In"
     >
@@ -19,7 +19,7 @@ const SignInPage = (): JSX.Element => {
         <Checkbox checked={true} onChange={(event) => console.log(event.target.checked)} /> To
         remember me
       </FlexBoxContainer>
-    </SignInSignUpLayout>
+    </AuthForm>
   );
 };
 

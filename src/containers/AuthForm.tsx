@@ -10,6 +10,8 @@ import { Button } from "../components/UI/Button/Button";
 
 import FlexBoxContainer from "../layout/FlexBoxContainer";
 
+import { Link } from "react-router-dom";
+
 type LayoutProps = {
   children: ReactNode;
   title: string;
@@ -17,12 +19,13 @@ type LayoutProps = {
   question: {
     questionText: string;
     answer: string;
+    path: string;
   };
 };
 
-const SignInSignUpLayout: React.FC<LayoutProps> = ({ children, title, buttonText, question }) => {
+const AuthForm: React.FC<LayoutProps> = ({ children, title, buttonText, question }) => {
   return (
-    <VioletBackground>
+    <Background>
       <Form>
         <FlexBoxContainer
           padding="1rem 0 1rem 0"
@@ -36,22 +39,25 @@ const SignInSignUpLayout: React.FC<LayoutProps> = ({ children, title, buttonText
           <BookIcon />
           <h3>{title}</h3>
           {children}
-          <SignInButton fullWidth>{buttonText}</SignInButton>
+          <SignInButton type="submit" fullWidth>
+            {buttonText}
+          </SignInButton>
           <GoogleButton>
             <GoogleIcon /> SIGN UP WITH GOOGLE
           </GoogleButton>
           <p>
-            {question.questionText} <LoginOrSignUpButton>{question.answer}</LoginOrSignUpButton>
+            {question.questionText}
+            <NaviagateButton to={question.path}>{question.answer}</NaviagateButton>
           </p>
         </FlexBoxContainer>
       </Form>
-    </VioletBackground>
+    </Background>
   );
 };
 
-export default SignInSignUpLayout;
+export default AuthForm;
 
-const VioletBackground = styled("div")`
+const Background = styled("div")`
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -83,7 +89,7 @@ const SignInButton = styled(Button)`
   height: 45px;
   border-radius: 6px;
 `;
-const LoginOrSignUpButton = styled("span")`
+const NaviagateButton = styled(Link)`
   cursor: pointer;
   color: #3a10e5;
 `;
