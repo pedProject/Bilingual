@@ -1,0 +1,129 @@
+import { Box, styled } from "@mui/material";
+import Slider from "react-slick";
+
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import {
+  PhotoFirstPartner,
+  PhotoFourthPartner,
+  PhotoSecondPartner,
+  PhotoThirdPartner
+} from "../../../assets/index";
+
+const data = [
+  {
+    id: 1,
+    image: PhotoFirstPartner
+  },
+  {
+    id: 2,
+    image: PhotoSecondPartner
+  },
+  {
+    id: 3,
+    image: PhotoThirdPartner
+  },
+  {
+    id: 4,
+    image: PhotoFourthPartner
+  },
+  {
+    id: 5,
+    image: PhotoFirstPartner
+  },
+  {
+    id: 6,
+    image: PhotoSecondPartner
+  },
+  {
+    id: 7,
+    image: PhotoThirdPartner
+  },
+  {
+    id: 8,
+    image: PhotoFourthPartner
+  }
+];
+
+export const Partners = (): JSX.Element => {
+  const settings = {
+    dots: false,
+    arrows: false,
+    infinite: true,
+    slidesToShow: 4.65,
+    slidesToScroll: 1,
+    centerMode: true,
+    centerPadding: "0px",
+    autoplay: true,
+    autoplaySpeed: 0,
+    speed: 5000,
+    cssEase: "linear",
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3
+        }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1
+        }
+      }
+    ]
+  };
+
+  return (
+    <StyledBox>
+      <StyledTitle>Partners</StyledTitle>
+
+      <StyledSlider {...settings}>
+        {data.map((item) => (
+          <Box className="partner" key={item.id}>
+            <img className="image" src={item.image} alt="image partner" />
+          </Box>
+        ))}
+      </StyledSlider>
+    </StyledBox>
+  );
+};
+
+const StyledBox = styled(Box)(() => ({
+  background: "#fef5e8",
+  paddingTop: "50px",
+
+  "& .partner": {
+    margin: "0px 15px",
+
+    "& .image": {
+      height: "126px",
+      width: "255px"
+    }
+  }
+}));
+
+const StyledTitle = styled("p")(() => ({
+  fontFamily: "Gilroy",
+  fontWeight: "700",
+  fontSize: "2.5rem",
+  lineHeight: "2.9rem",
+  color: "#3752B4",
+  textAlign: "center",
+  margin: "0 0 40px"
+}));
+
+const StyledSlider = styled(Slider)(() => ({
+  width: "97.6vw",
+  margin: "0 0 0 10px",
+
+  "& div:focus": {
+    outline: "none"
+  }
+}));

@@ -3,7 +3,7 @@ import Accordion from "@mui/material/Accordion";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import AccordionSummary from "@mui/material/AccordionSummary";
 
-import { Logo, AddIcon, FacebookIcon, InstaIcon, YoutubeIcon } from "../../assets/index";
+import { AddIcon, FacebookIcon, InstaIcon, LogoIcon, YoutubeIcon } from "../assets/index";
 
 const Footerdata = [
   {
@@ -56,7 +56,7 @@ export const Accordions = () => {
         })}
       </StyledContainer>
       <StyledFooterInline>
-        <Logo />
+        <LogoIcon />
         <IconContainer>
           <FacebookIcon />
           <YoutubeIcon />

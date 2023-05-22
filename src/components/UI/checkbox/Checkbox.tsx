@@ -3,7 +3,7 @@ import type { Ref } from "react";
 
 import { Checkbox as MuiCheckbox } from "@mui/material";
 
-import { CheckedIcon, UnCheckedIcon } from "./../../assets/index";
+import { CheckedIcon, UnCheckedIcon } from "../../../assets/index";
 
 import type { CheckboxProps } from "@mui/material";
 

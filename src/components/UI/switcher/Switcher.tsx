@@ -3,12 +3,16 @@ import { styled } from "@mui/material/styles";
 
 import type { SwitchProps } from "@mui/material/Switch";
 
-type Props = {
+interface ISwitcherProps {
   value: boolean | undefined;
   onChange: () => (event: React.ChangeEvent<HTMLInputElement>) => void;
-};
+}
 
-export const Swithcher = ({ value, onChange, ...props }: Props & SwitchProps): JSX.Element => {
+export const Switcher = ({
+  value,
+  onChange,
+  ...props
+}: ISwitcherProps & SwitchProps): JSX.Element => {
   const IOSSwitch = styled((props: SwitchProps) => (
     <Switch focusVisibleClassName=".Mui-focusVisible" disableRipple {...props} />
   ))(({ theme }) => ({
