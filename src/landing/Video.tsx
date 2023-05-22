@@ -27,7 +27,7 @@ export const Video = () => {
         {videoDatas.map((video) => {
           return (
             <VideoContainer key={video.link}>
-              <CustonIframe
+              <CustomIframe
                 width="370px"
                 height="261px"
                 src={`https://www.youtube.com/embed/${video.link}?autoplay=1&mute=1`}
@@ -64,14 +64,12 @@ const VideoWrapper = styled("div")(() => ({
   marginRight: "95px"
 }));
 const VideoContainer = styled("div")(() => ({
-  "& :hover + .descContainer": {
-    webkitTransform: "scale(1.2)",
-    msTransform: "scale(1.2)",
+  "&:hover": {
     transform: "scale(1.2)"
   }
 }));
 
-const CustonIframe = styled("iframe")(() => ({
+const CustomIframe = styled("iframe")(() => ({
   borderTopLeftRadius: "16px",
   borderTopRightRadius: "16px"
 }));
