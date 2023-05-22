@@ -6,6 +6,7 @@ export { default as PhotoFirstPartner } from "./images/first-partner-image.png";
 export { default as PhotoSecondPartner } from "./images/second-partner-image.png";
 export { default as PhotoThirdPartner } from "./images/third-partner-image.png";
 export { default as PhotoFourthPartner } from "./images/fourth-partner-image.png";
+export { default as PhotoSlider } from "./images/slider.png";
 
 //? Icons
 export { ReactComponent as ArrowFeedbacksIcon } from "./icons/arrows/arrow-icon.svg";
@@ -19,6 +20,7 @@ export { ReactComponent as AddIcon } from "../assets/icons/add-icon.svg";
 export { ReactComponent as FacebookIcon } from "../assets/icons/facebook.svg";
 export { ReactComponent as InstaIcon } from "../assets/icons/instagram.svg";
 export { ReactComponent as YoutubeIcon } from "../assets/icons/youtube.svg";
+<<<<<<< HEAD
 >>>>>>> ef61384d6b54363386aa17c41107b42f55838eea
 
 //? Main Logo
@@ -39,3 +41,12 @@ export { UnCheckedIcon, CheckedIcon };
 export { ReactComponent as BookIcon } from "./icons/book-logo-icon.svg";
 =======
 >>>>>>> ef61384d6b54363386aa17c41107b42f55838eea
+=======
+export { ReactComponent as ArrowIcon } from "./icons/arrowIcon.svg";
+
+//? Main Logo
+export { ReactComponent as LogoIcon } from "./icons/logo.svg";
+
+
+
+>>>>>>> f8d9678f8af8c922433c6d1c4b411e0eebbbdc79
