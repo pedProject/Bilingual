@@ -1,21 +1,12 @@
-import React, { forwardRef } from "react";
+import { forwardRef } from "react";
 import type { Ref } from "react";
 
 import { TextField, styled } from "@mui/material";
 
 import type { TextFieldProps } from "@mui/material";
 
-interface IInputProps {
-  value: string;
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  error?: boolean;
-}
-
 export const Input = forwardRef(
-  (
-    { value, onChange, error, ...props }: IInputProps & TextFieldProps,
-    ref: Ref<HTMLInputElement>
-  ) => {
+  ({ value, onChange, error, ...props }: TextFieldProps, ref: Ref<HTMLInputElement>) => {
     return (
       <InputStyled
         {...props}
