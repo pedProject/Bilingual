@@ -4,7 +4,7 @@ import { Input } from "../components/UI/input/Input";
 
 import FlexBoxContainer from "../layout/FlexBoxContainer";
 
-import AuthForm from "./AuthForm";
+import AuthForm from "../components/AuthForm";
 
 const SignInPage = (): JSX.Element => {
   return (

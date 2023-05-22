@@ -1,6 +1,6 @@
 import { Input } from "../components/UI/input/Input";
 
-import AuthForm from "./AuthForm";
+import AuthForm from "../components/AuthForm";
 
 const SignUpPage = (): JSX.Element => {
   return (
