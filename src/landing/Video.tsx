@@ -1,19 +1,19 @@
 import { styled } from "@mui/material";
-// import ReactPlayer from "react-player";
 
 const videoDatas = [
   {
-    link: "pjoEReGhqHQ",
+    //should put id from url(video)
+    link: "GNrdg3PzpJQ",
     description: "Test Overview",
     duration: "Duration 1:00"
   },
   {
-    link: "pjoEReGhqHQ",
+    link: "GNrdg3PzpJQ",
     description: "Test Walkthrough",
     duration: "Duration 5:00"
   },
   {
-    link: "pjoEReGhqHQ",
+    link: "GNrdg3PzpJQ",
     description: "Integrated Subscores",
     duration: "Duration 2:55"
   }
@@ -28,8 +28,8 @@ export const Video = () => {
           return (
             <VideoContainer key={video.link}>
               <CustomIframe
-                width="370px"
-                height="261px"
+                width="100%"
+                height="100%"
                 src={`https://www.youtube.com/embed/${video.link}?autoplay=1&mute=1`}
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -59,13 +59,15 @@ const Title = styled("h1")(() => ({
 
 const VideoWrapper = styled("div")(() => ({
   display: "flex",
-  justifyContent: "space-between",
+  justifyContent: "space-around",
   marginLeft: "95px",
   marginRight: "95px"
 }));
 const VideoContainer = styled("div")(() => ({
+  margin: "15px",
   "&:hover": {
-    transform: "scale(1.2)"
+    transform: "scale(1.2)",
+    transitionDuration: "1.5s"
   }
 }));
 
