@@ -1,5 +1,5 @@
 import { styled } from "@mui/material";
-import { Navigation, Pagination, Mousewheel, Keyboard, Autoplay } from "swiper";
+import { Navigation, Pagination, Mousewheel, Keyboard, Autoplay, A11y } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import { ArrowIcon, PhotoSlider } from "../../../assets/index";
@@ -29,7 +29,7 @@ export const Slider = () => {
         pagination={true}
         mousewheel={true}
         keyboard={true}
-        modules={[Navigation, Pagination, Mousewheel, Keyboard, Autoplay]}
+        modules={[Navigation, Pagination, Mousewheel, Keyboard, Autoplay, A11y]}
         className="mySwiper"
         loop={true}
         autoplay={true}
@@ -64,13 +64,24 @@ const CustomSwiper = styled(Swiper)(() => ({
   },
   "& .swiper-slide": {
     display: "flex",
-    justifyContent: "center"
+    justifyContent: "center",
+    paddingLeft: "35px"
   },
 
   "& .next-element": {
-    // transform: "rotate(180deg)"
-    // transformOrigin: "right"
-    // transform: "scaleX(-1)"
+    transform: "rotate(180deg)",
+    right: "43%"
+  },
+
+  "& .prev-element": {
+    left: "43%",
+    "& svg:hover": {
+      background: "#3A10E5",
+      borderRadius: "50%",
+      "& path": {
+        fill: "#fff"
+      }
+    }
   },
 
   "& .swiper-button-prev,.swiper-button-next": {
@@ -79,30 +90,13 @@ const CustomSwiper = styled(Swiper)(() => ({
     border: "1px solid #3A10E5",
     borderRadius: "50%",
     marginTop: "100px",
-    position: "none",
-    fontFamily: "none",
-    marginLeft: "630px",
-    marginRight: "635px"
+    fontFamily: "none"
   },
   "& .swiper-button-next:after": {
-    fontFamily: "none",
     content: "' '"
   },
   "& .swiper-button-prev:after": {
-    fontFamily: "none",
     content: "' '"
-  },
-
-  "& .prev-element:hover": {
-    background: "#3A10E5",
-    "& svg > path :hover": {
-      fill: "#fff"
-    }
-  },
-  "& .prev-element svg:hover ": {
-    "& path": {
-      fill: "#fff"
-    }
   },
 
   "& .next-element  svg:hover": {
@@ -111,6 +105,7 @@ const CustomSwiper = styled(Swiper)(() => ({
       fill: "#fff"
     }
   },
+
   "& .swiper-horizontal> .swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal":
     {
       bottom: "180px",
