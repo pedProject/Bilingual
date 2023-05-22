@@ -12,7 +12,8 @@ body {
   height: 100%;
 }
 
-#root {
+#root,
+main {
   height: 100%;
 }
 

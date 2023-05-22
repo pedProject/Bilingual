@@ -20,7 +20,12 @@ export const Header = (): JSX.Element => {
 const StyledHeader = styled("header")(() => ({
   padding: "1.5rem 0",
   maxWidth: "1440px",
-  margin: "0 auto"
+  position: "fixed",
+  top: 0,
+  left: "50%",
+  width: "100%",
+  transform: "translateX(-50%)",
+  zIndex: 999
 }));
 
 const InnerContainer = styled("div")(() => ({
@@ -54,6 +59,7 @@ const HeadingActions = styled(Box)(() => ({
       color: "#4C4C4C",
       boxShadow: "0px 1px 2px rgba(76, 72, 89, 0.2), 0px 1px 2px rgba(76, 72, 89, 0.2)",
       marginLeft: "1.5rem"
-    }
+    },
+    boxShadow: "0px 1px 2px rgba(76, 72, 89, 0.2), 0px 1px 2px rgba(76, 72, 89, 0.2;"
   }
 }));
