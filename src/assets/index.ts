@@ -6,6 +6,7 @@ export { default as PhotoFirstPartner } from "./images/first-partner-image.png";
 export { default as PhotoSecondPartner } from "./images/second-partner-image.png";
 export { default as PhotoThirdPartner } from "./images/third-partner-image.png";
 export { default as PhotoFourthPartner } from "./images/fourth-partner-image.png";
+export { default as PhotoSlider } from "./images/slider.png";
 
 //? Icons
 export { ReactComponent as ArrowFeedbacksIcon } from "./icons/arrows/arrow-icon.svg";
@@ -16,6 +17,10 @@ export { ReactComponent as AddIcon } from "../assets/icons/add-icon.svg";
 export { ReactComponent as FacebookIcon } from "../assets/icons/facebook.svg";
 export { ReactComponent as InstaIcon } from "../assets/icons/instagram.svg";
 export { ReactComponent as YoutubeIcon } from "../assets/icons/youtube.svg";
+export { ReactComponent as ArrowIcon } from "./icons/arrowIcon.svg";
 
 //? Main Logo
 export { ReactComponent as LogoIcon } from "./icons/logo.svg";
+
+
+
