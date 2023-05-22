@@ -1,7 +1,7 @@
 import type { FC } from "react";
 
-import { FormTestsInner } from "./pages/admin/tests/FormTestsInner";
+import { InnerTests } from "./pages/admin/tests/InnerTests";
 
 export const App: FC = (): JSX.Element => {
-  return <FormTestsInner />;
+  return <InnerTests />;
 };
