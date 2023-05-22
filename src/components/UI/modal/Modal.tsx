@@ -1,24 +1,24 @@
 import { Dialog, DialogContent, DialogTitle, IconButton, styled } from "@mui/material";
 
-import { CloseIcon } from "../../assets";
+import { CloseIcon } from "../../../assets";
 
 import type { ModalProps } from "@mui/material";
 
-type Props = ModalProps & {
+interface IModalProps {
   onClose: () => void;
-  closeIcon?: boolean;
-};
+  isCloseIcon?: boolean;
+}
 
 export const Modal = ({
   open,
   onClose,
   children,
-  closeIcon = false,
+  isCloseIcon = false,
   ...props
-}: Props): JSX.Element => {
+}: IModalProps & ModalProps): JSX.Element => {
   return (
     <StyledDialog open={open} onClose={onClose} {...props}>
-      {closeIcon ? (
+      {isCloseIcon ? (
         <StyledDialogTitle>
           <IconButton onClick={onClose}>
             <CloseIcon />
