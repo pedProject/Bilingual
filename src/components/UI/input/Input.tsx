@@ -24,6 +24,10 @@ Input.displayName = "Input";
 const InputStyled = styled(TextField)(() => ({
   width: "100%",
 
+  "& .MuiOutlinedInput-notchedOutline": {
+    borderWidth: "1.53px"
+  },
+
   "& input:focus": {
     caretColor: "#3A10E5"
   },
@@ -38,17 +42,17 @@ const InputStyled = styled(TextField)(() => ({
 
   "& .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline": {
     borderColor: "transparent",
-    border: "1px solid #3A10E5"
+    border: "1.53px solid #3A10E5"
   },
 
   "& .MuiOutlinedInput-root:focus": {
     borderColor: "transparent",
-    border: "1px solid #3A10E5"
+    border: "1.53px solid #3A10E5"
   },
 
   "& .MuiOutlinedInput-root:error": {
     borderColor: "transparent",
-    border: "1px solid #F61414"
+    border: "1.53px solid #F61414"
   },
 
   "& .MuiInputBase-root": {
