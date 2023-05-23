@@ -1,4 +1,4 @@
-import { Checkbox } from "../components/UI/Checkbox";
+import { Checkbox } from "../components/UI/checkbox/Checkbox";
 
 import { Input } from "../components/UI/input/Input";
 
