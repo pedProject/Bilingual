@@ -1,7 +1,8 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import { Button, styled } from "@mui/material";
+import { styled } from "@mui/material";
 
 import { HeroBubblesImage, HeroAcademicHatImage, HeroBooksImage } from "../../assets";
+import Container from "../../layout/Container";
+import Button from "../components/Button";
 
 export const Hero = (): JSX.Element => {
   return (
@@ -10,34 +11,25 @@ export const Hero = (): JSX.Element => {
         className="background _bubbles"
         style={{ backgroundImage: `url(${HeroBubblesImage})` }}
       />
-      <Content>
-        <article>
-          <h1>
-            Prove your English proficiency today with <b>BILINGUAL</b>
-          </h1>
-          <p>
-            For nearly 30 years, learners have turned to Rosetta Stone to build the fluency and
-            confidence they need to speak new languages.
-          </p>
-          <Button>TO BEGIN</Button>
-        </article>
-        <ImagesContainer>
-          <img
-            className="hero-image hat"
-            src={HeroAcademicHatImage}
-            alt="Academic Hat"
-            width={"236.09px"}
-            height={"243px"}
-          />
-          <img
-            className="hero-image books"
-            src={HeroBooksImage}
-            alt="Books"
-            width={"594.78px"}
-            height={"499px"}
-          />
-        </ImagesContainer>
-      </Content>
+      <Container>
+        <Content>
+          <article>
+            <h1 className="hero-heading">
+              Prove your English proficiency today with{" "}
+              <b className="hero-heading__bold">BILINGUAL</b>
+            </h1>
+            <p className="hero-description">
+              For nearly 30 years, learners have turned to Rosetta Stone to build the fluency and
+              confidence they need to speak new languages.
+            </p>
+            <Button>TO BEGIN</Button>
+          </article>
+          <ImagesContainer>
+            <img className="hero-image hat" src={HeroAcademicHatImage} alt="Academic Hat" />
+            <img className="hero-image books" src={HeroBooksImage} alt="Books" />
+          </ImagesContainer>
+        </Content>
+      </Container>
     </StyledSection>
   );
 };
@@ -67,8 +59,28 @@ const Content = styled("div")(() => ({
   alignItems: "center",
   position: "relative",
   zIndex: 1,
+  flexWrap: "wrap",
   "& > article": {
-    flex: 1
+    flex: 2
+  },
+  "& .hero-heading": {
+    fontSize: "3.75rem",
+    fontFamily: "Gilroy",
+    fontWeight: 700,
+    color: "#43404E",
+    lineHeight: "4.5625rem",
+    "& > .hero-heading__bold": {
+      color: "#C93D7D",
+      fontWeight: 900
+    }
+  },
+  "& .hero-description": {
+    fontFamily: "Poppins",
+    fontWeight: 400,
+    fontSize: "1.25rem",
+    lineHeight: "1.875rem",
+    color: "#23212A",
+    margin: "1.635rem 0 1.875rem"
   }
 }));
 
@@ -81,11 +93,20 @@ const ImagesContainer = styled("div")(() => ({
     position: "absolute"
   },
   "& > .hero-image.hat": {
-    top: "35%",
-    transform: "translate(10%,-50%)"
+    top: "50%",
+    transform: "translate(-20%,-80%)",
+    maxWidth: "236.09px",
+    maxHeight: "243px",
+    width: "100%",
+    height: "fit-content"
   },
   "& > .hero-image.books": {
-    bottom: 0,
-    right: 0
+    bottom: "50%",
+    right: 0,
+    transform: "translate(0%, 110%) scale(1.2)",
+    maxWidth: "594.78px",
+    maxHeight: "499px",
+    width: "100%",
+    height: "fit-content"
   }
 }));
