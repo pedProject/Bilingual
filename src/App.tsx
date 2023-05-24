@@ -1,11 +1,11 @@
 import type { FC } from "react";
 
+import { AdvantagesSection } from "./views/AdvantagesSection";
+
 export const App: FC = (): JSX.Element => {
   return (
-    <>
-      <div>
-        <h1>MyApp</h1>
-      </div>
-    </>
+    <div>
+      <AdvantagesSection />
+    </div>
   );
 };
