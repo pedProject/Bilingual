@@ -32,7 +32,8 @@ export const Modal = ({
 
 const StyledDialog = styled(Dialog)(() => ({
   "& .MuiPaper-root": {
-    borderRadius: "20px"
+    borderRadius: "20px",
+    width: "100%"
   }
 }));
 

@@ -2,21 +2,17 @@ import React, { useState } from "react";
 
 import { Autocomplete, InputLabel, TextField, styled } from "@mui/material";
 
-export interface User {
-  id: string;
-  value: string;
-}
+import type { IData } from "../../../types/testVerification";
 
 interface DropdownProps {
-  onSelectUser: (user: User | null) => void;
-  containerClassName?: string;
-  userList: User[];
+  onSelectUser: (user: IData | null) => void;
+  userList: IData[];
 }
 
-export const Dropdown = ({ onSelectUser, containerClassName, userList }: DropdownProps) => {
-  const [selectedUsers, setSelectedUsers] = useState<User[]>([]);
+export const Dropdown = ({ onSelectUser, userList }: DropdownProps) => {
+  const [selectedUsers, setSelectedUsers] = useState<IData[]>([]);
 
-  const handleValueChange = (event: React.SyntheticEvent, newValue: User | null) => {
+  const handleValueChange = (event: React.SyntheticEvent, newValue: IData | null) => {
     if (newValue) {
       setSelectedUsers([newValue]);
     } else {
@@ -26,7 +22,7 @@ export const Dropdown = ({ onSelectUser, containerClassName, userList }: Dropdow
   };
 
   return (
-    <div className={containerClassName ? containerClassName : ""}>
+    <div>
       <Autocomplete
         fullWidth
         onChange={handleValueChange}
@@ -34,7 +30,7 @@ export const Dropdown = ({ onSelectUser, containerClassName, userList }: Dropdow
         getOptionLabel={(option) => option.value}
         renderInput={(params) => (
           <>
-            <InputLabel>hello</InputLabel>
+            <Label>hello</Label>
             <StyledTextField
               {...params}
               InputProps={{
@@ -54,3 +50,14 @@ const StyledTextField = styled(TextField)(() => ({
     borderRadius: "8px"
   }
 }));
+const Label = styled(InputLabel)`
+  &.MuiFormLabel-root {
+    margin-bottom: 8px;
+    font-family: "DINNextRoundedLTPro-Bold";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 18px;
+    color: #4b4759;
+  }
+`;

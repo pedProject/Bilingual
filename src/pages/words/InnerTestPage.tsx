@@ -2,24 +2,27 @@ import styled from "@mui/material/styles/styled";
 
 import { AddIcon } from "../../assets";
 import { Button } from "../../components/UI/Button/Button";
+import { Checkbox } from "../../components/UI/Checkbox";
 import { Dropdown } from "../../components/UI/Dropdown/Dropdown";
 import SelectWordItem from "../../components/UI/Dropdown/SelectWordItem";
+import { Modal } from "../../components/UI/Modal";
 import { Wrapper } from "../../components/UI/Wrapper";
 import { Input } from "../../components/UI/input/Input";
 import { InputNumber } from "../../components/UI/input/InputNumber";
 
-import type { User } from "../../components/UI/Dropdown/Dropdown";
+import type { IData } from "../../types/testVerification";
 
 export const InnerTestPage = () => {
-  const handleStateChange = (selectedUser: User | null) => {
-    console.log(selectedUser, "hello");
+  const handleStateChange = (data: IData | null) => {
+    console.log(data);
   };
-  /// воот так будете получать  данные от select
+
   const userList = [
     { value: "goo", id: "2" },
     { value: "string", id: "4" }
   ];
 
+  const trues = true;
   return (
     <Wrapper width="60%">
       <InnerContainer>
@@ -29,11 +32,7 @@ export const InnerTestPage = () => {
             <InputNumber format="##:##" label="hello" />
           </InputWrapperContainer>
 
-          <Dropdown
-            onSelectUser={handleStateChange}
-            containerClassName="grid_item_input"
-            userList={userList}
-          />
+          <Dropdown onSelectUser={handleStateChange} userList={userList} />
           <StyledButton startIcon={<AddIcon />}>Add Options</StyledButton>
         </InputWrapper>
         <BottomPart>
@@ -46,11 +45,23 @@ export const InnerTestPage = () => {
             <SelectWordItem />
           </SelectWrapper>
           <ButtonWrapper>
-            <Button>GO BACK</Button>
-            <Button>SAVE</Button>
+            <ButtonBack className="button_back" color="secondary">
+              GO BACK
+            </ButtonBack>
+            <ButtonSave className="button_save">SAVE</ButtonSave>
           </ButtonWrapper>
         </BottomPart>
       </InnerContainer>
+      <Modal open={trues} onClose={() => false} closeIcon={true}>
+        <Container>
+          <Input label="title" />
+          is true option? <Checkbox value={false} />
+          <ButtonContainer>
+            <ButtonBack color="info">GO BACK</ButtonBack>
+            <ButtonSave>SAVE</ButtonSave>
+          </ButtonContainer>
+        </Container>
+      </Modal>
     </Wrapper>
   );
 };
@@ -98,6 +109,15 @@ const ButtonWrapper = styled("div")`
   }
 `;
 
+const ButtonBack = styled(Button)`
+  background: #ffffff !important;
+  border: 2px solid #3a10e5;
+  color: #3a10e5;
+`;
+const ButtonSave = styled(Button)`
+  background: #2ab930 !important;
+`;
+
 const StyledButton = styled(Button)`
   &.MuiButtonBase-root {
     background-color: #3a10e5;
@@ -107,4 +127,10 @@ const StyledButton = styled(Button)`
       margin-right: 10px;
     }
   }
+`;
+
+const Container = styled("div")``;
+
+const ButtonContainer = styled("div")`
+  background: #f0f1f1;
 `;
