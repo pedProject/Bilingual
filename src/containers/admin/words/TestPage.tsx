@@ -2,10 +2,10 @@ import styled from "@mui/material/styles/styled";
 
 import { AddIcon } from "../../../assets";
 import { Button } from "../../../components/UI/Button/Button";
-import { Dropdown } from "../../../components/UI/Dropdown/Dropdown";
+import { AutoComplete } from "../../../components/UI/Dropdown/AutoComplete";
+import { Input } from "../../../components/UI/Input/Input";
+import { InputNumber } from "../../../components/UI/Input/InputNumber";
 import { Wrapper } from "../../../components/UI/Wrapper";
-import { Input } from "../../../components/UI/input/Input";
-import { InputNumber } from "../../../components/UI/input/InputNumber";
 
 import type { IData } from "../../../types/testVerification";
 
@@ -28,7 +28,7 @@ export const TestPage = () => {
             <InputNumber format="##:##" label="hello" />
           </StyledInputWrapperContainer>
 
-          <Dropdown onSelectUser={handleStateChange} userList={userList} />
+          <AutoComplete onSelectUser={handleStateChange} userList={userList} />
           <StyledButton startIcon={<AddIcon />}>Add Options</StyledButton>
         </InputWrapper>
       </InnerContainer>

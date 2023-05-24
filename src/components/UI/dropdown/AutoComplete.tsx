@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import { Autocomplete, InputLabel, TextField, styled } from "@mui/material";
 
@@ -7,18 +7,14 @@ import type { IData } from "../../../types/testVerification";
 interface DropdownProps {
   onSelectUser: (user: IData | null) => void;
   userList: IData[];
+  label?: string;
 }
 
-export const Dropdown = ({ onSelectUser, userList }: DropdownProps) => {
-  const [selectedUsers, setSelectedUsers] = useState<IData[]>([]);
-
+export const AutoComplete = ({ onSelectUser, userList, label }: DropdownProps) => {
   const handleValueChange = (event: React.SyntheticEvent, newValue: IData | null) => {
     if (newValue) {
-      setSelectedUsers([newValue]);
-    } else {
-      setSelectedUsers([]);
+      onSelectUser(newValue);
     }
-    onSelectUser(newValue);
   };
 
   return (
@@ -27,17 +23,12 @@ export const Dropdown = ({ onSelectUser, userList }: DropdownProps) => {
         fullWidth
         onChange={handleValueChange}
         options={userList}
+        clearIcon={null}
         getOptionLabel={(option) => option.value}
         renderInput={(params) => (
           <>
-            <Label>hello</Label>
-            <StyledTextField
-              {...params}
-              InputProps={{
-                ...params.InputProps,
-                endAdornment: selectedUsers.length > 0 ? null : params.InputProps.endAdornment
-              }}
-            />
+            <Label>{label}</Label>
+            <StyledTextField {...params} />
           </>
         )}
       />

@@ -3,12 +3,12 @@ import styled from "@mui/material/styles/styled";
 import { AddIcon } from "../../../assets";
 import { Button } from "../../../components/UI/Button/Button";
 import { Checkbox } from "../../../components/UI/Checkbox";
-import { Dropdown } from "../../../components/UI/Dropdown/Dropdown";
+import { AutoComplete } from "../../../components/UI/Dropdown/AutoComplete";
 import SelectWordItem from "../../../components/UI/Dropdown/SelectWordItem";
-import { Modal } from "../../../components/UI/Modal";
+import { Input } from "../../../components/UI/Input/Input";
+import { InputNumber } from "../../../components/UI/Input/InputNumber";
+import { Modal } from "../../../components/UI/Modal/Modal";
 import { Wrapper } from "../../../components/UI/Wrapper";
-import { Input } from "../../../components/UI/input/Input";
-import { InputNumber } from "../../../components/UI/input/InputNumber";
 
 import type { IData } from "../../../types/testVerification";
 
@@ -22,17 +22,18 @@ export const InnerTestPage = () => {
     { value: "string", id: "4" }
   ];
 
-  const trues = true;
+  const trues = false;
   return (
     <Wrapper width="60%">
       <InnerContainer>
         <InputWrapper>
           <InputWrapperContainer>
-            <Input label="title" />
-            <InputNumber format="##:##" label="hello" />
+            <Input label={"\ntitle"} />
+
+            <InputNumber format="##:##" label={"Duration\n(in minutes)"} />
           </InputWrapperContainer>
 
-          <Dropdown onSelectUser={handleStateChange} userList={userList} />
+          <AutoComplete onSelectUser={handleStateChange} userList={userList} label="Type" />
           <StyledButton startIcon={<AddIcon />}>Add Options</StyledButton>
         </InputWrapper>
         <BottomPart>
@@ -52,14 +53,20 @@ export const InnerTestPage = () => {
           </ButtonWrapper>
         </BottomPart>
       </InnerContainer>
-      <Modal open={trues} onClose={() => false} closeIcon={true}>
-        <Container>
-          <Input label="title" />
-          is true option? <Checkbox value={false} />
+      <Modal
+        open={trues}
+        onClose={() => false}
+        closeIcon={true}
+        actions={
           <ButtonContainer>
             <ButtonBack color="info">GO BACK</ButtonBack>
             <ButtonSave>SAVE</ButtonSave>
           </ButtonContainer>
+        }
+      >
+        <Container>
+          <Input label="title" />
+          is true option? <Checkbox value={false} />
         </Container>
       </Modal>
     </Wrapper>
@@ -133,4 +140,8 @@ const Container = styled("div")``;
 
 const ButtonContainer = styled("div")`
   background: #f0f1f1;
+  display: flex;
+  justify-content: end;
+  padding: 16px 24px;
+  gap: 16px;
 `;

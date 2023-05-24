@@ -1,4 +1,4 @@
-import { InnerTestPage } from "./pages/admin/words/InnerTestPage";
+import { InnerTestPage } from "./containers/admin/words/InnerTestPage";
 // import { TestPage } from "./pages/words/TestPage";
 
 export const App = (): JSX.Element => {
