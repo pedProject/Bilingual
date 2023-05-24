@@ -51,7 +51,7 @@ export const Video = () => {
 const Title = styled("h1")(() => ({
   fontWeight: "700",
   fontSize: "40px",
-  lineHeight: "48px",
+  lineHeight: "3rem",
   color: "#3752B4",
   textAlign: "center",
   marginBottom: "48px"
@@ -79,15 +79,15 @@ const DescriptionContainer = styled("div")(() => ({
   height: "87px",
   border: "1px solid #DDDDDD",
   marginTop: "-5px",
-  width: "370px"
+  width: "24rem"
 }));
 
 const Description = styled("div")(() => ({
-  width: "220px",
-  height: "24px",
+  width: "14rem",
+  height: "1.8rem",
   fontWeight: "700",
   fontSize: "20px",
-  lineHeight: "24px",
+  lineHeight: "1.8rem",
   color: "#3A10E5",
   marginLeft: "20px",
   marginTop: "16px",
@@ -95,11 +95,11 @@ const Description = styled("div")(() => ({
   marginBottom: "10px"
 }));
 const Duration = styled("div")(() => ({
-  width: "109px",
+  width: "7rem",
   height: "21px",
   fontWeight: "400",
   fontSize: "18px",
-  lineHeight: "21px",
+  lineHeight: "1.5remc",
   color: "#212629",
   marginLeft: "20px",
   marginTop: "10px",
