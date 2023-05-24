@@ -7,9 +7,9 @@ import { RoadMapIcon } from "../assets";
 import { ADVANTAGES_DATA } from "../utils/constants";
 
 interface IAdvantageListProps {
-  imageSize?: string;
-  marginBottom?: string;
-  elementGap?: string;
+  imagesize: string;
+  marginbottom: string;
+  elementgap: string;
 }
 
 const blockAnimate = {
@@ -30,7 +30,7 @@ const imageAnimate = {
   }
 };
 
-export const AdvantagesList: FC<IAdvantageListProps> = (): JSX.Element => {
+export const AdvantagesList: FC = (): JSX.Element => {
   const { scrollYProgress } = useScroll();
   const y = useTransform(scrollYProgress, [0, 1], [0, -95]);
 
@@ -41,9 +41,9 @@ export const AdvantagesList: FC<IAdvantageListProps> = (): JSX.Element => {
       {ADVANTAGES_DATA.map((element) => (
         <FeatureItem
           style={{ y }}
-          imageSize={element.imageSize}
-          marginBottom={element.marginBottom}
-          elementGap={element.gap}
+          imagesize={element.imageSize}
+          marginbottom={element.marginBottom}
+          elementgap={element.gap}
           key={element.id}
           className={element.id % 2 === 0 ? "right" : ""}
         >
@@ -82,33 +82,35 @@ const RoadMapImage = styled(motion.img)`
   transform: translate(-50%);
   z-index: 1;
   height: 105%;
+  max-width: 100%;
+  max-height: 100%;
 `;
 
 const FeatureItem = styled(motion.div)<IAdvantageListProps>`
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  margin-bottom: ${(props) => props.marginBottom};
-  gap: ${(props) => props.elementGap};
+  margin-bottom: ${(props) => props.marginbottom};
+  gap: ${(props) => props.elementgap};
 
   position: relative;
   z-index: 2;
 
   p {
     font-weight: 600;
-    font-size: 24px;
+    font-size: 1.5rem;
   }
   span {
     font-weight: 400;
-    font-size: 16px;
-    line-height: 24px;
+    font-size: 1rem;
+    line-height: 1.5rem;
   }
   img {
-    width: ${(props) => props.imageSize};
+    width: ${(props) => props.imagesize};
   }
 
   section {
-    width: 494px;
+    width: 40%;
   }
   &.right {
     flex-direction: row-reverse;

@@ -17,6 +17,8 @@ const Main = styled("div")(() => ({
   background: "#FEF5E9",
   fontFamily: "Poppins, sans-serif",
   padding: "120px 80px 60px 80px",
+  width: "100%",
+  maxWidth: "1440px",
 
   h2: {
     fontFamily: "Gilroy, sans-serif",
