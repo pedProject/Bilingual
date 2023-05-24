@@ -10,7 +10,7 @@ export const Input = forwardRef(
     return (
       <InputWrapper>
         <InputLabel>{label}</InputLabel>
-        <InputStyled {...props} error={Boolean(error)} inputRef={ref} />
+        <InputStyled {...props} error={Boolean(error)} inputRef={ref} fullWidth />
       </InputWrapper>
     );
   }
@@ -28,6 +28,7 @@ const InputWrapper = styled("div")`
     font-size: 1rem;
     line-height: 18px;
     color: #4b4759;
+    white-space: pre-line;
   }
 `;
 

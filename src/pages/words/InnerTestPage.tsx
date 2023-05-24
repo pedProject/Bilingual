@@ -11,35 +11,30 @@ import { InputNumber } from "../../components/UI/input/InputNumber";
 import type { User } from "../../components/UI/Dropdown/Dropdown";
 
 export const InnerTestPage = () => {
-  const handleStateChange = (e: User | null) => {
-    console.log(e, "helllo");
+  const handleStateChange = (selectedUser: User | null) => {
+    console.log(selectedUser, "hello");
   };
-
-  const UserList = [
-    {
-      value: "goo",
-      id: "2"
-    },
-    {
-      value: "string",
-      id: "4"
-    }
+  /// воот так будете получать  данные от select
+  const userList = [
+    { value: "goo", id: "2" },
+    { value: "string", id: "4" }
   ];
+
   return (
-    <Wrapper width="70%">
+    <Wrapper width="60%">
       <InnerContainer>
         <InputWrapper>
           <InputWrapperContainer>
-            <StyledInput label="title" fullWidth />
-            <InputNumber format="##:##" style={{ width: "100px" }} label="fdsafdas" />
+            <Input label="title" />
+            <InputNumber format="##:##" label="hello" />
           </InputWrapperContainer>
 
           <Dropdown
             onSelectUser={handleStateChange}
             containerClassName="grid_item_input"
-            userList={UserList}
+            userList={userList}
           />
-          <Button startIcon={<AddIcon />}>Add Options</Button>
+          <StyledButton startIcon={<AddIcon />}>Add Options</StyledButton>
         </InputWrapper>
         <BottomPart>
           <SelectWrapper>
@@ -60,8 +55,6 @@ export const InnerTestPage = () => {
   );
 };
 
-const StyledInput = styled(Input)``;
-
 const InputWrapperContainer = styled("div")`
   width: 100%;
   display: flex;
@@ -76,12 +69,12 @@ const InputWrapper = styled("div")`
 `;
 
 const InnerContainer = styled("div")`
-  display: flex;
-  flex-direction: column;
   width: 100%;
   gap: 30px;
+  display: flex;
+  flex-direction: column;
   button {
-    align-self: end;
+    align-self: flex-end;
   }
 `;
 
@@ -102,5 +95,16 @@ const SelectWrapper = styled("div")`
 const ButtonWrapper = styled("div")`
   button {
     margin-left: 16px;
+  }
+`;
+
+const StyledButton = styled(Button)`
+  &.MuiButtonBase-root {
+    background-color: #3a10e5;
+    padding: 7px 10px;
+    svg {
+      width: 10.5px;
+      margin-right: 10px;
+    }
   }
 `;

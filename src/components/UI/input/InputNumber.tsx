@@ -1,5 +1,6 @@
 import type { ComponentType } from "react";
 
+import styled from "@emotion/styled";
 import { PatternFormat } from "react-number-format";
 
 import { Input } from "./Input";
@@ -10,8 +11,12 @@ type Props = PatternFormatProps;
 
 export const InputNumber = ({ ...props }: Props & { label?: string }) => {
   return (
-    <div>
+    <StyledContainer>
       <PatternFormat {...props} customInput={Input as ComponentType<InputAttributes>} />
-    </div>
+    </StyledContainer>
   );
 };
+
+const StyledContainer = styled("div")`
+  width: 99px;
+`;

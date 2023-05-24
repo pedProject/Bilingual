@@ -17,4 +17,5 @@ const Container = styled("div")<{ width: string }>`
   border-radius: 20px;
   padding: 60px;
   width: ${(p) => p.width};
+  max-width: 1440px;
 `;
