@@ -14,6 +14,7 @@
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.43.9",
     "react-howler": "^5.2.0",
+    "react-number-format": "^5.2.2",
     "react-router-dom": "^6.11.1",
     "react-scripts": "5.0.1",
     "react-toastify": "^9.1.2",

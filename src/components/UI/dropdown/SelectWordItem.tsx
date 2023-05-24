@@ -20,19 +20,19 @@ export default function SelectWordItem() {
 }
 
 const Main = styled("div")`
-  width: 240px;
+  width: 80%;
   display: flex;
   align-items: center;
   border: 1.53px solid #d4d0d0;
   border-radius: 8px;
   padding: 8px;
-  gap: 30px;
 `;
 
 const Content = styled("div")`
   display: flex;
   align-items: center;
   gap: 13px;
+  width: inherit;
 `;
 const Actions = styled("div")`
   display: flex;
