@@ -1,7 +1,7 @@
 import { styled } from "@mui/material";
 
 import { DeleteIcon, VoiceIcon } from "../../../assets";
-import { Checkbox } from "../Checkbox";
+import { Checkbox } from "../checkbox/Checkbox";
 
 export default function SelectWordItem() {
   return (

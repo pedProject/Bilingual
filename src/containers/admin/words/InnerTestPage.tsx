@@ -2,7 +2,7 @@ import styled from "@mui/material/styles/styled";
 
 import { AddIcon } from "../../../assets";
 import { Button } from "../../../components/UI/Button/Button";
-import { Checkbox } from "../../../components/UI/Checkbox";
+import { Checkbox } from "../../../components/UI/checkbox/Checkbox";
 import { AutoComplete } from "../../../components/UI/Dropdown/AutoComplete";
 import SelectWordItem from "../../../components/UI/Dropdown/SelectWordItem";
 import { Input } from "../../../components/UI/Input/Input";

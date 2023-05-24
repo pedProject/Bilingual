@@ -6,12 +6,11 @@ import { CloseIcon } from "../../../assets";
 
 import type { ModalProps } from "@mui/material";
 
-type Props = ModalProps & {
+interface IModalProps {
   onClose: () => void;
   closeIcon?: boolean;
   actions: ReactNode;
-};
-
+}
 export const Modal = ({
   open,
   onClose,
@@ -19,7 +18,7 @@ export const Modal = ({
   actions,
   closeIcon = false,
   ...props
-}: Props): JSX.Element => {
+}: IModalProps & ModalProps): JSX.Element => {
   const viewActions = () => {
     if (actions) {
       return actions;
