@@ -83,7 +83,7 @@ const DescriptionContainer = styled("div")(() => ({
 }));
 
 const Description = styled("div")(() => ({
-  width: "198px",
+  width: "220px",
   height: "24px",
   fontWeight: "700",
   fontSize: "20px",
