@@ -25,6 +25,7 @@ export const Modal = ({
           </IconButton>
         </StyledDialogTitle>
       ) : null}
+
       <DialogContent>{children}</DialogContent>
     </StyledDialog>
   );

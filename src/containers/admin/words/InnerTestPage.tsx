@@ -1,16 +1,16 @@
 import styled from "@mui/material/styles/styled";
 
-import { AddIcon } from "../../assets";
-import { Button } from "../../components/UI/Button/Button";
-import { Checkbox } from "../../components/UI/Checkbox";
-import { Dropdown } from "../../components/UI/Dropdown/Dropdown";
-import SelectWordItem from "../../components/UI/Dropdown/SelectWordItem";
-import { Modal } from "../../components/UI/Modal";
-import { Wrapper } from "../../components/UI/Wrapper";
-import { Input } from "../../components/UI/input/Input";
-import { InputNumber } from "../../components/UI/input/InputNumber";
+import { AddIcon } from "../../../assets";
+import { Button } from "../../../components/UI/Button/Button";
+import { Checkbox } from "../../../components/UI/Checkbox";
+import { Dropdown } from "../../../components/UI/Dropdown/Dropdown";
+import SelectWordItem from "../../../components/UI/Dropdown/SelectWordItem";
+import { Modal } from "../../../components/UI/Modal";
+import { Wrapper } from "../../../components/UI/Wrapper";
+import { Input } from "../../../components/UI/input/Input";
+import { InputNumber } from "../../../components/UI/input/InputNumber";
 
-import type { IData } from "../../types/testVerification";
+import type { IData } from "../../../types/testVerification";
 
 export const InnerTestPage = () => {
   const handleStateChange = (data: IData | null) => {
