@@ -4,13 +4,13 @@ import { Autocomplete, InputLabel, TextField, styled } from "@mui/material";
 
 import type { IData } from "../../../types/testVerification";
 
-interface DropdownProps {
+interface Props {
   onSelectUser: (user: IData | null) => void;
   userList: IData[];
   label?: string;
 }
 
-export const AutoComplete = ({ onSelectUser, userList, label }: DropdownProps) => {
+export const AutoComplete = ({ onSelectUser, userList, label }: Props) => {
   const handleValueChange = (event: React.SyntheticEvent, newValue: IData | null) => {
     if (newValue) {
       onSelectUser(newValue);

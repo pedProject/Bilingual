@@ -1,8 +1,9 @@
+import { useState } from "react";
+
 import styled from "@mui/material/styles/styled";
 
 import { AddIcon } from "../../../assets";
 import { Button } from "../../../components/UI/Button/Button";
-import { Checkbox } from "../../../components/UI/checkbox/Checkbox";
 import { AutoComplete } from "../../../components/UI/Dropdown/AutoComplete";
 import SelectWordItem from "../../../components/UI/Dropdown/SelectWordItem";
 import { Input } from "../../../components/UI/Input/Input";
@@ -13,29 +14,32 @@ import { Wrapper } from "../../../components/UI/Wrapper";
 import type { IData } from "../../../types/testVerification";
 
 export const InnerTestPage = () => {
+  const [showModal, setShowModal] = useState(false);
+
+  const handleModalOpen = () => setShowModal(true);
+
   const handleStateChange = (data: IData | null) => {
     console.log(data);
   };
 
-  const userList = [
+  const data = [
     { value: "goo", id: "2" },
     { value: "string", id: "4" }
   ];
 
-  const trues = false;
   return (
     <Wrapper width="60%">
       <InnerContainer>
-        <InputWrapper>
+        <TopPart>
           <InputWrapperContainer>
-            <Input label={"\ntitle"} />
-
+            <Input label={"\nTitle"} />
             <InputNumber format="##:##" label={"Duration\n(in minutes)"} />
           </InputWrapperContainer>
-
-          <AutoComplete onSelectUser={handleStateChange} userList={userList} label="Type" />
-          <StyledButton startIcon={<AddIcon />}>Add Options</StyledButton>
-        </InputWrapper>
+          <AutoComplete onSelectUser={handleStateChange} userList={data} label="Type" />
+          <StyledButton startIcon={<AddIcon />} onClick={handleModalOpen}>
+            Add Options
+          </StyledButton>
+        </TopPart>
         <BottomPart>
           <SelectWrapper>
             <SelectWordItem />
@@ -54,10 +58,10 @@ export const InnerTestPage = () => {
         </BottomPart>
       </InnerContainer>
       <Modal
-        open={trues}
-        onClose={() => false}
+        open={showModal}
+        onClose={() => setShowModal(false)}
         closeIcon={true}
-        actions={
+        actionsElement={
           <ButtonContainer>
             <ButtonBack color="info">GO BACK</ButtonBack>
             <ButtonSave>SAVE</ButtonSave>
@@ -66,7 +70,11 @@ export const InnerTestPage = () => {
       >
         <Container>
           <Input label="title" />
-          is true option? <Checkbox value={false} />
+          <StyleDivUpploadFile>
+            <UpploadFile htmlFor="file">Uppload audio file</UpploadFile>
+            <UpploadAudioFile id="file" type="file" accept="audio/*" />
+            <UpploadFileName>hello</UpploadFileName>
+          </StyleDivUpploadFile>
         </Container>
       </Modal>
     </Wrapper>
@@ -79,7 +87,7 @@ const InputWrapperContainer = styled("div")`
   gap: 24px;
 `;
 
-const InputWrapper = styled("div")`
+const TopPart = styled("div")`
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -144,4 +152,52 @@ const ButtonContainer = styled("div")`
   justify-content: end;
   padding: 16px 24px;
   gap: 16px;
+`;
+const UpploadFile = styled("label")`
+  padding: 14px 16px;
+  background: #ffffff;
+  border: 1.53px solid #3a10e5;
+  border-radius: 8px;
+  color: #3a10e5;
+  font-family: "Gilroy";
+  font-family: normal;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 18px;
+  text-align: center;
+  cursor: pointer;
+`;
+
+const UpploadFileName = styled("div")`
+  width: 233px;
+  height: 18px;
+  font-family: "Gilroy";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 18px;
+  color: #4c4859;
+`;
+const StyleDivUpploadFile = styled("div")`
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-top: 24px;
+`;
+
+const UpploadAudioFile = styled("input")`
+  background-color: #ffffff;
+  border: 1.53px solid #3a10e5;
+  border-radius: 8px;
+  font-family: "DINNextRoundedLTW04-Medium";
+  font-style: normal;
+  font-weight: 500px;
+  font-size: 1rem;
+  line-height: 18px;
+  display: none;
+  width: 159px;
+  height: 46px;
+  text-align: center;
+  color: #3a10e5;
+  margin-top: 24px;
 `;

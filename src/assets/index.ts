@@ -24,4 +24,4 @@ export { ReactComponent as LogoIcon } from "./icons/logo.svg";
 export { ReactComponent as BookIcon } from "./icons/book-logo-icon.svg";
 export { ReactComponent as ArrowIcon } from "./icons/arrowIcon.svg";
 export { ReactComponent as VoiceIcon } from "./icons/voice.svg";
-export { ReactComponent as DeleteIcon } from "./icons/voice.svg";
+export { ReactComponent as DeleteIcon } from "./icons/trash.svg";

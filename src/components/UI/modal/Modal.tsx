@@ -9,19 +9,19 @@ import type { ModalProps } from "@mui/material";
 interface IModalProps {
   onClose: () => void;
   closeIcon?: boolean;
-  actions: ReactNode;
+  actionsElement: ReactNode;
 }
 export const Modal = ({
   open,
   onClose,
   children,
-  actions,
+  actionsElement,
   closeIcon = false,
   ...props
 }: IModalProps & ModalProps): JSX.Element => {
   const viewActions = () => {
-    if (actions) {
-      return actions;
+    if (actionsElement) {
+      return actionsElement;
     }
   };
 
