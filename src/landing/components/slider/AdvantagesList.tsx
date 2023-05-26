@@ -3,13 +3,26 @@ import type { FC } from "react";
 import { styled } from "@mui/material";
 import { motion, useScroll, useTransform } from "framer-motion";
 
-import { RoadMapIcon } from "../assets";
-import { ADVANTAGES_DATA } from "../utils/constants";
+import { RoadMapIcon } from "../../../assets";
 
-interface IAdvantageListProps {
+interface AdvantageStyleProps {
   imagesize: string;
   marginbottom: string;
   elementgap: string;
+}
+
+interface Advantage {
+  id: number;
+  title: string;
+  description: string;
+  image: string;
+  imageSize: string;
+  marginBottom: string;
+  gap: string;
+}
+
+interface AdvantagesProps {
+  advantages: Advantage[];
 }
 
 const blockAnimate = {
@@ -30,7 +43,7 @@ const imageAnimate = {
   }
 };
 
-export const AdvantagesList: FC = (): JSX.Element => {
+export const AdvantagesList: FC<AdvantagesProps> = ({ advantages }): JSX.Element => {
   const { scrollYProgress } = useScroll();
   const y = useTransform(scrollYProgress, [0, 1], [0, -95]);
 
@@ -38,7 +51,7 @@ export const AdvantagesList: FC = (): JSX.Element => {
     <FeaturesBlock>
       <RoadMapImage src={RoadMapIcon} alt="road map icon" />
 
-      {ADVANTAGES_DATA.map((element) => (
+      {advantages.map((element) => (
         <FeatureItem
           style={{ y }}
           imagesize={element.imageSize}
@@ -50,7 +63,7 @@ export const AdvantagesList: FC = (): JSX.Element => {
           <motion.section
             initial={"offscreen"}
             whileInView={"onscreen"}
-            viewport={{ once: false }}
+            viewport={{ once: true }}
             variants={blockAnimate}
           >
             <p>{element.title}</p>
@@ -86,7 +99,7 @@ const RoadMapImage = styled(motion.img)`
   max-height: 100%;
 `;
 
-const FeatureItem = styled(motion.div)<IAdvantageListProps>`
+const FeatureItem = styled(motion.div)<AdvantageStyleProps>`
   display: flex;
   align-items: center;
   flex-wrap: wrap;
