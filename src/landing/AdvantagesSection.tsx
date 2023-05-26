@@ -10,7 +10,7 @@ import {
   FifthAdvantage
 } from "../assets";
 
-import { AdvantagesList } from "./components/slider/AdvantagesList";
+import { AdvantagesList } from "./components/AdvantagesList";
 
 export const AdvantagesSection: FC = (): JSX.Element => {
   return (
