@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
 import { Box, styled } from "@mui/material";
+import { Link } from "react-router-dom";
 
 import { LandingLogoIcon } from "../../assets";
 import { Button } from "../../components/UI/Button/Button";
@@ -25,7 +26,9 @@ export const Header = (): JSX.Element => {
     <StyledHeader className={isScreenScrolled ? "_is-scrolled" : ""}>
       <Container>
         <InnerContainer>
-          <StyledLogoIcon />
+          <Link to={"/"}>
+            <StyledLogoIcon />
+          </Link>
           <HeadingActions>
             <Button className="button">To come in</Button>
             <Button className="button _light">Register</Button>

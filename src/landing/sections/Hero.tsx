@@ -50,7 +50,8 @@ const StyledSection = styled("section")(() => ({
     left: 0,
     height: "100%",
     width: "100%"
-  }
+  },
+  marginBottom: "120px"
 }));
 
 const Content = styled("div")(() => ({
@@ -103,7 +104,7 @@ const ImagesContainer = styled("div")(() => ({
   "& > .hero-image.books": {
     bottom: "50%",
     right: 0,
-    transform: "translate(0%, 110%) scale(1.2)",
+    transform: "translate(0%, 100%) scale(1.2)",
     maxWidth: "594.78px",
     maxHeight: "499px",
     width: "100%",
