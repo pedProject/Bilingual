@@ -31,6 +31,7 @@ export { default as HeroBooksImage } from "./images/hero/books.png";
 export { default as StatisticsAirplanesImage } from "./images/statistics/airplanes.png";
 export { default as StatisticsGlobeImage } from "./images/statistics/globe.png";
 export { default as StatisticsPiggyBanksImage } from "./images/statistics/piggy-banks.png";
+export { default as StatisticsCardBorderImage } from "./images/statistics/statistic-card-border.svg";
 
 export { default as CurvedButtonBackground } from "./images/hero/curved-button-background.png";
 export { ReactComponent as BookIcon } from "./icons/book-logo-icon.svg";
