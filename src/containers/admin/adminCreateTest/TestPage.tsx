@@ -2,10 +2,10 @@ import styled from "@mui/material/styles/styled";
 
 import { AddIcon } from "../../../assets";
 import { Button } from "../../../components/UI/Button/Button";
-import { AutoComplete } from "../../../components/UI/Dropdown/AutoComplete";
 import { Input } from "../../../components/UI/Input/Input";
 import { InputNumber } from "../../../components/UI/Input/InputNumber";
 import { Wrapper } from "../../../components/UI/Wrapper";
+import { AutoComplete } from "../../../components/UI/dropdown/AutoComplete";
 
 import type { IData } from "../../../types/testVerification";
 
