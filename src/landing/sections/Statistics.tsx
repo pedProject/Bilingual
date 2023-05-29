@@ -6,6 +6,7 @@ import {
   StatisticsPiggyBanksImage
 } from "../../assets";
 import Container from "../../layout/Container";
+import { SpacedSection } from "../components/SpacedSection";
 import { StatisticItem } from "../components/StatisticItem";
 
 import type { StatisticItem as StatisticItemType } from "../../types/statistics";
@@ -45,7 +46,7 @@ const DUMMY_STATISTICS: readonly StatisticItemType[] = [
 
 const Statistics = (): JSX.Element => {
   return (
-    <StyledSection id="statistics">
+    <SpacedSection id="statistics">
       <Container>
         <StatisticsContainer>
           {DUMMY_STATISTICS.map((statistic) => (
@@ -53,13 +54,9 @@ const Statistics = (): JSX.Element => {
           ))}
         </StatisticsContainer>
       </Container>
-    </StyledSection>
+    </SpacedSection>
   );
 };
-
-const StyledSection = styled("section")(() => ({
-  marginBottom: "140px"
-}));
 
 const StatisticsContainer = styled("div")(() => ({
   display: "flex",

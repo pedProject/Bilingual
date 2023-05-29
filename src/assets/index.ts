@@ -33,6 +33,12 @@ export { default as StatisticsGlobeImage } from "./images/statistics/globe.png";
 export { default as StatisticsPiggyBanksImage } from "./images/statistics/piggy-banks.png";
 export { default as StatisticsCardBorderImage } from "./images/statistics/statistic-card-border.svg";
 
+export { default as UserExperienceBookImage } from "./images/user-experience/english-book.png";
+export { ReactComponent as UserExperienceAdvisorIcon } from "./icons/user-experience/advisor.svg";
+export { ReactComponent as UserExperienceDocumentIcon } from "./icons/user-experience/document.svg";
+export { ReactComponent as UserExperiencePhoneIcon } from "./icons/user-experience/phone.svg";
+export { ReactComponent as UserExperienceSpeechIcon } from "./icons/user-experience/speech.svg";
+
 export { default as CurvedButtonBackground } from "./images/hero/curved-button-background.png";
 export { ReactComponent as BookIcon } from "./icons/book-logo-icon.svg";
 export { ReactComponent as ArrowIcon } from "./icons/arrowIcon.svg";
