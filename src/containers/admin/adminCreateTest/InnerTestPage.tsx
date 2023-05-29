@@ -4,8 +4,8 @@ import styled from "@mui/material/styles/styled";
 
 import { AddIcon } from "../../../assets";
 import { Button } from "../../../components/UI/Button/Button";
-import { Input } from "../../../components/UI/Input/Input";
-import { InputNumber } from "../../../components/UI/Input/InputNumber";
+import { Input } from "../../../components/UI/input/Input";
+import { InputNumber } from "../../../components/UI/input/InputNumber";
 import { Wrapper } from "../../../components/UI/Wrapper";
 import { AutoComplete } from "../../../components/UI/dropdown/AutoComplete";
 import SelectWordItem from "../../../components/UI/dropdown/SelectWordItem";
