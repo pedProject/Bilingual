@@ -1,6 +1,7 @@
 import { styled } from "@mui/material";
 
 import { DeleteIcon, VoiceIcon } from "../../../assets";
+import { IconButton } from "../Button/IconButton";
 import { Checkbox } from "../checkbox/Checkbox";
 
 export default function SelectWordItem() {
@@ -8,12 +9,15 @@ export default function SelectWordItem() {
     <Main key={1}>
       <Content>
         <span>{1}</span>
-        <VoiceIcon />
+
+        <IconButton Icon={VoiceIcon} onClick={() => console.log("hello")} />
+
         <span>WORD {1}</span>
       </Content>
       <Actions>
         <Checkbox value={false} />
-        <DeleteIcon />
+
+        <IconButton Icon={DeleteIcon} onClick={() => console.log("hello")} />
       </Actions>
     </Main>
   );
