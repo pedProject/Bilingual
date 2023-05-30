@@ -1,4 +1,4 @@
-import { Menu, styled } from "@mui/material";
+import { Menu as MuiMenu, styled } from "@mui/material";
 
 import type { MenuProps } from "@mui/material";
 
@@ -8,7 +8,7 @@ interface IMenuProps {
   horizontal?: number | "center" | "left" | "right";
 }
 
-export const Dropdown = ({
+export const Menu = ({
   children,
   open,
   onClose,
@@ -36,7 +36,7 @@ export const Dropdown = ({
   );
 };
 
-const StyledMenu = styled(Menu)(() => ({
+const StyledMenu = styled(MuiMenu)(() => ({
   "& .paper": {
     background: "#fffff",
     boxShadow: "0px 4px 16px rgba(0, 0, 0, 0.1)",
