@@ -8,9 +8,8 @@ import {
   ThirdAdvantage,
   FourthAdvantage,
   FifthAdvantage
-} from "../assets";
-
-import { AdvantagesList } from "./components/slider/AdvantagesList";
+} from "../../assets";
+import { AdvantagesList } from "../components/slider/AdvantagesList";
 
 export const AdvantagesSection: FC = (): JSX.Element => {
   return (

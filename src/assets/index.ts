@@ -49,3 +49,5 @@ export { default as SecondAdvantage } from "./images/advantage-second.png";
 export { default as ThirdAdvantage } from "./images/advantage-third.png";
 export { default as FourthAdvantage } from "./images/advantage-fourth.png";
 export { default as FifthAdvantage } from "./images/advantage-fifth.png";
+
+export { default as FirstTeamMember } from "./images/team/team-first.png";

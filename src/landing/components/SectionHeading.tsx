@@ -5,9 +5,10 @@ type SectionHeadingProps = {
 };
 
 export const SectionHeading = ({
-  children = "Название секции"
+  children = "Название секции",
+  ...rest
 }: SectionHeadingProps): JSX.Element => {
-  return <StyledTypograghy variant="h2">{children}</StyledTypograghy>;
+  return <StyledTypograghy {...rest}>{children}</StyledTypograghy>;
 };
 
 const StyledTypograghy = styled(Typography)(() => ({

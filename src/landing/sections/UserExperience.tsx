@@ -71,6 +71,7 @@ const InnerContainer = styled(Box)(() => ({
   display: "flex",
   alignItems: "center",
   gap: "11.6%",
+  flexWrap: "wrap",
   "& > div": {
     flex: "1"
   }

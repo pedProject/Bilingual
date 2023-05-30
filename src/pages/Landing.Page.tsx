@@ -3,6 +3,7 @@ import { styled } from "@mui/material";
 import { Header } from "../landing/components/Header";
 import { Hero } from "../landing/sections/Hero";
 import Statistics from "../landing/sections/Statistics";
+import { Team } from "../landing/sections/Team";
 import { UserExperience } from "../landing/sections/UserExperience";
 
 export const LandingPage = (): JSX.Element => {
@@ -13,7 +14,7 @@ export const LandingPage = (): JSX.Element => {
         <Hero />
         <Statistics />
         <UserExperience />
-        <div>Hello</div>
+        <Team />
       </StyledMain>
       {/* here must be Footer */}
     </>
