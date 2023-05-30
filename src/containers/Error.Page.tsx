@@ -1,7 +1,7 @@
 import { styled } from "@mui/material";
 import { useRouteError, isRouteErrorResponse, Link } from "react-router-dom";
 
-export const ErrorPage = () => {
+const ErrorPage = () => {
   const error = useRouteError();
   let errorMessage: string;
 
@@ -27,6 +27,8 @@ export const ErrorPage = () => {
     </StyledErrorPage>
   );
 };
+
+export default ErrorPage;
 
 const StyledErrorPage = styled("div")`
   display: flex;

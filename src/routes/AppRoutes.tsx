@@ -1,47 +1,50 @@
+import { lazy } from "react";
+
 import { createBrowserRouter } from "react-router-dom";
 
-import { App } from "../App";
-import { ErrorPage } from "../containers/Error.Page";
+const ErrorPage = lazy(() => import("../containers/Error.Page"));
+
 import { LandingPage } from "../containers/Landing.Page";
 import { Layout } from "../layout/Layout";
+import { ROLES } from "../utils/constants";
+import { ROUTES } from "../utils/routes";
 
-import { PrivateRoute } from "./ProtectedRoutes";
-import { ROUTE_PATHS } from "./routePaths";
+import { PrivateRoute } from "./ProtectedRoute";
 
 export const routes = createBrowserRouter([
   {
-    path: ROUTE_PATHS.LANDING.INDEX,
+    path: ROUTES.INDEX,
     element: <LandingPage />,
     errorElement: <ErrorPage />
   },
   {
-    path: ROUTE_PATHS.ADMIN.INDEX,
-    element: <PrivateRoute roles={["admin"]} Component={<Layout />} />,
+    path: ROUTES.ADMIN.INDEX,
+    element: <PrivateRoute roles={ROLES.ADMIN} Component={<Layout />} />,
     errorElement: <ErrorPage />,
     children: [
       {
         index: true,
-        element: <App />
+        element: <div>Admin</div>
       }
     ]
   },
   {
-    path: ROUTE_PATHS.CLIENT.INDEX,
-    element: <PrivateRoute roles={["client"]} Component={<Layout />} />,
+    path: ROUTES.CLIENT.INDEX,
+    element: <PrivateRoute roles={ROLES.CLIENT} Component={<Layout />} />,
     errorElement: <ErrorPage />,
     children: [
       {
         index: true,
-        element: <App />
+        element: <div>User</div>
       },
       {
-        path: ROUTE_PATHS.CLIENT.TESTS,
+        path: ROUTES.CLIENT.TESTS,
         element: <div>Test page</div>
       }
     ]
   },
   {
-    path: ROUTE_PATHS.AUTH.INDEX,
+    path: ROUTES.AUTH.INDEX,
     element: <div>Auth page</div>
   }
 ]);
