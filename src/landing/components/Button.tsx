@@ -21,6 +21,7 @@ const StyledButton = styled(MuiButton)(() => ({
   padding: "1rem 4.0625rem 1.4375rem",
   letterSpacing: "0.05em",
   backgroundRepeat: "no-repeat",
+  backgroundPositionX: "center",
   backgroundSize: "contain",
   "&:hover": {
     backgroundColor: "transparent"
