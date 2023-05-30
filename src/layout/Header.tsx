@@ -81,8 +81,6 @@ export const Header = (): JSX.Element => {
 const StyledHeader = styled("header")(() => ({
   padding: "1.625rem",
   "& > .header-inner_block": {
-    maxWidth: "83.3%",
-    margin: "0 auto",
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
