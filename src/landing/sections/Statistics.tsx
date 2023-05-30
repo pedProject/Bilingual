@@ -44,7 +44,7 @@ const DUMMY_STATISTICS: readonly StatisticItemType[] = [
   }
 ];
 
-const Statistics = (): JSX.Element => {
+export const Statistics = (): JSX.Element => {
   return (
     <SpacedSection id="statistics">
       <Container>
@@ -64,5 +64,3 @@ const StatisticsContainer = styled("div")(() => ({
   justifyContent: "center",
   alignItems: "center"
 }));
-
-export default Statistics;

@@ -8,7 +8,11 @@ export const SectionHeading = ({
   children = "Название секции",
   ...rest
 }: SectionHeadingProps): JSX.Element => {
-  return <StyledTypograghy {...rest}>{children}</StyledTypograghy>;
+  return (
+    <StyledTypograghy variant="h2" {...rest}>
+      {children}
+    </StyledTypograghy>
+  );
 };
 
 const StyledTypograghy = styled(Typography)(() => ({

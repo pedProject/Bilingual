@@ -1,73 +1,76 @@
 import { styled } from "@mui/material";
 
-const videoDatas = [
+import Container from "../../layout/Container";
+import { SectionHeading } from "../components/SectionHeading";
+import { SpacedSection } from "../components/SpacedSection";
+
+const DUMMY_VIDEO_DATA = [
   {
-    //should put id from url(video)
     link: "GNrdg3PzpJQ",
     description: "Test Overview",
-    duration: "Duration 1:00"
+    duration: "Duration 1:00",
+    id: "w1"
   },
   {
     link: "GNrdg3PzpJQ",
     description: "Test Walkthrough",
-    duration: "Duration 5:00"
+    duration: "Duration 5:00",
+    id: "w2"
   },
   {
     link: "GNrdg3PzpJQ",
     description: "Integrated Subscores",
-    duration: "Duration 2:55"
+    duration: "Duration 2:55",
+    id: "w3"
   }
 ];
 
 export const Video = () => {
   return (
-    <>
-      <Title>Useful videos</Title>
-      <VideoWrapper>
-        {videoDatas.map((video) => {
-          return (
-            <VideoContainer key={video.link}>
-              <CustomIframe
-                width="100%"
-                height="100%"
-                src={`https://www.youtube.com/embed/${video.link}?autoplay=1&mute=1`}
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                title="Embedded youtube"
-              />
-              <DescriptionContainer className="descContainer">
-                <Description>{video.description}</Description>
-                <Duration>{video.duration}</Duration>
-              </DescriptionContainer>
-            </VideoContainer>
-          );
-        })}
-      </VideoWrapper>
-    </>
+    <SpacedSection id="useful-videos">
+      <Container>
+        <Title>Useful videos</Title>
+        <VideoWrapper>
+          {DUMMY_VIDEO_DATA.map((video) => {
+            return (
+              <VideoContainer key={video.id}>
+                <CustomIframe
+                  width="100%"
+                  height="100%"
+                  src={`https://www.youtube.com/embed/${video.link}?autoplay=0&mute=1`}
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  title="Embedded youtube"
+                />
+                <DescriptionContainer className="descContainer">
+                  <Description>{video.description}</Description>
+                  <Duration>{video.duration}</Duration>
+                </DescriptionContainer>
+              </VideoContainer>
+            );
+          })}
+        </VideoWrapper>
+      </Container>
+    </SpacedSection>
   );
 };
 
-const Title = styled("h1")(() => ({
-  fontWeight: "700",
-  fontSize: "40px",
-  lineHeight: "3rem",
-  color: "#3752B4",
-  textAlign: "center",
-  marginBottom: "48px"
+const Title = styled(SectionHeading)(() => ({
+  marginBottom: "48px",
+  textAlign: "center"
 }));
 
 const VideoWrapper = styled("div")(() => ({
   display: "flex",
-  justifyContent: "space-around",
-  marginLeft: "95px",
-  marginRight: "95px"
+  justifyContent: "space-between"
 }));
 const VideoContainer = styled("div")(() => ({
   margin: "15px",
+  transition: "transform 0.2s ease-in-out",
   "&:hover": {
-    transform: "scale(1.2)",
-    transitionDuration: "1.5s"
+    transform: "scale(1.15)",
+    transition: "transform 0.4s ease-in-out"
   }
 }));
 
@@ -79,7 +82,8 @@ const DescriptionContainer = styled("div")(() => ({
   height: "87px",
   border: "1px solid #DDDDDD",
   marginTop: "-5px",
-  width: "24rem"
+  width: "24rem",
+  background: "#fff"
 }));
 
 const Description = styled("div")(() => ({
