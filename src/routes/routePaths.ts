@@ -3,8 +3,8 @@ export const ROUTE_PATHS = {
     INDEX: "/admin"
   },
   CLIENT: {
-    INDEX: "/user",
-    TESTS: "/user/tests"
+    INDEX: "/client",
+    TESTS: "/client/tests"
   },
   AUTH: {
     INDEX: "/login"
