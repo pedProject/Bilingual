@@ -1,33 +1,38 @@
 import { forwardRef } from "react";
 import type { Ref } from "react";
 
-import { TextField, styled } from "@mui/material";
+import { InputLabel, TextField, styled } from "@mui/material";
 
 import type { TextFieldProps } from "@mui/material";
 
 export const Input = forwardRef(
-  ({ value, onChange, error, ...props }: TextFieldProps, ref: Ref<HTMLInputElement>) => {
+  ({ label, error, ...props }: TextFieldProps, ref: Ref<HTMLInputElement>) => {
     return (
-      <InputStyled
-        {...props}
-        value={value}
-        onChange={onChange}
-        error={Boolean(error)}
-        inputRef={ref}
-      />
+      <InputWrapper>
+        <InputLabel>{label}</InputLabel>
+        <InputStyled {...props} error={Boolean(error)} inputRef={ref} fullWidth />
+      </InputWrapper>
     );
   }
 );
 
 Input.displayName = "Input";
 
+const InputWrapper = styled("div")`
+  width: 100%;
+  & .MuiFormLabel-root {
+    margin-bottom: 8px;
+    font-family: "DINNextRoundedLTPro-Bold";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 18px;
+    color: #4b4759;
+    white-space: pre-line;
+  }
+`;
+
 const InputStyled = styled(TextField)(() => ({
-  width: "100%",
-
-  "& .MuiOutlinedInput-notchedOutline": {
-    borderWidth: "1.53px"
-  },
-
   "& input:focus": {
     caretColor: "#3A10E5"
   },
@@ -57,6 +62,7 @@ const InputStyled = styled(TextField)(() => ({
 
   "& .MuiInputBase-root": {
     borderRadius: "8px",
+    width: "100%",
 
     "& .MuiInputBase-input": {
       height: "52px",

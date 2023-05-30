@@ -1,10 +1,12 @@
-import type { FunctionComponent } from "react";
+import React from "react";
 
 interface IIconButtonProps {
-  Icon: FunctionComponent<React.SVGProps<SVGSVGElement>>;
+  Icon: React.ComponentType<React.SVGProps<SVGSVGElement>> | React.ElementType;
   onClick: () => void;
 }
 
 export const IconButton = ({ Icon, onClick }: IIconButtonProps): JSX.Element => {
-  return <Icon onClick={onClick} />;
+  const IconComponent = Icon;
+
+  return <IconComponent onClick={onClick} />;
 };

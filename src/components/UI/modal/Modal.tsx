@@ -1,3 +1,5 @@
+import type { ReactNode } from "react";
+
 import { Dialog, DialogContent, DialogTitle, IconButton, styled } from "@mui/material";
 
 import { CloseIcon } from "../../../assets";
@@ -6,19 +8,26 @@ import type { ModalProps } from "@mui/material";
 
 interface IModalProps {
   onClose: () => void;
-  isCloseIcon?: boolean;
+  closeIcon?: boolean;
+  actionsElement: ReactNode;
 }
-
 export const Modal = ({
   open,
   onClose,
   children,
-  isCloseIcon = false,
+  actionsElement,
+  closeIcon = false,
   ...props
 }: IModalProps & ModalProps): JSX.Element => {
+  const viewActions = () => {
+    if (actionsElement) {
+      return actionsElement;
+    }
+  };
+
   return (
     <StyledDialog open={open} onClose={onClose} {...props}>
-      {isCloseIcon ? (
+      {closeIcon ? (
         <StyledDialogTitle>
           <IconButton onClick={onClose}>
             <CloseIcon />
@@ -26,13 +35,15 @@ export const Modal = ({
         </StyledDialogTitle>
       ) : null}
       <DialogContent>{children}</DialogContent>
+      {viewActions()}
     </StyledDialog>
   );
 };
 
 const StyledDialog = styled(Dialog)(() => ({
   "& .MuiPaper-root": {
-    borderRadius: "20px"
+    borderRadius: "20px",
+    width: "100%"
   }
 }));
 
