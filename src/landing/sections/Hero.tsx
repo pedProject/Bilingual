@@ -3,6 +3,7 @@ import { styled } from "@mui/material";
 import { HeroBubblesImage, HeroAcademicHatImage, HeroBooksImage } from "../../assets";
 import Container from "../../layout/Container";
 import Button from "../components/Button";
+import { SpacedSection } from "../components/SpacedSection";
 
 export const Hero = (): JSX.Element => {
   return (
@@ -34,8 +35,8 @@ export const Hero = (): JSX.Element => {
   );
 };
 
-const StyledSection = styled("section")(() => ({
-  height: "100%",
+const StyledSection = styled(SpacedSection)(() => ({
+  height: "100dvh",
   backgroundColor: "#FCD200",
   position: "relative",
   "& > .background": {
@@ -50,8 +51,7 @@ const StyledSection = styled("section")(() => ({
     left: 0,
     height: "100%",
     width: "100%"
-  },
-  marginBottom: "120px"
+  }
 }));
 
 const Content = styled("div")(() => ({
