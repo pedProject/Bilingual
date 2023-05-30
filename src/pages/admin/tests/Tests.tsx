@@ -1,7 +1,7 @@
 import { Box, styled } from "@mui/material";
 
 import { PlusIcon } from "../../../assets";
-import { Button } from "../../../components/UI/button/Button";
+import { Button } from "../../../components/UI/Button/Button";
 
 import { TestsItem } from "./TestsItem";
 

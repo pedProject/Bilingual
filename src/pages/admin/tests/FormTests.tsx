@@ -1,6 +1,6 @@
 import { Box, styled } from "@mui/material";
 
-import { Button } from "../../../components/UI/button/Button";
+import { Button } from "../../../components/UI/Button/Button";
 import { Input } from "../../../components/UI/input/Input";
 
 export const FormTests = () => {
