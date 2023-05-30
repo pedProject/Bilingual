@@ -9,14 +9,19 @@ import {
   FourthAdvantage,
   FifthAdvantage
 } from "../../assets";
+import Container from "../../layout/Container";
 import { AdvantagesList } from "../components/AdvantagesList";
+import { SectionHeading } from "../components/SectionHeading";
+import { SpacedSection } from "../components/SpacedSection";
 
 export const AdvantagesSection: FC = (): JSX.Element => {
   return (
-    <Main>
-      <h2>Learn more</h2>
-      <AdvantagesList advantages={ADVANTAGES_DATA} />
-    </Main>
+    <StyledSection id="advantages">
+      <Container>
+        <SectionHeading>Learn more</SectionHeading>
+        <AdvantagesList advantages={ADVANTAGES_DATA} />
+      </Container>
+    </StyledSection>
   );
 };
 
@@ -73,13 +78,9 @@ const ADVANTAGES_DATA = [
   }
 ];
 
-const Main = styled("div")(() => ({
-  background: "#FEF5E9",
+const StyledSection = styled(SpacedSection)(() => ({
   fontFamily: "Poppins, sans-serif",
   padding: "120px 80px 60px 80px",
-  width: "100%",
-  maxWidth: "1440px",
-
   h2: {
     fontFamily: "Gilroy, sans-serif",
     color: "#3752B4",

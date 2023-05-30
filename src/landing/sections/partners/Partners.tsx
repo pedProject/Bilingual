@@ -9,6 +9,8 @@ import {
   PhotoSecondPartner,
   PhotoThirdPartner
 } from "../../../assets/index";
+import { SectionHeading } from "../../components/SectionHeading";
+import { SpacedSection } from "../../components/SpacedSection";
 
 const data = [
   {
@@ -81,24 +83,27 @@ export const Partners = (): JSX.Element => {
   };
 
   return (
-    <StyledBox>
-      <StyledTitle>Partners</StyledTitle>
-
-      <StyledSlider {...settings}>
-        {data.map((item) => (
-          <Box className="partner" key={item.id}>
-            <img className="image" src={item.image} alt="image partner" />
-          </Box>
-        ))}
-      </StyledSlider>
-    </StyledBox>
+    <StyledSection id="partners">
+      <StyledBox>
+        <StyledTitle>Partners</StyledTitle>
+        <StyledSlider {...settings}>
+          {data.map((item) => (
+            <Box className="partner" key={item.id}>
+              <img className="image" src={item.image} alt="image partner" />
+            </Box>
+          ))}
+        </StyledSlider>
+      </StyledBox>
+    </StyledSection>
   );
 };
 
-const StyledBox = styled(Box)(() => ({
-  background: "#fef5e8",
-  paddingTop: "50px",
+const StyledSection = styled(SpacedSection)(() => ({
+  marginBottom: "0",
+  paddingBottom: "120px"
+}));
 
+const StyledBox = styled(Box)(() => ({
   "& .partner": {
     margin: "0px 15px",
 
@@ -109,20 +114,16 @@ const StyledBox = styled(Box)(() => ({
   }
 }));
 
-const StyledTitle = styled("p")(() => ({
-  fontFamily: "Gilroy",
-  fontWeight: "700",
-  fontSize: "2.5rem",
-  lineHeight: "2.9rem",
-  color: "#3752B4",
+const StyledTitle = styled(SectionHeading)(() => ({
   textAlign: "center",
   margin: "0 0 40px"
 }));
 
 const StyledSlider = styled(Slider)(() => ({
-  width: "97.6vw",
-  margin: "0 0 0 10px",
-
+  width: "100%",
+  maxWidth: "1440px",
+  margin: "0 auto",
+  marginBottom: "10px",
   "& div:focus": {
     outline: "none"
   }
