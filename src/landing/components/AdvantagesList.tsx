@@ -3,7 +3,7 @@ import type { FC } from "react";
 import { styled } from "@mui/material";
 import { motion, useScroll, useTransform } from "framer-motion";
 
-import { RoadMapIcon } from "../../../assets";
+import { RoadMapIcon } from "../../assets";
 
 interface AdvantageStyleProps {
   imagesize: string;

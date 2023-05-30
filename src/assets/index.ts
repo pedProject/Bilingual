@@ -42,6 +42,8 @@ export { ReactComponent as UserExperienceSpeechIcon } from "./icons/user-experie
 export { default as CurvedButtonBackground } from "./images/hero/curved-button-background.png";
 export { ReactComponent as BookIcon } from "./icons/book-logo-icon.svg";
 export { ReactComponent as ArrowIcon } from "./icons/arrowIcon.svg";
+export { ReactComponent as VoiceIcon } from "./icons/voice.svg";
+export { ReactComponent as DeleteIcon } from "./icons/trash.svg";
 
 // Advantages landing part images
 export { default as FirstAdvantage } from "./images/advantage-first.png";

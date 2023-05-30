@@ -1,10 +1,7 @@
-import { Checkbox } from "../components/UI/checkbox/Checkbox";
-
-import { Input } from "../components/UI/input/Input";
-
-import FlexBoxContainer from "../layout/FlexBoxContainer";
-
 import AuthForm from "../components/AuthForm";
+import { Input } from "../components/UI/Input/Input";
+import { Checkbox } from "../components/UI/checkbox/Checkbox";
+import FlexBoxContainer from "../layout/FlexBoxContainer";
 
 const SignInPage = (): JSX.Element => {
   return (
