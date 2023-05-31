@@ -1,27 +1,24 @@
-import React from "react";
-
 import { Box, styled } from "@mui/material";
-import { useLocation } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 
-import { ROUTE_PATHS } from "../routes";
+import { ROUTES } from "../utils/routes";
 
 import { Footer } from "./Footer";
 import { Header } from "./Header";
 
-type Props = {
-  children: React.ReactNode;
-};
-
-export const Layout = ({ children }: Props) => {
+export const Layout = () => {
   const { pathname } = useLocation();
 
-  const isRenderFooterOnScreen = pathname === ROUTE_PATHS.CLIENT.TESTS;
+  const isRenderFooterOnScreen = pathname === ROUTES.CLIENT.INDEX;
 
   return (
     <StyledContainer>
       {/* @TODO find a solution to display header on only a few pages */}
       <Header />
-      <main>{children}</main>
+      <main>
+        <Outlet />
+      </main>
+
       {isRenderFooterOnScreen ? <Footer /> : null}
     </StyledContainer>
   );

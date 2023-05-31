@@ -9,6 +9,8 @@ import {
   PhotoAlinaFeedback,
   PhotoMinuraFeedback
 } from "../../../assets";
+import { SectionHeading } from "../../components/SectionHeading";
+import { SpacedSection } from "../../components/SpacedSection";
 
 const data = [
   {
@@ -62,49 +64,49 @@ const data = [
 
 export const Feedbacks = (): JSX.Element => {
   return (
-    <StyledBox>
-      <StyledTitle>Why people love Bilingual</StyledTitle>
+    <SpacedSection id="feedbacks">
+      <StyledBox>
+        <StyledTitle>Why people love Bilingual</StyledTitle>
 
-      <Swiper
-        modules={[Navigation, Pagination, Autoplay, A11y]}
-        slidesPerView={3}
-        speed={2000}
-        navigation={{
-          nextEl: ".my-next-button",
-          prevEl: ".my-prev-button"
-        }}
-        pagination={{ clickable: true }}
-        loop={true}
-        autoplay={{ delay: 3000 }}
-      >
-        <div className="my-prev-button swiper-button-prev">
-          <ArrowFeedbacksIcon />
-        </div>
-        <div className="my-next-button swiper-button-next">
-          <ArrowFeedbacksIcon />
-        </div>
+        <Swiper
+          modules={[Navigation, Pagination, Autoplay, A11y]}
+          slidesPerView={3}
+          speed={2000}
+          navigation={{
+            nextEl: ".my-next-button",
+            prevEl: ".my-prev-button"
+          }}
+          pagination={{ clickable: true }}
+          loop={true}
+          autoplay={{ delay: 3000 }}
+        >
+          <div className="my-prev-button swiper-button-prev">
+            <ArrowFeedbacksIcon />
+          </div>
+          <div className="my-next-button swiper-button-next">
+            <ArrowFeedbacksIcon />
+          </div>
 
-        {data.map((slide) => (
-          <SwiperSlide key={slide.id}>
-            <Box className="slide">
-              <img className="avatar" src={slide.image} alt={slide.userName} />
+          {data.map((slide) => (
+            <SwiperSlide key={slide.id}>
+              <Box className="slide">
+                <img className="avatar" src={slide.image} alt={slide.userName} />
 
-              <p className="text">{slide.text}</p>
+                <p className="text">{slide.text}</p>
 
-              <p className="name">- {slide.userName}</p>
+                <p className="name">- {slide.userName}</p>
 
-              <Rating readOnly value={slide.rating} />
-            </Box>
-          </SwiperSlide>
-        ))}
-      </Swiper>
-    </StyledBox>
+                <Rating readOnly value={slide.rating} />
+              </Box>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </StyledBox>
+    </SpacedSection>
   );
 };
 
 const StyledBox = styled(Box)(() => ({
-  background: "#fef5e8",
-
   "& .swiper": {
     height: "720px",
     width: "80vw"
@@ -232,12 +234,7 @@ const StyledBox = styled(Box)(() => ({
   }
 }));
 
-const StyledTitle = styled("p")(() => ({
-  fontFamily: "Gilroy",
-  fontWeight: "700",
-  fontSize: "2.5rem",
-  lineHeight: "2.9rem",
-  color: "#3752B4",
+const StyledTitle = styled(SectionHeading)(() => ({
   textAlign: "center",
   margin: "0 0 60px"
 }));

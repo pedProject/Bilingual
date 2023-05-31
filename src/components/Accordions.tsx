@@ -76,6 +76,9 @@ const StyledFooterInline = styled("div")`
   grid-template-columns: 37% 8%;
   gap: 30%;
   justify-content: center;
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
 `;
 
 const Text = styled("h3")`
