@@ -3,7 +3,7 @@ import { Box, styled } from "@mui/material";
 import { PlusIcon } from "../../../assets";
 import { Button } from "../../../components/UI/Button/Button";
 
-export const InnerTests = () => {
+export const InnerTest = () => {
   return (
     <StyledBox>
       <Box className="texts">

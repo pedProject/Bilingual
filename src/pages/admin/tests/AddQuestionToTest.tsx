@@ -1,9 +1,10 @@
 import { Box, styled } from "@mui/material";
 
+import { PlusIcon } from "../../../assets";
 import { Button } from "../../../components/UI/Button/Button";
 import { Input } from "../../../components/UI/input/Input";
 
-export const FormTests = () => {
+export const AddQuestionToTest = () => {
   return (
     <StyledBox>
       <Box className="input-box">
@@ -19,6 +20,10 @@ export const FormTests = () => {
       <Box className="action-btns">
         <StyledBackBtn>GO BACK</StyledBackBtn>
         <StyledSaveBtn>SAVE</StyledSaveBtn>
+
+        <StyledButton>
+          <PlusIcon /> <p>ADD QUESTIONS</p>
+        </StyledButton>
       </Box>
     </StyledBox>
   );
@@ -43,6 +48,7 @@ const StyledBox = styled(Box)(() => ({
   "& .action-btns": {
     display: "flex",
     justifyContent: "end",
+    flexWrap: "wrap",
     gap: "16px"
   }
 }));
@@ -61,5 +67,13 @@ const StyledSaveBtn = styled(Button)(() => ({
     background: "#2AB930",
     color: "#fff",
     padding: "12.5px 24px"
+  }
+}));
+
+const StyledButton = styled(Button)(() => ({
+  "&.MuiButtonBase-root": {
+    padding: "12.5px 24px 12.5px 16px",
+    display: "flex",
+    gap: "15.5px"
   }
 }));

@@ -1,5 +1,13 @@
-import { InnerTests } from "./pages/admin/tests/InnerTests";
+import { Suspense } from "react";
+
+import { RouterProvider } from "react-router-dom";
+
+import { routes } from "./routes/AppRoutes";
 
 export const App = (): JSX.Element => {
-  return <InnerTests />;
+  return (
+    <Suspense fallback={<>...Loading</>}>
+      <RouterProvider router={routes} />
+    </Suspense>
+  );
 };

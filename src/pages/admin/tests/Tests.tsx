@@ -35,7 +35,6 @@ const StyledBox = styled(Box)(() => ({
   background: "#FFFFFF",
   boxShadow: "0px 4px 39px rgba(196, 196, 196, 0.6)",
   borderRadius: "20px",
-  margin: "68px 0 0 0",
   padding: "50px 80px",
   display: "flex",
   flexDirection: "column",
@@ -56,10 +55,12 @@ const StyledBox = styled(Box)(() => ({
       display: "flex",
       justifyContent: "space-between",
       alignItems: "center",
+      flexWrap: "wrap",
 
       "& .action": {
         display: "flex",
         alignItems: "center",
+        flexWrap: "wrap",
         gap: "25px"
       }
     }
