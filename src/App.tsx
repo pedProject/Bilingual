@@ -29,7 +29,8 @@ export const App: FC = (): JSX.Element => {
       age: "14:02  25.10.2021",
       city: "Test number 2",
       status: "Not evaluated",
-      score: "0"
+      score: "0",
+      icon: <div>helllllo</div>
     },
     {
       id: "3",
