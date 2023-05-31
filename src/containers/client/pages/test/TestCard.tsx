@@ -2,20 +2,19 @@ import { styled } from "@mui/material";
 
 import { TestCardIcon } from "../../../../assets";
 import { Button } from "../../../../components/UI/Button/Button";
-type Props = {
-  time: string;
-};
-export const TestCard = ({ time }: Props) => {
+export const TestCard = () => {
   return (
     <TestContainer>
       <CustomTestCartIcon />
       <TestCardInfo>
-        <Duration>{time}minutes</Duration>
+        <Duration>15 minutes</Duration>
         <Title>English advanced test </Title>
         <Description>Train as much as you like.</Description>
       </TestCardInfo>
       <ButtonContainer>
-        <Button variant="outlined">TRY TEST</Button>
+        <Button variant="outlined" color="inherit">
+          TRY TEST
+        </Button>
       </ButtonContainer>
     </TestContainer>
   );
@@ -37,7 +36,7 @@ const TestContainer = styled("div")`
 `;
 
 const TestCardInfo = styled("div")`
-  margin-left: -190px;
+  margin-left: -170px;
 `;
 const Duration = styled("h6")`
   width: 5.1rem;
@@ -68,6 +67,6 @@ const Description = styled("p")`
 
 const ButtonContainer = styled("div")`
   margin-right: 70px;
-  margin-top: 140px;
+  margin-top: 130px;
   margin-bottom: 70px;
 `;
