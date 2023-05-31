@@ -5,7 +5,7 @@ import { NavLink, Link } from "react-router-dom";
 
 import { LogoIcon } from "../assets";
 import { Button } from "../components/UI/Button/Button";
-import { ROLES } from "../utils/constants";
+import { ROLES } from "../utils/constants/general";
 
 const ADMIN_NAVIGATION_LINKS = [
   {

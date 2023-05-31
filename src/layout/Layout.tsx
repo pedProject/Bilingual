@@ -1,7 +1,7 @@
 import { Box, styled } from "@mui/material";
 import { Outlet, useLocation } from "react-router-dom";
 
-import { ROUTES } from "../utils/routes";
+import { ROUTES } from "../utils/constants/routes";
 
 import { Footer } from "./Footer";
 import { Header } from "./Header";
