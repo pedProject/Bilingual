@@ -1,10 +1,13 @@
-import { TestCard } from "./containers/client/pages/test/TestCard";
+import { Suspense } from "react";
+
+import { RouterProvider } from "react-router-dom";
+
+import { routes } from "./routes/AppRoutes";
 
 export const App = (): JSX.Element => {
   return (
-    <div>
-      <h1>MyApp</h1>
-      <TestCard />
-    </div>
+    <Suspense fallback={<>...Loading</>}>
+      <RouterProvider router={routes} />
+    </Suspense>
   );
 };

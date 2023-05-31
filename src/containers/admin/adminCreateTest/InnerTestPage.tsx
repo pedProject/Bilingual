@@ -4,11 +4,11 @@ import styled from "@mui/material/styles/styled";
 
 import { AddIcon } from "../../../assets";
 import { Button } from "../../../components/UI/Button/Button";
-import { Input } from "../../../components/UI/input/Input";
-import { InputNumber } from "../../../components/UI/input/InputNumber";
 import { Wrapper } from "../../../components/UI/Wrapper";
 import { AutoComplete } from "../../../components/UI/dropdown/AutoComplete";
 import SelectWordItem from "../../../components/UI/dropdown/SelectWordItem";
+import { Input } from "../../../components/UI/input/Input";
+import { InputNumber } from "../../../components/UI/input/InputNumber";
 import { Modal } from "../../../components/UI/modal/Modal";
 
 import type { IData } from "../../../types/testVerification";

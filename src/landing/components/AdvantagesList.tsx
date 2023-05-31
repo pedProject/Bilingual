@@ -5,6 +5,8 @@ import { motion, useScroll, useTransform } from "framer-motion";
 
 import { RoadMapIcon } from "../../assets";
 
+import Button from "./Button";
+
 interface AdvantageStyleProps {
   imagesize: string;
   marginbottom: string;
@@ -77,7 +79,10 @@ export const AdvantagesList: FC<AdvantagesProps> = ({ advantages }): JSX.Element
           />
         </FeatureItem>
       ))}
-      {/* тут будет изогнутая кнопка, как Бекболсун закончит поставлю */}
+
+      <ButtonWrapper>
+        <Button>GET STARTED</Button>
+      </ButtonWrapper>
     </FeaturesBlock>
   );
 };
@@ -92,9 +97,9 @@ const FeaturesBlock = styled("div")`
 const RoadMapImage = styled(motion.img)`
   position: absolute;
   left: 50%;
-  transform: translate(-50%);
+  transform: translate(-58%);
   z-index: 1;
-  height: 105%;
+  height: 96%;
   max-width: 100%;
   max-height: 100%;
 `;
@@ -128,4 +133,9 @@ const FeatureItem = styled(motion.div)<AdvantageStyleProps>`
   &.right {
     flex-direction: row-reverse;
   }
+`;
+
+const ButtonWrapper = styled("div")`
+  display: flex;
+  justify-content: center;
 `;
