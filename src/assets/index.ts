@@ -18,7 +18,6 @@ export { ReactComponent as AddIcon } from "../assets/icons/add-icon.svg";
 export { ReactComponent as FacebookIcon } from "../assets/icons/facebook.svg";
 export { ReactComponent as InstaIcon } from "../assets/icons/instagram.svg";
 export { ReactComponent as YoutubeIcon } from "../assets/icons/youtube.svg";
-export { ReactComponent as TestCardIcon } from "../assets/icons/TestCard.svg";
 export { default as RoadMapIcon } from "./icons/roadmap-icon.svg";
 
 // Main Logo
