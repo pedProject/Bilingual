@@ -1,19 +1,17 @@
 import { styled } from "@mui/material";
 
-import { LoaderItem } from "../../../components/UI/loader/Loader";
+import { LoaderItem } from "../../../../components/UI/loader/Loader";
 export const LoaderTest = () => {
   return (
-    <>
-      <Container>
-        <MainDescription>Checking your device...</MainDescription>
-        <Description>
-          this process is automatic, and may take a few second. please wait...
-        </Description>
-        <LoaderWrapper>
-          <LoaderItem />
-        </LoaderWrapper>
-      </Container>
-    </>
+    <Container>
+      <MainDescription>Checking your device...</MainDescription>
+      <Description>
+        this process is automatic, and may take a few second. please wait...
+      </Description>
+      <LoaderWrapper>
+        <LoaderItem />
+      </LoaderWrapper>
+    </Container>
   );
 };
 
