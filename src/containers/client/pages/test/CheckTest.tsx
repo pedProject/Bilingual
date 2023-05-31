@@ -1,6 +1,6 @@
 import { styled } from "@mui/material";
 
-import { LoaderItem } from "../../../components/UI/loader/Loader";
+import { LoaderItem } from "../../../../components/UI/loader/Loader";
 export const LoaderTest = () => {
   return (
     <>
