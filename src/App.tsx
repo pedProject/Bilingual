@@ -1,7 +1,13 @@
+import { Suspense } from "react";
+
+import { RouterProvider } from "react-router-dom";
+
+import { routes } from "./routes/AppRoutes";
+
 export const App = (): JSX.Element => {
   return (
-    <>
-      <h1>MyApp</h1>
-    </>
+    <Suspense fallback={<>...Loading</>}>
+      <RouterProvider router={routes} />
+    </Suspense>
   );
 };
