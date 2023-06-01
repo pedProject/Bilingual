@@ -1,8 +1,11 @@
-import type { FC } from "react";
+// import { Suspense } from "react";
+
+// import { RouterProvider } from "react-router-dom";
 
 import Table from "./components/UI/Table/Table";
+// import { routes } from "./routes/AppRoutes";
 
-export const App: FC = (): JSX.Element => {
+export const App = (): JSX.Element => {
   const columns = [
     { id: "id", label: "#", align: "left" },
     { id: "name", label: "User Name", align: "left" },
@@ -53,11 +56,9 @@ export const App: FC = (): JSX.Element => {
     console.log(id);
   };
   return (
-    <>
-      <div>
-        <h1>MyApp</h1>
-        <Table columns={columns} data={data} onHandleGetItems={getId} />
-      </div>
-    </>
+    // <Suspense fallback={<>...Loading</>}>
+    //   <RouterProvider router={routes} />
+    // </Suspense>
+    <Table columns={columns} data={data} onHandleGetItems={getId} />
   );
 };

@@ -5,7 +5,7 @@ import { NavLink, Link } from "react-router-dom";
 
 import { LogoIcon } from "../assets";
 import { Button } from "../components/UI/Button/Button";
-import { ROLES } from "../utils/constants";
+import { ROLES } from "../utils/constants/general";
 
 const ADMIN_NAVIGATION_LINKS = [
   {
@@ -81,8 +81,6 @@ export const Header = (): JSX.Element => {
 const StyledHeader = styled("header")(() => ({
   padding: "1.625rem",
   "& > .header-inner_block": {
-    maxWidth: "83.3%",
-    margin: "0 auto",
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
