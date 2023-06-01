@@ -49,11 +49,14 @@ export const App: FC = (): JSX.Element => {
       score: "7"
     }
   ];
+  const getId = (id: string) => {
+    console.log(id);
+  };
   return (
     <>
       <div>
         <h1>MyApp</h1>
-        <Table columns={columns} data={data} />
+        <Table columns={columns} data={data} onHandleGetItems={getId} />
       </div>
     </>
   );

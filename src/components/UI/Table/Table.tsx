@@ -7,7 +7,7 @@ import {
   styled
 } from "@mui/material";
 
-import { IconButton } from "../Button/IconButton";
+// import { IconButton } from "../Button/IconButton";
 
 import type { TableProps } from "@mui/material";
 
@@ -20,7 +20,7 @@ interface TableColumn {
 type Props = {
   columns: TableColumn[];
   data: any[];
-  onHandleGetItems: () => void;
+  onHandleGetItems: (id: string) => void;
 };
 
 const Table = ({ columns, data }: TableProps & Props) => {
@@ -41,8 +41,9 @@ const Table = ({ columns, data }: TableProps & Props) => {
             {columns.map((column) => (
               <StyledTableCell key={column.id} align={column.align}>
                 {column.id === "icon" ? (
-                  <IconButton onClick={() => onHandleGetItems(column.id)} Icon={row.icon} />
+                  <div>{row.icon}</div>
                 ) : (
+                  // <IconButton onClick={() => onHandleGetItems(column.id)} Icon={row.icon} />
                   row[column.id]
                 )}
               </StyledTableCell>

@@ -5,7 +5,7 @@ interface IIconButtonProps {
   onClick: () => void;
 }
 
-export const IconButton = ({ Icon, onClick }: IIconButtonProps): JSX.Element => {
+export const IconButton = ({ Icon, onClick }: IIconButtonProps) => {
   const IconComponent = Icon;
 
   return <IconComponent onClick={onClick} />;
