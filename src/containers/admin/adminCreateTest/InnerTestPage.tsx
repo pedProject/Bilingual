@@ -35,7 +35,7 @@ export const InnerTestPage = () => {
             <Input label={"\nTitle"} />
             <InputNumber format="##:##" label={"Duration\n(in minutes)"} />
           </InputWrapperContainer>
-          <AutoComplete onSelectUser={handleStateChange} userList={data} label="Type" />
+          <AutoComplete onChange={handleStateChange} optionList={data} label="Type" />
           <StyledButton startIcon={<AddIcon />} onClick={handleModalOpen}>
             Add Options
           </StyledButton>
