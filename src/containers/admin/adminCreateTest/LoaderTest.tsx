@@ -7,10 +7,10 @@ import { AutoComplete } from "../../../components/UI/dropdown/AutoComplete";
 import { Input } from "../../../components/UI/input/Input";
 import { InputNumber } from "../../../components/UI/input/InputNumber";
 
-import type { IData } from "../../../types/testVerification";
+import type { OptionData } from "../../../types/testVerification";
 
 export const TestPage = () => {
-  const handleStateChange = (data: IData | null) => {
+  const handleStateChange = (data: OptionData | null) => {
     console.log(data);
   };
 

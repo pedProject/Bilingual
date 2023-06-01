@@ -2,16 +2,16 @@ import React from "react";
 
 import { Autocomplete, InputLabel, TextField, styled } from "@mui/material";
 
-import type { IData } from "../../../types/testVerification";
+import type { OptionData } from "../../../types/testVerification";
 
 interface Props {
-  onSelectUser: (user: IData | null) => void;
-  userList: IData[];
+  onSelectUser: (user: OptionData | null) => void;
+  userList: OptionData[];
   label?: string;
 }
 
 export const AutoComplete = ({ onSelectUser, userList, label }: Props) => {
-  const handleValueChange = (event: React.SyntheticEvent, newValue: IData | null) => {
+  const handleValueChange = (event: React.SyntheticEvent, newValue: OptionData | null) => {
     if (newValue) {
       onSelectUser(newValue);
     }
@@ -24,7 +24,7 @@ export const AutoComplete = ({ onSelectUser, userList, label }: Props) => {
         onChange={handleValueChange}
         options={userList}
         clearIcon={null}
-        getOptionLabel={(option) => option.value}
+        getOptionLabel={(option) => option.label as string}
         renderInput={(params) => (
           <>
             <Label>{label}</Label>

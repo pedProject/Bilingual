@@ -11,14 +11,14 @@ import { Input } from "../../../components/UI/input/Input";
 import { InputNumber } from "../../../components/UI/input/InputNumber";
 import { Modal } from "../../../components/UI/modal/Modal";
 
-import type { IData } from "../../../types/testVerification";
+import type { OptionData } from "../../../types/testVerification";
 
 export const InnerTestPage = () => {
   const [showModal, setShowModal] = useState(false);
 
   const handleModalOpen = () => setShowModal(true);
 
-  const handleStateChange = (data: IData | null) => {
+  const handleStateChange = (data: OptionData | null) => {
     console.log(data);
   };
 
