@@ -2,12 +2,15 @@ import { styled } from "@mui/material";
 
 import { TestCardIcon } from "../../../../assets";
 import { Button } from "../../../../components/UI/Button/Button";
-export const TestCard = () => {
+type Props = {
+  time: string;
+};
+export const TestCard = ({ time }: Props) => {
   return (
     <TestContainer>
       <CustomTestCartIcon />
       <TestCardInfo>
-        <Duration>15 minutes</Duration>
+        <Duration>{time}minutes</Duration>
         <Title>English advanced test </Title>
         <Description>Train as much as you like.</Description>
       </TestCardInfo>
