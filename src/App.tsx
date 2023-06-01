@@ -1,10 +1,10 @@
-import { TestStartCard } from "./containers/client/pages/test/TestStartCard";
+import { QuitModal } from "./containers/client/pages/test/QuitModal";
 
 export const App = (): JSX.Element => {
   return (
     <div>
       <h1>MyApp</h1>
-      <TestStartCard />
+      <QuitModal />
     </div>
   );
 };

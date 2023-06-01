@@ -13,7 +13,7 @@ const StyledButton = styled(MuiButton)`
     background-color: ${(p) => (p.variant === "outlined" ? "#fff" : "#3A10E5")};
     color: ${(p) => (p.variant === "outlined" ? "#3A10E5" : "#fff")};
     box-shadow: 0px 1px 2px rgba(58, 16, 229, 0.2), 0px 1px 2px rgba(58, 16, 229, 0.2);
-    padding-right: 24px;
-    padding-left: 24px;
+    padding-right: 20px;
+    padding-left: 20px;
   }
 `;
