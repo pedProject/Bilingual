@@ -1,17 +1,13 @@
-// import { Suspense } from "react";
+import { Suspense } from "react";
 
-// import { RouterProvider } from "react-router-dom";
+import { RouterProvider } from "react-router-dom";
 
-// import { routes } from "./routes/AppRoutes";
-import { CreateTestForm } from "./components/create-test-form/CreateTestForm";
+import { routes } from "./routes/AppRoutes";
 
 export const App = (): JSX.Element => {
   return (
-    // <Suspense fallback={<>...Loading</>}>
-    //   <RouterProvider router={routes} />
-    // </Suspense>
-    <div>
-      <CreateTestForm />
-    </div>
+    <Suspense fallback={<>...Loading</>}>
+      <RouterProvider router={routes} />
+    </Suspense>
   );
 };
