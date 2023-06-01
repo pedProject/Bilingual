@@ -5,15 +5,15 @@ import { Autocomplete, InputLabel, TextField, styled } from "@mui/material";
 import type { OptionData } from "../../../types/testVerification";
 
 interface Props {
-  onSelectUser: (user: OptionData | null) => void;
-  userList: OptionData[];
+  onChange: (user: OptionData) => void;
+  optionList: OptionData[];
   label?: string;
 }
 
-export const AutoComplete = ({ onSelectUser, userList, label }: Props) => {
+export const AutoComplete = ({ onChange, optionList, label }: Props) => {
   const handleValueChange = (event: React.SyntheticEvent, newValue: OptionData | null) => {
     if (newValue) {
-      onSelectUser(newValue);
+      onChange(newValue);
     }
   };
 
@@ -22,7 +22,7 @@ export const AutoComplete = ({ onSelectUser, userList, label }: Props) => {
       <Autocomplete
         fullWidth
         onChange={handleValueChange}
-        options={userList}
+        options={optionList}
         clearIcon={null}
         getOptionLabel={(option) => option.label as string}
         renderInput={(params) => (

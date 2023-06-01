@@ -28,7 +28,7 @@ export const TestPage = () => {
             <InputNumber format="##:##" label="hello" />
           </StyledInputWrapperContainer>
 
-          <AutoComplete onSelectUser={handleStateChange} userList={userList} />
+          <AutoComplete onChange={handleStateChange} optionList={userList} />
           <StyledButton startIcon={<AddIcon />}>Add Options</StyledButton>
         </InputWrapper>
       </InnerContainer>
