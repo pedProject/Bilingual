@@ -25,23 +25,24 @@ const data = [
 export const CreateTestForm = () => {
   const [selectedType, setSelectedType] = useState<{ key: string }>({ key: "" });
 
+  const Component = QUESTION_TYPES[selectedType.key];
+
   const methods = useForm();
+
   const { handleSubmit, register } = methods;
 
-  const handleStateChange = (data: OptionData | null) => {
+  const handleTypeChange = (data: OptionData | null) => {
     setSelectedType({ key: data?.value || "" });
   };
 
-  const onSubmit = ({ test }: { test?: string }) => {
-    console.log(test, "hello");
+  const onSubmit = (data: any) => {
+    console.log(data);
   };
 
-  const Component = QUESTION_TYPES[selectedType.key];
-
   return (
-    <Wrapper>
+    <Wrapper width="66%">
       <FormProvider {...methods}>
-        <TopPart onSubmit={handleSubmit(onSubmit)}>
+        <Form onSubmit={handleSubmit(onSubmit)}>
           <InputWrapperContainer>
             <Input label={"\nTitle"} {...register("title")} />
             <InputNumber
@@ -50,19 +51,19 @@ export const CreateTestForm = () => {
               {...register("duration")}
             />
           </InputWrapperContainer>
-          <AutoComplete onSelectUser={handleStateChange} userList={data} label="Type" />
+          <AutoComplete onSelectUser={handleTypeChange} userList={data} label="Type" />
           {Component && <Component key={selectedType.key} />}
           <ButtonWrapper>
             <ButtonBack color="secondary">GO BACK</ButtonBack>
-            <ButtonSave>SAVE</ButtonSave>
+            <ButtonSave type="submit">SAVE</ButtonSave>
           </ButtonWrapper>
-        </TopPart>
+        </Form>
       </FormProvider>
     </Wrapper>
   );
 };
 
-const TopPart = styled("form")`
+const Form = styled("form")`
   display: flex;
   flex-direction: column;
   gap: 24px;
