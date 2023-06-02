@@ -8,7 +8,7 @@ import { BookIcon, GoogleIcon } from "../assets/index";
 
 import { Button } from "./UI/Button/Button";
 
-import FlexBoxContainer from "../layout/FlexBoxContainer";
+import { FlexBoxContainer } from "../layout/FlexBoxContainer";
 
 import { Link } from "react-router-dom";
 
