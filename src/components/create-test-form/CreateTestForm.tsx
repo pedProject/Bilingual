@@ -4,12 +4,14 @@ import { styled } from "@mui/material";
 import { useForm, FormProvider } from "react-hook-form";
 
 import { TYPE } from "../../utils/constants/general";
-import { RecordSayingStatement } from "../RecordSayingStatement";
 import { Button } from "../UI/Button/Button";
 import { Wrapper } from "../UI/Wrapper";
 import { AutoComplete } from "../UI/dropdown/AutoComplete";
 import { Input } from "../UI/input/Input";
 import { InputNumber } from "../UI/input/InputNumber";
+
+import { RecordSayingStatement } from "./TestComponents/RecordSayingStatement";
+import { RespondNWords } from "./TestComponents/RespondNWords";
 
 import type { OptionData } from "../../types/testVerification";
 
@@ -17,14 +19,16 @@ const QUESTION_TYPES: { [key: string]: React.ComponentType } = {
   SELECT_ENGLISH_WORDS: () => <div>SELECT_ENGLISH_WORDS</div>,
   LISTEN_AND_SELECT_WORD: () => <div>LISTEN_AND_SELECT_WORD</div>,
   DESCRIBE_THE_IMAGE: () => <div>DESCRIBE_THE_IMAGE</div>,
-  RECORD_SAYING_STATEMENT: () => <RecordSayingStatement />
+  RECORD_SAYING_STATEMENT: () => <RecordSayingStatement />,
+  RESPOND_N_WORDS: () => <RespondNWords />
 };
 
 const data = [
   { value: TYPE.SELECT_ENGLISH_WORDS, id: "2", label: "Select real English words" },
   { value: TYPE.DESCRIBE_THE_IMAGE, id: "4", label: "Describe image" },
   { value: TYPE.SELECT_ENGLISH_WORDS, id: "1", label: "Listen and select word" },
-  { value: TYPE.RECORD_SAYING_STATEMENT, id: "4", label: "Record saying statement" }
+  { value: TYPE.RECORD_SAYING_STATEMENT, id: "4", label: "Record saying statement" },
+  { value: TYPE.RESPOND_N_WORDS, id: "5", label: "Respond in at least N words" }
 ];
 
 export const CreateTestForm = () => {
