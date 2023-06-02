@@ -1,30 +1,31 @@
-import { useState } from "react";
-
 import styled from "@emotion/styled";
 
 import { Button } from "../../../../components/UI/Button/Button";
 import { Modal } from "../../../../components/UI/modal/Modal";
 
-export const QuitModal = () => {
-  const [openModal, setOpenModal] = useState(true);
+type Props = {
+  openModal: boolean;
+  onClose: () => void;
+  onQuitTest: () => void;
+  onContinueTest: () => void;
+};
 
-  function openAndCloseModal() {
-    setOpenModal((prev) => !prev);
-  }
+export const QuitModal = ({ openModal, onClose, onQuitTest, onContinueTest }: Props) => {
   return (
-    <Modal onClose={openAndCloseModal} open={openModal}>
+    <Modal onClose={onClose} open={openModal}>
       <Container>
         <Title>Are you sure you want to leave your practice test?</Title>
         <ButtonContainer>
-          <Button variant="outlined">QUIT TEST</Button>
-          <Button>CONTINUE TEST</Button>
+          <Button variant="outlined" onClick={onQuitTest}>
+            QUIT TEST
+          </Button>
+          <Button onClick={onContinueTest}>CONTINUE TEST</Button>
         </ButtonContainer>
       </Container>
     </Modal>
   );
 };
 const Container = styled("div")`
-  /* width: 500px; */
   height: 158px;
 `;
 

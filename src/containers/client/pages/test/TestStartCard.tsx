@@ -8,7 +8,12 @@ import {
 } from "../../../../assets";
 import { Button } from "../../../../components/UI/Button/Button";
 
-export const TestStartCard = () => {
+type Props = {
+  onCancel: () => void;
+  onPractice: () => void;
+};
+
+export const TestStartCard = ({ onCancel, onPractice }: Props) => {
   return (
     <Container>
       <Title>Take a free practice test and estimate your score</Title>
@@ -33,8 +38,10 @@ export const TestStartCard = () => {
         * The practice test may include question types that may not appear on the certified test.
       </Subtitle>
       <ButtonContainer>
-        <Button variant="outlined">CANCEL</Button>
-        <Button>PRACTICE TEST</Button>
+        <Button variant="outlined" onClick={onCancel}>
+          CANCEL
+        </Button>
+        <Button onClick={onPractice}>PRACTICE TEST</Button>
       </ButtonContainer>
     </Container>
   );
