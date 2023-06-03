@@ -1,18 +1,17 @@
-import { useState } from "react";
+import { useFormContext } from "react-hook-form";
 
 import { FlexBoxContainer } from "../../../layout/FlexBoxContainer";
 import { Input } from "../../UI/input/Input";
 
 export const RecordSayingStatement = () => {
-  const [statementValue, setStatementValue] = useState<string>("");
+  const { getValues, register } = useFormContext();
+  const { statement } = getValues();
 
-  const getStatementValue = (e: { target: { value: string } }) => {
-    setStatementValue(e.target.value);
-  };
+  console.log(statement, "statement");
 
   return (
     <FlexBoxContainer FD="column">
-      <Input value={statementValue} onChange={getStatementValue} label="Statement" />
+      <Input {...register("statement")} label="Statement" />
     </FlexBoxContainer>
   );
 };
