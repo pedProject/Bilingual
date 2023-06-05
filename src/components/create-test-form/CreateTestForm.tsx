@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { styled } from "@mui/material";
 import { useForm, FormProvider } from "react-hook-form";
 
-import { TEST_TYPE } from "../../utils/constants/general";
+import { TYPE } from "../../utils/constants/general";
 import { Button } from "../UI/Button/Button";
 import { Wrapper } from "../UI/Wrapper";
 import { AutoComplete } from "../UI/dropdown/AutoComplete";
@@ -24,11 +24,11 @@ const QUESTION_TYPES: { [key: string]: React.ComponentType } = {
 };
 
 const data = [
-  { value: TEST_TYPE.SELECT_ENGLISH_WORDS, id: "2", label: "Select real English words" },
-  { value: TEST_TYPE.DESCRIBE_THE_IMAGE, id: "4", label: "Describe image" },
-  { value: TEST_TYPE.SELECT_ENGLISH_WORDS, id: "1", label: "Listen and select word" },
-  { value: TEST_TYPE.RECORD_SAYING_STATEMENT, id: "4", label: "Record saying statement" },
-  { value: TEST_TYPE.RESPOND_N_WORDS, id: "5", label: "Respond in at least N words" }
+  { value: TYPE.SELECT_ENGLISH_WORDS, id: "2", label: "Select real English words" },
+  { value: TYPE.DESCRIBE_THE_IMAGE, id: "4", label: "Describe image" },
+  { value: TYPE.SELECT_ENGLISH_WORDS, id: "1", label: "Listen and select word" },
+  { value: TYPE.RECORD_SAYING_STATEMENT, id: "4", label: "Record saying statement" },
+  { value: TYPE.RESPOND_N_WORDS, id: "5", label: "Respond in at least N words" }
 ];
 
 export const CreateTestForm = () => {
