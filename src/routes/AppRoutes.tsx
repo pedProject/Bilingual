@@ -6,7 +6,7 @@ const ErrorPage = lazy(() => import("../containers/Error.Page"));
 
 import { LandingPage } from "../containers/Landing.Page";
 import { Layout } from "../layout/Layout";
-import { ROLES } from "../utils/constants";
+import { ROLES } from "../utils/constants/general";
 import { ROUTES } from "../utils/routes";
 
 import { PrivateRoute } from "./ProtectedRoute";
