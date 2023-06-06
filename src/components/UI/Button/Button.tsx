@@ -9,8 +9,6 @@ export const Button = ({ children, ...props }: Props) => {
 };
 
 const StyledButton = styled(MuiButton)`
-  &.MuiButtonBase-root {
-    background-color: #3a10e5;
-    color: ${(p) => p.color || "#FFFFFF"};
-  }
+  background-color: #3a10e5;
+  color: ${(p) => p.color || "#FFFFFF"};
 `;
