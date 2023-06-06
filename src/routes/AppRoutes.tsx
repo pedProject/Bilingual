@@ -10,7 +10,7 @@ import { AddNewTest } from "../pages/admin/tests/AddNewTest";
 import { AddQuestionToTest } from "../pages/admin/tests/AddQuestionToTest";
 import { InnerTest } from "../pages/admin/tests/InnerTest";
 import { Tests } from "../pages/admin/tests/Tests";
-import { ROLES } from "../utils/constants";
+import { ROLES } from "../utils/constants/general";
 import { ROUTES } from "../utils/routes";
 
 import { PrivateRoute } from "./ProtectedRoute";
