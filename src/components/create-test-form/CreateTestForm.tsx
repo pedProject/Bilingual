@@ -3,31 +3,34 @@ import React, { useState } from "react";
 import { styled } from "@mui/material";
 import { useForm, FormProvider } from "react-hook-form";
 
-import { TYPE } from "../../utils/constants/general";
+import { QUESTION_TYPES } from "../../utils/constants/general";
 import { Button } from "../UI/Button/Button";
 import { Wrapper } from "../UI/Wrapper";
 import { AutoComplete } from "../UI/dropdown/AutoComplete";
 import { Input } from "../UI/input/Input";
 import { InputNumber } from "../UI/input/InputNumber";
+import TypeWhatYouHear from "../question-types/admin/TypeWhatYouHear";
 
 import type { OptionData } from "../../types/testVerification";
 
-const QUESTION_TYPES: { [key: string]: React.ComponentType } = {
-  SELECT_ENGLISH_WORDS: () => <div>SELECT_ENGLISH_WORDS</div>,
-  LISTEN_AND_SELECT_WORD: () => <div>LISTEN_AND_SELECT_WORD</div>,
-  DESCRIBE_THE_IMAGE: () => <div>DESCRIBE_THE_IMAGE</div>
+const RENDERED_COMPONENTS_BY_QUESTION_TYPE: { [key: string]: React.ComponentType } = {
+  [QUESTION_TYPES.SELECT_ENGLISH_WORDS]: () => <div>SELECT_ENGLISH_WORDS</div>,
+  [QUESTION_TYPES.LISTEN_AND_SELECT_WORD]: () => <div>LISTEN_AND_SELECT_WORD</div>,
+  [QUESTION_TYPES.DESCRIBE_THE_IMAGE]: () => <div>DESCRIBE_THE_IMAGE</div>,
+  [QUESTION_TYPES.TYPE_WHAT_YOU_HEAR]: TypeWhatYouHear
 };
 
 const data = [
-  { value: TYPE.SELECT_ENGLISH_WORDS, id: "2", label: "Select real English words" },
-  { value: TYPE.DESCRIBE_THE_IMAGE, id: "4", label: "Describe image" },
-  { value: TYPE.SELECT_ENGLISH_WORDS, id: "1", label: "Listen and select word" }
+  { value: QUESTION_TYPES.SELECT_ENGLISH_WORDS, id: "e1", label: "Select real English words" },
+  { value: QUESTION_TYPES.DESCRIBE_THE_IMAGE, id: "e2", label: "Describe image" },
+  { value: QUESTION_TYPES.LISTEN_AND_SELECT_WORD, id: "e3", label: "Listen and select word" },
+  { value: QUESTION_TYPES.TYPE_WHAT_YOU_HEAR, id: "e4", label: "Type what you hear" }
 ];
 
 export const CreateTestForm = () => {
-  const [selectedType, setSelectedType] = useState("SELECT_ENGLISH_WORDS");
+  const [selectedType, setSelectedType] = useState<string>(QUESTION_TYPES.TYPE_WHAT_YOU_HEAR);
 
-  const Component = QUESTION_TYPES[selectedType];
+  const CurrentQuestionType = RENDERED_COMPONENTS_BY_QUESTION_TYPE[selectedType];
 
   const methods = useForm();
 
@@ -37,7 +40,7 @@ export const CreateTestForm = () => {
     setSelectedType(option.value);
   };
 
-  const onSubmit = (data: any) => {
+  const onSubmit = (data: unknown) => {
     console.log(data);
   };
 
@@ -54,11 +57,9 @@ export const CreateTestForm = () => {
             />
           </InputWrapperContainer>
           <AutoComplete onChange={questionTypeChangeHandler} optionList={data} label="Type" />
-          <Component key={selectedType} />
+          <CurrentQuestionType key={selectedType} />
           <ButtonWrapper>
-            <ButtonBack color="secondary" type="button">
-              GO BACK
-            </ButtonBack>
+            <ButtonBack type="button">GO BACK</ButtonBack>
             <ButtonSave type="submit">SAVE</ButtonSave>
           </ButtonWrapper>
         </Form>
@@ -78,20 +79,28 @@ const InputWrapperContainer = styled("div")`
   width: 100%;
   display: flex;
   gap: 24px;
+  align-items: flex-end;
 `;
 
 const ButtonWrapper = styled("div")`
   text-align: end;
-  button {
-    margin-left: 16px;
-  }
+  margin-top: 8px;
 `;
 
-const ButtonBack = styled(Button)`
-  background: #ffffff !important;
-  border: 2px solid #3a10e5;
-  color: #3a10e5;
-`;
-const ButtonSave = styled(Button)`
-  background: #2ab930 !important;
-`;
+const ButtonBack = styled(Button)(() => ({
+  background: "#ffffff",
+  border: "2px solid #3a10e5",
+  color: "#3a10e5",
+  height: "42px",
+  padding: "0 1.5rem"
+}));
+
+const ButtonSave = styled(Button)(() => ({
+  height: "42px",
+  padding: "0 1.5rem",
+  background: "#2ab930",
+  marginLeft: "1rem",
+  "&:hover": {
+    background: "#2ab930"
+  }
+}));
