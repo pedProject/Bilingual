@@ -29,7 +29,7 @@ const data = [
 ];
 
 export const CreateTestForm = () => {
-  const [selectedType, setSelectedType] = useState<string>(QUESTION_TYPES.DESCRIBE_THE_IMAGE);
+  const [selectedType, setSelectedType] = useState<string>(QUESTION_TYPES.SELECT_ENGLISH_WORDS);
 
   const CurrentQuestionType = RENDERED_COMPONENTS_BY_QUESTION_TYPE[selectedType];
 
