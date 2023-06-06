@@ -1,13 +1,17 @@
 /* eslint-disable react-hooks/exhaustive-deps */
+import type { ComponentType } from "react";
 import { useCallback, useEffect, useState } from "react";
 
 import { Box, IconButton, styled } from "@mui/material";
-import { useFormContext } from "react-hook-form";
+import { Controller, useFormContext } from "react-hook-form";
+import { PatternFormat } from "react-number-format";
 
 import { PauseIcon, PlayIcon } from "../../../assets";
 import { Button } from "../../UI/Button/Button";
 import { DropzoneContainer } from "../../UI/dropzone/DropzoneContainer";
 import { Input } from "../../UI/input/Input";
+
+import type { TextFieldProps } from "@mui/material";
 
 enum FIELDS {
   FILE = "file",
@@ -16,9 +20,10 @@ enum FIELDS {
 }
 
 const TypeWhatYouHear = (): JSX.Element => {
-  const { setValue, register, unregister, watch } = useFormContext();
+  const { setValue, register, unregister, watch, control } = useFormContext();
 
   const existingFile = watch(FIELDS.FILE) || null;
+
   const fileName = existingFile ? existingFile.name : "";
 
   const [isPlaying, setIsPlaying] = useState(false);
@@ -65,12 +70,22 @@ const TypeWhatYouHear = (): JSX.Element => {
   return (
     <Container>
       <ReplaysBlock>
-        <ReplaysAmountInput
-          classes={{ root: "field" }}
-          InputProps={{ classes: { input: "input" } }}
-          label={"Number of \n Replays"}
-          fullWidth={false}
-          {...register(FIELDS.REPLAYS_AMOUNT)}
+        <Controller
+          control={control}
+          name={FIELDS.REPLAYS_AMOUNT}
+          render={({ field: { onChange, name, value } }) => (
+            <PatternFormat
+              format="##"
+              name={name}
+              value={value}
+              onChange={onChange}
+              customInput={ReplaysAmountInput as ComponentType<TextFieldProps>}
+              classes={{ root: "field" }}
+              InputProps={{ classes: { input: "input" } }}
+              label={"Number of \n Replays"}
+              fullWidth={false}
+            />
+          )}
         />
 
         <FileContainer>
