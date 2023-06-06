@@ -1,7 +1,83 @@
 import { Box, styled } from "@mui/material";
 
-import { PlusIcon } from "../../../assets";
+import { PlusIcon, DeleteIcon, EditIcon } from "../../../assets";
 import { Button } from "../../../components/UI/Button/Button";
+import Table from "../../../components/UI/Table/Table";
+import { Switcher } from "../../../components/UI/switcher/Switcher";
+
+const columns = [
+  { id: "id", label: "#", align: "left" },
+  { id: "name", label: "Name", align: "left" },
+  { id: "duration", label: "Duration", align: "left" },
+  { id: "questionType", label: "Question Type", align: "left" },
+  { id: "icon", label: "", align: "left" }
+];
+
+const data = [
+  {
+    id: "1",
+    name: "Select the real Englisg word in the list...",
+    duration: "1min",
+    questionType: "Select real English word",
+    icon: (
+      <Box
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: "1rem"
+        }}
+      >
+        <Switcher />
+
+        <EditIcon />
+
+        <DeleteIcon />
+      </Box>
+    )
+  },
+  {
+    id: "2",
+    name: "Select the real Englisg word in the list...",
+    duration: "1min",
+    questionType: "Select real English word",
+    icon: (
+      <Box
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: "1rem"
+        }}
+      >
+        <Switcher />
+
+        <EditIcon />
+
+        <DeleteIcon />
+      </Box>
+    )
+  },
+  {
+    id: "3",
+    name: "Select the real Englisg word in the list...",
+    duration: "1min",
+    questionType: "Select real English word",
+    icon: (
+      <Box
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: "1rem"
+        }}
+      >
+        <Switcher />
+
+        <EditIcon />
+
+        <DeleteIcon />
+      </Box>
+    )
+  }
+];
 
 export const InnerTest = () => {
   return (
@@ -19,6 +95,8 @@ export const InnerTest = () => {
       </Box>
 
       <p className="line"> </p>
+
+      <Table onHandleGetItems={() => console.log(1)} columns={columns} data={data} />
 
       <Box className="btn-add">
         <StyledBackBtn>GO BACK</StyledBackBtn>
@@ -61,7 +139,8 @@ const StyledContainer = styled(Box)(() => ({
   },
 
   "& .line": {
-    borderBottom: "1.53px solid #D4D0D0"
+    borderBottom: "1.53px solid #D4D0D0",
+    marginBottom: "24px"
   }
 }));
 
