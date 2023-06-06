@@ -21,7 +21,7 @@ enum FIELDS {
   CORRECT_ANSWER = "correctAnswer"
 }
 
-const TypeWhatYouHear = (): JSX.Element => {
+export const TypeWhatYouHear = (): JSX.Element => {
   const { setValue, register, unregister, watch, control } = useFormContext();
   const { audio, isPlaying, togglePlayerHandler, setAudio, stopAudio } = useSound();
 
@@ -133,5 +133,3 @@ const StyledIconButton = styled(IconButton)(() => ({
   borderRadius: "8px",
   width: "46px"
 }));
-
-export default TypeWhatYouHear;
