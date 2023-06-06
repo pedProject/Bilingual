@@ -7,8 +7,6 @@ import {
   styled
 } from "@mui/material";
 
-// import { IconButton } from "../Button/IconButton";
-
 import { IconButton } from "../Button/IconButton";
 
 import type { TableProps } from "@mui/material";
@@ -43,7 +41,6 @@ const Table = ({ columns, data, onHandleGetItems }: TableProps & Props) => {
             {columns.map((column) => (
               <StyledTableCell key={column.id} align={column.align}>
                 {column.id === "icon" ? (
-                  // <div onClick={() => onHandleGetItems(row.id)}>{row.icon}</div>
                   <IconButton onClick={() => onHandleGetItems(column.id)} icon={row.icon} />
                 ) : (
                   row[column.id]
@@ -62,7 +59,7 @@ export default Table;
 const StyledTable = styled(MuiTable)`
   border-collapse: separate;
   border-spacing: 0 16px;
-  width: 70%;
+  width: 100%;
   margin: 0 auto;
 `;
 
