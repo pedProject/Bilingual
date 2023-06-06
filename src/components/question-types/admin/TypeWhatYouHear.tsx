@@ -1,14 +1,16 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import type { ComponentType } from "react";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect } from "react";
 
 import { Box, IconButton, styled } from "@mui/material";
 import { Controller, useFormContext } from "react-hook-form";
 import { PatternFormat } from "react-number-format";
 
 import { PauseIcon, PlayIcon } from "../../../assets";
+import { useSound } from "../../../hooks/useSound";
 import { Button } from "../../UI/Button/Button";
 import { DropzoneContainer } from "../../UI/dropzone/DropzoneContainer";
+import { FileName } from "../../UI/dropzone/FileName";
 import { Input } from "../../UI/input/Input";
 
 import type { TextFieldProps } from "@mui/material";
@@ -21,51 +23,30 @@ enum FIELDS {
 
 const TypeWhatYouHear = (): JSX.Element => {
   const { setValue, register, unregister, watch, control } = useFormContext();
+  const { audio, isPlaying, togglePlayerHandler, setAudio, stopAudio } = useSound();
 
   const existingFile = watch(FIELDS.FILE) || null;
-
-  const fileName = existingFile ? existingFile.name : "";
-
-  const [isPlaying, setIsPlaying] = useState(false);
-
-  const [audio, setAudio] = useState<null | HTMLAudioElement>(null);
 
   const onUploadAudio = useCallback(
     async (acceptedFiles: File[]) => {
       const convertToURL = URL.createObjectURL(acceptedFiles[0]);
       if (audio) {
-        setIsPlaying(false);
+        stopAudio();
       }
       setAudio(new Audio(convertToURL));
-
       return setValue(FIELDS.FILE, acceptedFiles[0], { shouldValidate: true });
     },
     [setValue, audio]
   );
 
   useEffect(() => {
-    if (!audio) return undefined;
-    audio.addEventListener("ended", () => setIsPlaying(false));
-    return () => {
-      audio.removeEventListener("ended", () => setIsPlaying(false));
-      audio?.pause();
-    };
-  }, [audio]);
-
-  useEffect(() => {
-    isPlaying ? audio?.play() : audio?.pause();
-  }, [isPlaying, audio]);
-
-  useEffect(() => {
     register(FIELDS.FILE);
     return () => {
       unregister(FIELDS.FILE);
       setAudio(null);
-      setIsPlaying(false);
+      stopAudio();
     };
   }, []);
-
-  const togglePlayerHandler = () => setIsPlaying((prevPlaying) => !prevPlaying);
 
   return (
     <Container>
@@ -87,7 +68,6 @@ const TypeWhatYouHear = (): JSX.Element => {
             />
           )}
         />
-
         <FileContainer>
           <DropzoneContainer onDrop={onUploadAudio}>
             <StyledButton type="button" className="button">
@@ -100,12 +80,7 @@ const TypeWhatYouHear = (): JSX.Element => {
               {isPlaying ? <PauseIcon /> : <PlayIcon />}
             </StyledIconButton>
           )}
-
-          {fileName && (
-            <span className="file_name">
-              <abbr title={fileName}>{fileName}</abbr>
-            </span>
-          )}
+          {existingFile && <FileName file={existingFile} />}
         </FileContainer>
       </ReplaysBlock>
       <Input label={"Correct answer"} {...register(FIELDS.CORRECT_ANSWER)} />
@@ -146,22 +121,7 @@ const ReplaysBlock = styled(Box)(() => ({
 const FileContainer = styled(Box)(() => ({
   display: "flex",
   alignItems: "center",
-  columnGap: "1rem",
-  "& .file_name": {
-    display: "inline-block",
-    whiteSpace: "nowrap",
-    overflow: "hidden",
-    textOverflow: "ellipsis",
-    maxWidth: "300px",
-    fontFamily: "DINNextRoundedLTW01-Regular",
-    fontWeight: 400,
-    fontSize: "1rem",
-    color: "#4C4859",
-    marginLeft: "2px",
-    "& > abbr": {
-      textDecoration: "none"
-    }
-  }
+  columnGap: "1rem"
 }));
 
 const StyledButton = styled(Button)(() => ({
