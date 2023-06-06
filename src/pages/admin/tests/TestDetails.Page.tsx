@@ -79,7 +79,7 @@ const data = [
   }
 ];
 
-export const InnerTest = () => {
+export const TestDetails = () => {
   return (
     <StyledContainer>
       <Box className="texts">

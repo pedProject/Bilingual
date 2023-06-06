@@ -2,8 +2,8 @@ import { useState } from "react";
 
 import { Box } from "@mui/material";
 
-import { DeleteIcon, EditIcon } from "../../../assets";
-import { Switcher } from "../../../components/UI/switcher/Switcher";
+import { DeleteIcon, EditIcon } from "../../assets";
+import { Switcher } from "../UI/switcher/Switcher";
 
 export const TestsItem = ({ id, testName }: { id: number; testName: string }) => {
   const [isCheck, setIsCheck] = useState(false);

@@ -55,7 +55,7 @@ export const Switcher = ({ value, onChange, ...props }: SwitchProps): JSX.Elemen
     <IOSSwitch
       {...props}
       sx={{ m: 1 }}
-      checked={value as boolean}
+      checked={Boolean(value)}
       onChange={onChange}
       inputProps={{ "aria-label": "controlled" }}
     />

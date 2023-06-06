@@ -1,5 +1,6 @@
 import { Box, styled } from "@mui/material";
 
+// import { PlusIcon } from "../../../assets";
 import { Button } from "../../../components/UI/Button/Button";
 import { Input } from "../../../components/UI/input/Input";
 
@@ -19,6 +20,10 @@ export const AddNewTest = () => {
       <Box className="action-btns">
         <StyledBackBtn>GO BACK</StyledBackBtn>
         <StyledSaveBtn>SAVE</StyledSaveBtn>
+
+        {/* {если инпуты заполнены && <StyledButton>
+          <PlusIcon /> <p>ADD QUESTIONS</p>
+        </StyledButton>} */}
       </Box>
     </StyledBox>
   );
@@ -64,3 +69,11 @@ const StyledSaveBtn = styled(Button)(() => ({
     padding: "12.5px 24px"
   }
 }));
+
+// const StyledButton = styled(Button)(() => ({
+//   "&.MuiButtonBase-root": {
+//     padding: "12.5px 24px 12.5px 16px",
+//     display: "flex",
+//     gap: "15.5px"
+//   }
+// }));

@@ -2,8 +2,7 @@ import { Box, styled } from "@mui/material";
 
 import { PlusIcon } from "../../../assets";
 import { Button } from "../../../components/UI/Button/Button";
-
-import { TestsItem } from "./TestsItem";
+import { TestsItem } from "../../../components/test/TestsItem";
 
 const data = [
   { id: 1, testName: "Test number 1 " },
