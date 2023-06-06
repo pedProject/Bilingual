@@ -1,5 +1,7 @@
+import type { CSSProperties } from "react";
 import React from "react";
 
+import { styled } from "@mui/material";
 import { useDropzone } from "react-dropzone";
 
 import type { DropzoneOptions, Accept } from "react-dropzone";
@@ -10,6 +12,7 @@ interface DropzoneContainerProps extends DropzoneOptions {
   children: React.ReactNode;
   type?: FileType;
   customAcceptType?: () => Accept;
+  sx?: Pick<CSSProperties, "width" | "height">;
 }
 
 const ACCEPTED_FILE_TYPES = {
@@ -26,7 +29,8 @@ export const DropzoneContainer = ({
   onDrop,
   type = "audio",
   customAcceptType,
-  multiple
+  multiple,
+  sx
 }: DropzoneContainerProps): JSX.Element => {
   const accept = customAcceptType ? customAcceptType() : ACCEPTED_FILE_TYPES[type];
 
@@ -37,9 +41,11 @@ export const DropzoneContainer = ({
   });
 
   return (
-    <div {...getRootProps()}>
+    <RootContainer {...getRootProps()} sx={{ ...sx }}>
       <input {...getInputProps()} />
       {children}
-    </div>
+    </RootContainer>
   );
 };
+
+const RootContainer = styled("div")(() => ({}));
