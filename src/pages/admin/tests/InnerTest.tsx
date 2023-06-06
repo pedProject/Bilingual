@@ -5,7 +5,7 @@ import { Button } from "../../../components/UI/Button/Button";
 
 export const InnerTest = () => {
   return (
-    <StyledBox>
+    <StyledContainer>
       <Box className="texts">
         <p className="title">Take a free practice test and estimate your score</p>
         <p className="short">Select real English words </p>
@@ -23,11 +23,11 @@ export const InnerTest = () => {
       <Box className="btn-add">
         <StyledBackBtn>GO BACK</StyledBackBtn>
       </Box>
-    </StyledBox>
+    </StyledContainer>
   );
 };
 
-const StyledBox = styled(Box)(() => ({
+const StyledContainer = styled(Box)(() => ({
   background: "#FFFFFF",
   boxShadow: "0px 4px 39px rgba(196, 196, 196, 0.6)",
   borderRadius: "20px",
