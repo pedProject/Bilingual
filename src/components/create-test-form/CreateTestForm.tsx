@@ -22,32 +22,30 @@ const RENDERED_COMPONENTS_BY_QUESTION_TYPE: { [key: string]: React.ComponentType
   [QUESTION_TYPES.LISTEN_AND_SELECT_WORD]: () => <div>LISTEN_AND_SELECT_WORD</div>,
   [QUESTION_TYPES.DESCRIBE_THE_IMAGE]: () => <div>DESCRIBE_THE_IMAGE</div>,
   [QUESTION_TYPES.TYPE_WHAT_YOU_HEAR]: TypeWhatYouHear,
-  [QUESTION_TYPES.RECORD_SAYING_STATEMENT]: () => <RecordSayingStatement />,
-  [QUESTION_TYPES.RESPOND_N_WORDS]: () => <RespondNWords />,
+  [QUESTION_TYPES.RECORD_SAYING_STATEMENT]: RecordSayingStatement,
+  [QUESTION_TYPES.RESPOND_N_WORDS]: RespondNWords,
   [QUESTION_TYPES.SELECT_THE_MAIN_IDEA]: SelectTheMainIdea,
   [QUESTION_TYPES.SELECT_BEST_TITLE]: SelectBestTitle
 };
 
-const data = [
+const QUESTION_TYPE_OPTIONS: OptionData[] = [
   { value: QUESTION_TYPES.SELECT_ENGLISH_WORDS, id: "e1", label: "Select real English words" },
   { value: QUESTION_TYPES.DESCRIBE_THE_IMAGE, id: "e2", label: "Describe image" },
   { value: QUESTION_TYPES.LISTEN_AND_SELECT_WORD, id: "e3", label: "Listen and select word" },
   { value: QUESTION_TYPES.TYPE_WHAT_YOU_HEAR, id: "e4", label: "Type what you hear" },
-  { value: QUESTION_TYPES.RECORD_SAYING_STATEMENT, id: "4", label: "Record saying statement" },
-  { value: QUESTION_TYPES.RESPOND_N_WORDS, id: "5", label: "Respond in at least N words" }
+  { value: QUESTION_TYPES.RECORD_SAYING_STATEMENT, id: "e5", label: "Record saying statement" },
+  { value: QUESTION_TYPES.RESPOND_N_WORDS, id: "e6", label: "Respond in at least N words" }
 ];
 
 export const CreateTestForm = () => {
-  const [selectedType, setSelectedType] = useState<string>(QUESTION_TYPES.SELECT_THE_MAIN_IDEA);
-
-  const CurrentQuestionType = RENDERED_COMPONENTS_BY_QUESTION_TYPE[selectedType];
-
   const methods = useForm();
-
   const { handleSubmit, register } = methods;
 
+  const [selectedType, setSelectedType] = useState(QUESTION_TYPE_OPTIONS[0]);
+  const CurrentQuestionType = RENDERED_COMPONENTS_BY_QUESTION_TYPE[selectedType.value];
+
   const questionTypeChangeHandler = (option: OptionData) => {
-    setSelectedType(option.value);
+    setSelectedType(option);
   };
 
   const onSubmit = (data: unknown) => {
@@ -66,8 +64,13 @@ export const CreateTestForm = () => {
               {...register("duration")}
             />
           </InputWrapperContainer>
-          <AutoComplete onChange={questionTypeChangeHandler} optionList={data} label="Type" />
-          <CurrentQuestionType key={selectedType} />
+          <AutoComplete
+            onChange={questionTypeChangeHandler}
+            value={selectedType}
+            options={QUESTION_TYPE_OPTIONS}
+            label="Type"
+          />
+          <CurrentQuestionType />
           <ButtonWrapper>
             <ButtonBack type="button">GO BACK</ButtonBack>
             <ButtonSave type="submit">SAVE</ButtonSave>
