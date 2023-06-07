@@ -14,7 +14,7 @@ enum FIELDS {
   CORRECT_ANSWER = "correctAnswer"
 }
 
-export const DescribeImage = (): JSX.Element => {
+export const DescribeImage = () => {
   const { register, unregister, setValue, watch } = useFormContext();
 
   const existingImage: File | null = watch(FIELDS.FILE) || null;

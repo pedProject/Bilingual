@@ -21,7 +21,7 @@ enum FIELDS {
   CORRECT_ANSWER = "correctAnswer"
 }
 
-export const TypeWhatYouHear = (): JSX.Element => {
+export const TypeWhatYouHear = () => {
   const { setValue, register, unregister, watch, control } = useFormContext();
   const { audio, isPlaying, togglePlayerHandler, setAudio, stopAudio } = useSound();
 
