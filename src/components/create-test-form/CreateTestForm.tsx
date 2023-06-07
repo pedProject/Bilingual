@@ -20,10 +20,11 @@ import type { OptionData } from "../../types/testVerification";
 const RENDERED_COMPONENTS_BY_QUESTION_TYPE: { [key: string]: React.ComponentType } = {
   [QUESTION_TYPES.SELECT_ENGLISH_WORDS]: () => <div>SELECT_ENGLISH_WORDS</div>,
   [QUESTION_TYPES.LISTEN_AND_SELECT_WORD]: () => <div>LISTEN_AND_SELECT_WORD</div>,
-  [QUESTION_TYPES.DESCRIBE_THE_IMAGE]: () => <div>DESCRIBE_THE_IMAGE</div>,
   [QUESTION_TYPES.TYPE_WHAT_YOU_HEAR]: TypeWhatYouHear,
+  [QUESTION_TYPES.DESCRIBE_THE_IMAGE]: () => <div>DESCRIBE_THE_IMAGE</div>,
   [QUESTION_TYPES.RECORD_SAYING_STATEMENT]: RecordSayingStatement,
   [QUESTION_TYPES.RESPOND_N_WORDS]: RespondNWords,
+  [QUESTION_TYPES.HIGHLIGHT_THE_ANSWER]: () => <div>HIGHLIGHT_THE_ANSWER</div>,
   [QUESTION_TYPES.SELECT_THE_MAIN_IDEA]: SelectTheMainIdea,
   [QUESTION_TYPES.SELECT_BEST_TITLE]: SelectBestTitle
 };
@@ -34,14 +35,17 @@ const QUESTION_TYPE_OPTIONS: OptionData[] = [
   { value: QUESTION_TYPES.LISTEN_AND_SELECT_WORD, id: "e3", label: "Listen and select word" },
   { value: QUESTION_TYPES.TYPE_WHAT_YOU_HEAR, id: "e4", label: "Type what you hear" },
   { value: QUESTION_TYPES.RECORD_SAYING_STATEMENT, id: "e5", label: "Record saying statement" },
-  { value: QUESTION_TYPES.RESPOND_N_WORDS, id: "e6", label: "Respond in at least N words" }
+  { value: QUESTION_TYPES.RESPOND_N_WORDS, id: "e6", label: "Respond in at least N words" },
+  { value: QUESTION_TYPES.HIGHLIGHT_THE_ANSWER, id: "e7", label: "Highlight the answer" },
+  { value: QUESTION_TYPES.SELECT_THE_MAIN_IDEA, id: "e8", label: "Select the main idea" },
+  { value: QUESTION_TYPES.SELECT_BEST_TITLE, id: "e9", label: "Select best title" }
 ];
 
 export const CreateTestForm = () => {
   const methods = useForm();
   const { handleSubmit, register } = methods;
 
-  const [selectedType, setSelectedType] = useState(QUESTION_TYPE_OPTIONS[0]);
+  const [selectedType, setSelectedType] = useState(QUESTION_TYPE_OPTIONS[6]);
   const CurrentQuestionType = RENDERED_COMPONENTS_BY_QUESTION_TYPE[selectedType.value];
 
   const questionTypeChangeHandler = (option: OptionData) => {
