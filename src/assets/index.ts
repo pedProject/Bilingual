@@ -19,6 +19,8 @@ export { ReactComponent as FacebookIcon } from "../assets/icons/facebook.svg";
 export { ReactComponent as InstaIcon } from "../assets/icons/instagram.svg";
 export { ReactComponent as YoutubeIcon } from "../assets/icons/youtube.svg";
 export { default as RoadMapIcon } from "./icons/roadmap-icon.svg";
+export { ReactComponent as PlayIcon } from "../assets/icons/play.svg";
+export { ReactComponent as PauseIcon } from "../assets/icons/pause.svg";
 
 // Main Logo
 export { ReactComponent as LogoIcon } from "./icons/logo.svg";
