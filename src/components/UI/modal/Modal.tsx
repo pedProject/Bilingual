@@ -10,11 +10,12 @@ interface IModalProps {
   onClose: () => void;
   closeIcon?: boolean;
   actionsElement: ReactNode;
+  mainContent: ReactNode;
 }
 export const Modal = ({
   open,
   onClose,
-  children,
+  mainContent,
   actionsElement,
   closeIcon = false,
   ...props
@@ -34,7 +35,7 @@ export const Modal = ({
           </IconButton>
         </StyledDialogTitle>
       ) : null}
-      <DialogContent>{children}</DialogContent>
+      <DialogContent>{mainContent}</DialogContent>
       {viewActions()}
     </StyledDialog>
   );
