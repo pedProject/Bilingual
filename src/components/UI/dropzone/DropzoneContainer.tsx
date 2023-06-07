@@ -31,7 +31,7 @@ export const DropzoneContainer = ({
   customAcceptType,
   multiple,
   sx
-}: DropzoneContainerProps): JSX.Element => {
+}: DropzoneContainerProps) => {
   const accept = customAcceptType ? customAcceptType() : ACCEPTED_FILE_TYPES[type];
 
   const { getRootProps, getInputProps } = useDropzone({
