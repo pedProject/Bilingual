@@ -10,10 +10,9 @@ import { AutoComplete } from "../UI/dropdown/AutoComplete";
 import { Input } from "../UI/input/Input";
 import { InputNumber } from "../UI/input/InputNumber";
 import { DescribeImage } from "../question-types/admin/DescribeImage";
+import { RecordSayingStatement } from "../question-types/admin/RecordSayingStatement";
+import { RespondNWords } from "../question-types/admin/RespondNWords";
 import { TypeWhatYouHear } from "../question-types/admin/TypeWhatYouHear";
-
-import { RecordSayingStatement } from "./TestComponents/RecordSayingStatement";
-import { RespondNWords } from "./TestComponents/RespondNWords";
 
 import type { OptionData } from "../../types/testVerification";
 
