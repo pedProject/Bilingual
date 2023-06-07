@@ -1,21 +1,27 @@
 import { styled } from "@mui/material";
 
-import { TestCardIcon } from "../../../../assets";
-import { Button } from "../../../../components/UI/Button/Button";
+import { TestCardIcon } from "../../assets";
+import { Button } from "../UI/Button/Button";
+
+type Id = string | number;
 type Props = {
-  time: string;
+  time: string | number;
+  title: string;
+  description: string;
+  id: Id;
+  onTry: (id: Id) => void;
 };
-export const TestCard = ({ time }: Props) => {
+export const TestCard = ({ time, title, description, onTry, id }: Props) => {
   return (
     <TestContainer>
       <CustomTestCartIcon />
       <TestCardInfo>
-        <Duration>{time}minutes</Duration>
-        <Title>English advanced test </Title>
-        <Description>Train as much as you like.</Description>
+        <Duration>{time} minutes</Duration>
+        <Title>{title} </Title>
+        <Description>{description}</Description>
       </TestCardInfo>
       <ButtonContainer>
-        <Button variant="outlined" color="inherit">
+        <Button variant="outlined" color="inherit" onClick={() => onTry(id)}>
           TRY TEST
         </Button>
       </ButtonContainer>

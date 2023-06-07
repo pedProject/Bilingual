@@ -11,9 +11,10 @@ import { Button } from "../../../../components/UI/Button/Button";
 type Props = {
   onCancel: () => void;
   onPractice: () => void;
+  time: string | number;
 };
 
-export const TestStartCard = ({ onCancel, onPractice }: Props) => {
+export const TestStartCard = ({ onCancel, onPractice, time }: Props) => {
   return (
     <Container>
       <Title>Take a free practice test and estimate your score</Title>
@@ -26,7 +27,7 @@ export const TestStartCard = ({ onCancel, onPractice }: Props) => {
           </InfoBlocks>
           <InfoBlocks>
             <TestStartTimeIcon />
-            <Paragraph>Practice takes just 15 minutes</Paragraph>
+            <Paragraph>Practice takes just {time} minutes</Paragraph>
           </InfoBlocks>
           <InfoBlocks>
             <TestStartInfoIcon />
@@ -78,7 +79,6 @@ const Subtitle = styled("h3")`
   font-weight: 400;
   font-size: 16px;
   line-height: 124%;
-  text-transform: lowercase;
   color: #4c4859;
   text-align: center;
   margin-top: 92px;
@@ -96,7 +96,6 @@ const Title = styled("h1")`
   font-weight: 400;
   font-size: 28px;
   line-height: 32px;
-  text-transform: capitalize;
   color: #4c4859;
   text-align: center;
 `;
