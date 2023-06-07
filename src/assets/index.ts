@@ -19,12 +19,13 @@ export { ReactComponent as FacebookIcon } from "../assets/icons/facebook.svg";
 export { ReactComponent as InstaIcon } from "../assets/icons/instagram.svg";
 export { ReactComponent as YoutubeIcon } from "../assets/icons/youtube.svg";
 export { ReactComponent as TestCardIcon } from "../assets/icons/TestCard.svg";
-export { default as RoadMapIcon } from "./icons/roadmap-icon.svg";
-export { ReactComponent as TestCardIcon } from "./icons/test-card-icon.svg";
 export { ReactComponent as TestStartIcon } from "./icons/test-start-icon.svg";
 export { ReactComponent as TestStartCompIcon } from "./icons/test-comp-icon.svg";
 export { ReactComponent as TestStartTimeIcon } from "./icons/test-start-time-icon.svg";
 export { ReactComponent as TestStartInfoIcon } from "./icons/test-start-info-icon.svg";
+export { default as RoadMapIcon } from "./icons/roadmap-icon.svg";
+export { ReactComponent as PlayIcon } from "../assets/icons/play.svg";
+export { ReactComponent as PauseIcon } from "../assets/icons/pause.svg";
 
 // Main Logo
 export { ReactComponent as LogoIcon } from "./icons/logo.svg";
