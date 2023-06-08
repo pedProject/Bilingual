@@ -6,7 +6,7 @@ const ErrorPage = lazy(() => import("../containers/Error.Page"));
 
 import { LandingPage } from "../containers/Landing.Page";
 import { Layout } from "../layout/Layout";
-import { AddNewTest } from "../pages/admin/tests/AddNewTest";
+import { NewTest } from "../pages/admin/tests/NewTest.Page";
 import { TestDetails } from "../pages/admin/tests/TestDetails.Page";
 import { ROLES } from "../utils/constants/general";
 import { ROUTES } from "../utils/routes";
@@ -30,7 +30,7 @@ export const routes = createBrowserRouter([
       },
       {
         path: ROUTES.ADMIN.NEW_TEST,
-        element: <AddNewTest />
+        element: <NewTest />
       },
 
       {
