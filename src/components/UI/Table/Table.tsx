@@ -81,5 +81,6 @@ const StyledTableHead = styled(TableHead)`
     background-color: none;
     box-shadow: none;
     border-bottom: none;
+    font-weight: 600;
   }
 `;
