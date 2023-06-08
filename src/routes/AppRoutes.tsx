@@ -8,7 +8,6 @@ import { LandingPage } from "../containers/Landing.Page";
 import { Layout } from "../layout/Layout";
 import { AddNewTest } from "../pages/admin/tests/AddNewTest";
 import { TestDetails } from "../pages/admin/tests/TestDetails.Page";
-import { Tests } from "../pages/admin/tests/Tests.Page";
 import { ROLES } from "../utils/constants/general";
 import { ROUTES } from "../utils/routes";
 
@@ -30,15 +29,12 @@ export const routes = createBrowserRouter([
         element: <div>Admin</div>
       },
       {
-        path: ROUTES.ADMIN.TESTS_PAGE,
-        element: <Tests />
-      },
-      {
         path: ROUTES.ADMIN.NEW_TEST,
         element: <AddNewTest />
       },
+
       {
-        path: ROUTES.ADMIN.INNER_TEST,
+        path: ROUTES.ADMIN.TEST_DETAILS,
         element: <TestDetails />
       }
     ]

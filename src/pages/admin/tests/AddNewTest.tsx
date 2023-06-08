@@ -8,13 +8,11 @@ export const AddNewTest = () => {
   return (
     <StyledBox>
       <Box className="input-box">
-        <label htmlFor="title">Title</label>
-        <Input id="title" />
+        <Input id="title" label="Title" />
       </Box>
 
       <Box className="input-box">
-        <label htmlFor="short">Short Description</label>
-        <Input id="short" />
+        <Input id="short" label="Short Description" />
       </Box>
 
       <Box className="action-btns">

@@ -10,6 +10,7 @@ export const Layout = () => {
   const { pathname } = useLocation();
 
   const isAdmin = pathname.split("").slice(0, 6).join("") === "/admin";
+  //@TODO Temporary solution
 
   const isRenderFooterOnScreen = pathname === ROUTES.CLIENT.INDEX;
 
@@ -36,6 +37,6 @@ const StyledContainer = styled(Box)(() => ({
 
   "& .admin": {
     backgroundColor: "#D7E1F8",
-    padding: "68px 230px"
+    padding: "68px 24px"
   }
 }));
