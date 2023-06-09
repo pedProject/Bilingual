@@ -10,20 +10,20 @@ import { Wrapper } from "../UI/Wrapper";
 import { AutoComplete } from "../UI/dropdown/AutoComplete";
 import { Input } from "../UI/input/Input";
 import { InputNumber } from "../UI/input/InputNumber";
-import TypeWhatYouHear from "../question-types/admin/TypeWhatYouHear";
-
+import { DescribeImage } from "../question-types/admin/DescribeImage";
 import { RecordSayingStatement } from "./TestComponents/RecordSayingStatement";
-import { RespondNWords } from "./TestComponents/RespondNWords";
+import { RespondNWords } from "../question-types/admin/RespondNWords";
+import { TypeWhatYouHear } from "../question-types/admin/TypeWhatYouHear";
 
 import type { OptionData } from "../../types/testVerification";
 
 const RENDERED_COMPONENTS_BY_QUESTION_TYPE: { [key: string]: React.ComponentType } = {
   [QUESTION_TYPES.SELECT_ENGLISH_WORDS]: () => <SelectWords />,
   [QUESTION_TYPES.LISTEN_AND_SELECT_WORD]: () => <div>LISTEN_AND_SELECT_WORD</div>,
-  [QUESTION_TYPES.DESCRIBE_THE_IMAGE]: () => <div>DESCRIBE_THE_IMAGE</div>,
+  [QUESTION_TYPES.DESCRIBE_THE_IMAGE]: DescribeImage,
   [QUESTION_TYPES.TYPE_WHAT_YOU_HEAR]: TypeWhatYouHear,
-  [QUESTION_TYPES.RECORD_SAYING_STATEMENT]: () => <RecordSayingStatement />,
-  [QUESTION_TYPES.RESPOND_N_WORDS]: () => <RespondNWords />
+  [QUESTION_TYPES.RECORD_SAYING_STATEMENT]: RecordSayingStatement,
+  [QUESTION_TYPES.RESPOND_N_WORDS]: RespondNWords
 };
 
 const data = [
@@ -38,7 +38,7 @@ const data = [
 export const CreateTestForm = ({ showButtons }: { showButtons: boolean }) => {
   //Eсли  нету слов то кнопки не нужны
 
-  const [selectedType, setSelectedType] = useState<string>(QUESTION_TYPES.TYPE_WHAT_YOU_HEAR);
+  const [selectedType, setSelectedType] = useState<string>(QUESTION_TYPES.SELECT_ENGLISH_WORDS);
 
   const CurrentQuestionType = RENDERED_COMPONENTS_BY_QUESTION_TYPE[selectedType];
 
