@@ -25,6 +25,7 @@ export const SelectWords = () => {
         actionsElement={
           <StyledButtons>
             <StyledBackBtn>GO BACK</StyledBackBtn>
+
             <StyledSaveBtn>SAVE</StyledSaveBtn>
           </StyledButtons>
         }
