@@ -16,19 +16,19 @@ import { Input } from "../../UI/input/Input";
 import type { TextFieldProps } from "@mui/material";
 
 enum FIELDS {
-  FILE = "file",
+  FILE = "audio",
   REPLAYS_AMOUNT = "replaysAmount",
   CORRECT_ANSWER = "correctAnswer"
 }
 
-const TypeWhatYouHear = (): JSX.Element => {
+export const TypeWhatYouHear = () => {
   const { setValue, register, unregister, watch, control } = useFormContext();
   const { audio, isPlaying, togglePlayerHandler, setAudio, stopAudio } = useSound();
 
   const existingFile = watch(FIELDS.FILE) || null;
 
   const onUploadAudio = useCallback(
-    async (acceptedFiles: File[]) => {
+    (acceptedFiles: File[]) => {
       const convertToURL = URL.createObjectURL(acceptedFiles[0]);
       if (audio) {
         stopAudio();
@@ -69,17 +69,19 @@ const TypeWhatYouHear = (): JSX.Element => {
           )}
         />
         <FileContainer>
-          <DropzoneContainer onDrop={onUploadAudio}>
-            <StyledButton type="button" className="button">
-              {!audio ? "Upload" : "Replace"}
-            </StyledButton>
-          </DropzoneContainer>
+          <Box className="file_actions">
+            <DropzoneContainer onDrop={onUploadAudio}>
+              <StyledButton type="button" className="button">
+                {!audio ? "Upload" : "Replace"}
+              </StyledButton>
+            </DropzoneContainer>
 
-          {audio && (
-            <StyledIconButton onClick={togglePlayerHandler} className="button">
-              {isPlaying ? <PauseIcon /> : <PlayIcon />}
-            </StyledIconButton>
-          )}
+            {audio && (
+              <StyledIconButton onClick={togglePlayerHandler} className="button">
+                {isPlaying ? <PauseIcon /> : <PlayIcon />}
+              </StyledIconButton>
+            )}
+          </Box>
           {existingFile && <FileName file={existingFile} />}
         </FileContainer>
       </ReplaysBlock>
@@ -121,7 +123,11 @@ const ReplaysBlock = styled(Box)(() => ({
 const FileContainer = styled(Box)(() => ({
   display: "flex",
   alignItems: "center",
-  columnGap: "1rem"
+  "& > .file_actions": {
+    display: "flex",
+    alignItems: "center",
+    columnGap: "1rem"
+  }
 }));
 
 const StyledButton = styled(Button)(() => ({
@@ -133,5 +139,3 @@ const StyledIconButton = styled(IconButton)(() => ({
   borderRadius: "8px",
   width: "46px"
 }));
-
-export default TypeWhatYouHear;
