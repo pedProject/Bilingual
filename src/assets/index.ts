@@ -1,11 +1,15 @@
 //@TODO Images
+export { default as StatisticsCardBorderImage } from "./images/statistics/statistic-card-border.svg";
 export { default as UserExperienceBookImage } from "./images/user-experience/english-book.png";
 export { default as CurvedButtonBackground } from "./images/hero/curved-button-background.png";
+export { default as StatisticsPiggyBanksImage } from "./images/statistics/piggy-banks.png";
+export { default as StatisticsAirplanesImage } from "./images/statistics/airplanes.png";
 export { default as PhotoSecondPartner } from "./images/second-partner-image.png";
 export { default as PhotoFourthPartner } from "./images/fourth-partner-image.png";
 export { default as HeroAcademicHatImage } from "./images/hero/academic-hat.png";
 export { default as PhotoFirstPartner } from "./images/first-partner-image.png";
 export { default as PhotoThirdPartner } from "./images/third-partner-image.png";
+export { default as StatisticsGlobeImage } from "./images/statistics/globe.png";
 export { default as PhotoMinuraFeedback } from "./images/minura-image.png";
 export { default as SecondAdvantage } from "./images/advantage-second.png";
 export { default as FourthAdvantage } from "./images/advantage-fourth.png";
@@ -18,7 +22,6 @@ export { default as FifthAdvantage } from "./images/advantage-fifth.png";
 export { default as HeroBubblesImage } from "./images/hero/bubbles.png";
 export { default as HeroBooksImage } from "./images/hero/books.png";
 export { default as PhotoSlider } from "./images/slider.png";
-
 //@TODO Icons
 export { default as RoadMapIcon } from "./icons/roadmap-icon.svg";
 export { ReactComponent as UserExperienceDocumentIcon } from "./icons/user-experience/document.svg";
