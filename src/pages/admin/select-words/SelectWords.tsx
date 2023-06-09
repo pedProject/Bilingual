@@ -22,6 +22,9 @@ export const SelectWords = () => {
   return (
     <>
       <Modal
+        closeIcon={true}
+        open={showModal}
+        onClose={closeModalHandler}
         actionsElement={
           <StyledButtons>
             <StyledBackBtn>GO BACK</StyledBackBtn>
@@ -29,9 +32,6 @@ export const SelectWords = () => {
             <StyledSaveBtn>SAVE</StyledSaveBtn>
           </StyledButtons>
         }
-        closeIcon={true}
-        open={showModal}
-        onClose={closeModalHandler}
       >
         <StyledModal>
           <Input label="Title" />
