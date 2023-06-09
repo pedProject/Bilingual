@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { styled } from "@mui/material";
 import { useForm, FormProvider } from "react-hook-form";
 
+import { SelectWords } from "../../pages/admin/select-words/SelectWords";
 import { QUESTION_TYPES } from "../../utils/constants/general";
 import { Button } from "../UI/Button/Button";
 import { Wrapper } from "../UI/Wrapper";
@@ -17,7 +18,7 @@ import { RespondNWords } from "./TestComponents/RespondNWords";
 import type { OptionData } from "../../types/testVerification";
 
 const RENDERED_COMPONENTS_BY_QUESTION_TYPE: { [key: string]: React.ComponentType } = {
-  [QUESTION_TYPES.SELECT_ENGLISH_WORDS]: () => <div>SELECT_ENGLISH_WORDS</div>,
+  [QUESTION_TYPES.SELECT_ENGLISH_WORDS]: () => <SelectWords />,
   [QUESTION_TYPES.LISTEN_AND_SELECT_WORD]: () => <div>LISTEN_AND_SELECT_WORD</div>,
   [QUESTION_TYPES.DESCRIBE_THE_IMAGE]: () => <div>DESCRIBE_THE_IMAGE</div>,
   [QUESTION_TYPES.TYPE_WHAT_YOU_HEAR]: TypeWhatYouHear,
@@ -34,7 +35,9 @@ const data = [
   { value: QUESTION_TYPES.RESPOND_N_WORDS, id: "5", label: "Respond in at least N words" }
 ];
 
-export const CreateTestForm = () => {
+export const CreateTestForm = ({ showButtons }: { showButtons: boolean }) => {
+  //Eсли  нету слов то кнопки не нужны
+
   const [selectedType, setSelectedType] = useState<string>(QUESTION_TYPES.TYPE_WHAT_YOU_HEAR);
 
   const CurrentQuestionType = RENDERED_COMPONENTS_BY_QUESTION_TYPE[selectedType];
@@ -52,7 +55,7 @@ export const CreateTestForm = () => {
   };
 
   return (
-    <Wrapper width="66%">
+    <Wrapper width="100%">
       <FormProvider {...methods}>
         <Form onSubmit={handleSubmit(onSubmit)}>
           <InputWrapperContainer>
@@ -65,10 +68,13 @@ export const CreateTestForm = () => {
           </InputWrapperContainer>
           <AutoComplete onChange={questionTypeChangeHandler} optionList={data} label="Type" />
           <CurrentQuestionType key={selectedType} />
-          <ButtonWrapper>
-            <ButtonBack type="button">GO BACK</ButtonBack>
-            <ButtonSave type="submit">SAVE</ButtonSave>
-          </ButtonWrapper>
+
+          {showButtons && (
+            <ButtonWrapper>
+              <ButtonBack type="button">GO BACK</ButtonBack>
+              <ButtonSave type="submit">SAVE</ButtonSave>
+            </ButtonWrapper>
+          )}
         </Form>
       </FormProvider>
     </Wrapper>

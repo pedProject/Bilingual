@@ -6,7 +6,7 @@ const ErrorPage = lazy(() => import("../containers/Error.Page"));
 
 import { LandingPage } from "../containers/Landing.Page";
 import { Layout } from "../layout/Layout";
-import { SelectWords } from "../pages/admin/select-words/SelectWords.Page";
+import { SelectWordsPage } from "../pages/admin/select-words/SelectWords.Page";
 import { NewTest } from "../pages/admin/tests/NewTest.Page";
 import { TestDetails } from "../pages/admin/tests/TestDetails.Page";
 import { ROLES } from "../utils/constants/general";
@@ -42,7 +42,7 @@ export const routes = createBrowserRouter([
 
       {
         path: ROUTES.ADMIN.SELECT_WORDS,
-        element: <SelectWords />
+        element: <SelectWordsPage />
       }
     ]
   },

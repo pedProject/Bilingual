@@ -1,9 +1,5 @@
-import { Box, styled } from "@mui/material";
+import { CreateTestForm } from "../../../components/create-test-form/CreateTestForm";
 
-export const SelectWords = () => {
-  return <StyledBox>SelectWords</StyledBox>;
+export const SelectWordsPage = () => {
+  return <CreateTestForm showButtons={false} />;
 };
-
-const StyledBox = styled(Box)(() => ({
-  background: "#ffff"
-}));
