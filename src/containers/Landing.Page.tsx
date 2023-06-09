@@ -1,15 +1,15 @@
 import { styled } from "@mui/material";
 
+import { Accordions } from "../components/Accordions";
 import { Header } from "../landing/components/Header";
-import { Accordions } from "../landing/components/accordions/Accordions";
 import { AdvantagesSection } from "../landing/sections/AdvantagesSection";
-import { Feedbacks } from "../landing/sections/Feedbacks";
 import { Hero } from "../landing/sections/Hero";
-import { Partners } from "../landing/sections/Partners";
 import { Statistics } from "../landing/sections/Statistics";
 import { Team } from "../landing/sections/Team";
 import { UserExperience } from "../landing/sections/UserExperience";
 import { Video } from "../landing/sections/Video";
+import { Feedbacks } from "../landing/sections/feedbacks/Feedbacks";
+import { Partners } from "../landing/sections/partners/Partners";
 
 export const LandingPage = (): JSX.Element => {
   return (
