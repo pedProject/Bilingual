@@ -19,7 +19,7 @@ import { RespondNWords } from "./TestComponents/RespondNWords";
 import type { OptionData } from "../../types/testVerification";
 
 const RENDERED_COMPONENTS_BY_QUESTION_TYPE: { [key: string]: React.ComponentType } = {
-  [QUESTION_TYPES.SELECT_ENGLISH_WORDS]: () => <SelectRealWords />,
+  [QUESTION_TYPES.SELECT_ENGLISH_WORDS]: SelectRealWords,
   [QUESTION_TYPES.LISTEN_AND_SELECT_WORD]: () => <div>LISTEN_AND_SELECT_WORD</div>,
   [QUESTION_TYPES.DESCRIBE_THE_IMAGE]: DescribeImage,
   [QUESTION_TYPES.TYPE_WHAT_YOU_HEAR]: TypeWhatYouHear,
