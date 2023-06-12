@@ -8,7 +8,7 @@ import { Checkbox } from "../../../components/UI/checkbox/Checkbox";
 import { Input } from "../../../components/UI/input/Input";
 import { Modal } from "../../../components/UI/modal/Modal";
 
-export const SelectWords = () => {
+export const SelectRealWords = () => {
   const [showModal, setShowModal] = useState(false);
 
   const closeModalHandler = () => {

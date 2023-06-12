@@ -8,8 +8,7 @@ export const ROUTES = {
     USERS: "admin/users",
     TESTS: "admin/tests",
     NEW_TEST: "admin/new-test",
-    TEST_DETAILS: "admin/tests/:testId",
-    SELECT_WORDS: "admin/select-words"
+    TEST_DETAILS: "admin/tests/:testId"
   },
   CLIENT: {
     INDEX: "user",
