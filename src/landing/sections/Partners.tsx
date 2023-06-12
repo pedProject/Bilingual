@@ -8,9 +8,9 @@ import {
   PhotoFourthPartner,
   PhotoSecondPartner,
   PhotoThirdPartner
-} from "../../../assets/index";
-import { SectionHeading } from "../../components/SectionHeading";
-import { SpacedSection } from "../../components/SpacedSection";
+} from "../../assets/index";
+import { SectionHeading } from "../components/SectionHeading";
+import { SpacedSection } from "../components/SpacedSection";
 
 const data = [
   {

@@ -8,9 +8,9 @@ import {
   PhotoAibekFeedback,
   PhotoAlinaFeedback,
   PhotoMinuraFeedback
-} from "../../../assets";
-import { SectionHeading } from "../../components/SectionHeading";
-import { SpacedSection } from "../../components/SpacedSection";
+} from "../../assets";
+import { SectionHeading } from "../components/SectionHeading";
+import { SpacedSection } from "../components/SpacedSection";
 
 const data = [
   {
@@ -127,8 +127,8 @@ const StyledBox = styled(Box)(() => ({
 
       "& .avatar": {
         marginTop: "40px",
-        width: "20vw",
-        height: "40vh"
+        width: "200px",
+        height: "180px"
       },
 
       "& .text": {
@@ -145,6 +145,7 @@ const StyledBox = styled(Box)(() => ({
   "& .slide": {
     height: "564px",
     width: "25vw",
+    maxWidth: "366px",
     background: "#E5E5E5",
     borderRadius: "40px",
     display: "flex",
