@@ -1,8 +1,7 @@
 import { styled } from "@mui/material";
 
-import { DeleteIcon, VoiceIcon } from "../../../assets";
-import { IconButton } from "../Button/IconButton";
-import { Checkbox } from "../checkbox/Checkbox";
+import { DeleteIcon, VoiceIcon } from "../../assets";
+import { IconButton } from "../UI/Button/IconButton";
 
 type SelectWordItemProps = {
   title: string;
@@ -14,42 +13,38 @@ export default function SelectWordItem({ title, withSound, indexNumber }: Select
   return (
     <Main key={1}>
       <Content>
-        <span>{indexNumber}</span>
+        <span>{indexNumber + 1}</span>
 
-        {withSound && <IconButton icon={<VoiceIcon />} onClick={() => console.log("hello")} />}
+        {withSound && <IconButton icon={<VoiceIcon />} onClick={() => console.log("here i am")} />}
 
         <span>{title}</span>
       </Content>
-      <Actions>
-        <Checkbox value={false} />
-
+      <div>
         <IconButton icon={<DeleteIcon />} onClick={() => console.log("hello")} />
-      </Actions>
+      </div>
     </Main>
   );
 }
 
 const Main = styled("div")`
-  width: 261px;
+  width: 232px;
   display: flex;
   align-items: center;
   border: 1.53px solid #d4d0d0;
   border-radius: 8px;
-  padding: 8px;
+  padding: 6px;
+
+  div {
+    display: flex;
+    align-items: center;
+  }
 `;
 
 const Content = styled("div")`
-  display: flex;
-  align-items: center;
-  gap: 13px;
   width: inherit;
-  & > span {
-    max-width: 140px;
+  span {
+    max-width: 97px;
     word-wrap: break-word;
+    text-transform: uppercase;
   }
-`;
-const Actions = styled("div")`
-  display: flex;
-  align-items: center;
-  gap: 7px;
 `;
