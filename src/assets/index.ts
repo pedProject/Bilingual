@@ -53,3 +53,4 @@ export { ReactComponent as VoiceIcon } from "./icons/voice.svg";
 export { ReactComponent as DltIcon } from "./icons/delete.svg";
 export { ReactComponent as PlusIcon } from "./icons/plus.svg";
 export { ReactComponent as LogoIcon } from "./icons/logo.svg";
+export { ReactComponent as VoiceRecordIcon } from "./icons/record-icon.svg";
