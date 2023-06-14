@@ -2,8 +2,8 @@ import type { ReactNode } from "react";
 
 import { styled } from "@mui/material";
 
-import { Button } from "../../UI/Button/Button";
 import { TimerProgressBar } from "../../UI/timer-progress-bar/TimerProgressBar";
+import { RecordSaying } from "../RecordSaying";
 
 type Props = {
   title: string;
@@ -16,7 +16,7 @@ export const TestInprogressCard = ({ title, children }: Props) => {
       <Title>{title}</Title>
       <Content>{children}</Content>
       <BottomContainer>
-        <Button variant="contained">RECORD NOW</Button>
+        <RecordSaying />
       </BottomContainer>
     </Container>
   );

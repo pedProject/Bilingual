@@ -1,31 +1,25 @@
 import { AudioRecorder, useAudioRecorder } from "react-audio-voice-recorder";
+
+import { Button } from "../UI/Button/Button";
 export const RecordSaying = () => {
+  const recorderControls = useAudioRecorder();
   const addAudioElement = (blob: any) => {
     const url = URL.createObjectURL(blob);
     const audio = document.createElement("audio");
     audio.src = url;
     audio.controls = true;
-    document.body.appendChild(audio);
+    // document.body.appendChild(audio);
   };
 
-  const recorderControls = useAudioRecorder(
-    {
-      noiseSuppression: true,
-      echoCancellation: true
-    },
-    (err) => console.table(err) // onNotAllowedOrFound
-  );
   return (
     <div>
-      <AudioRecorder
-        onRecordingComplete={addAudioElement}
-        audioTrackConstraints={{
-          noiseSuppression: true,
-          echoCancellation: true
-        }}
-      />
-      <button onClick={recorderControls.stopRecording}>Stop recording</button>
-      <button onClick={recorderControls.startRecording}>Start recording</button>
+      <AudioRecorder onRecordingComplete={addAudioElement} recorderControls={recorderControls} />
+      <Button variant="contained" onClick={recorderControls.startRecording}>
+        Start recording
+      </Button>
+      <Button variant="contained" onClick={recorderControls.stopRecording}>
+        Stop recording
+      </Button>
     </div>
   );
 };
