@@ -25,7 +25,7 @@ export const TestInprogressCard = ({ title, children }: Props) => {
 const Container = styled("div")`
   width: 57rem;
   height: 568px;
-  background-color: #dd7373;
+  background-color: #fff;
   padding-left: 43px;
   padding-right: 43px;
   padding-top: 40px;
@@ -50,9 +50,7 @@ const Content = styled("div")`
 const BottomContainer = styled("div")`
   border-top: 1.53px solid #d4d0d0;
   margin: 32px 0px 40px 0px;
-  display: flex;
-  justify-content: flex-end;
-  width: 814px;
+  width: 50.8rem;
   margin-top: 121px;
   padding-top: 30px;
   padding-bottom: 30px;
