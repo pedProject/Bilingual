@@ -4,11 +4,13 @@ import { styled } from "@mui/material";
 
 import { Button } from "../UI/Button/Button";
 import { DropzoneContainer } from "../UI/dropzone/DropzoneContainer";
+import { FileName } from "../UI/dropzone/FileName";
 import { Input } from "../UI/input/Input";
 import { Modal } from "../UI/modal/Modal";
 
 export interface modalData {
   title: string;
+  audio?: HTMLAudioElement | null;
 }
 
 interface CreateOptionModalProps {
@@ -19,16 +21,34 @@ interface CreateOptionModalProps {
 
 export const CreateOptionModal = ({ handleClose, open, handleSave }: CreateOptionModalProps) => {
   const [title, setTitle] = useState("");
-  // const [audio, setAudio] = useState<File | null>(null);
+  const [audioFile, setAudioFile] = useState<File | null>(null);
+  const [inputError, setInputError] = useState("");
 
   const handleSaveNewOption = () => {
-    handleSave({ title });
+    if (!title.trim() || !audioFile) {
+      setInputError("Please enter a valid option and upload an audio file.");
+      return;
+    }
+
+    const maxAudioSizeInBytes = 5 * 1024 * 1024; // 5 MB
+    const uploadedAudioSize = audioFile.size;
+
+    if (uploadedAudioSize > maxAudioSizeInBytes) return;
+
+    handleSave({ title, audio: new Audio(URL.createObjectURL(audioFile)) });
     setTitle("");
+    setAudioFile(null);
+    setInputError("");
     handleClose();
   };
 
-  const handleUploadAudio = () => {
-    console.log("upload audio");
+  const handleUploadAudio = (file: File[]) => {
+    setAudioFile(file[0]);
+  };
+
+  const handleTitleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setTitle(event.target.value);
+    setInputError("");
   };
 
   return (
@@ -45,16 +65,22 @@ export const CreateOptionModal = ({ handleClose, open, handleSave }: CreateOptio
     >
       <>
         <ModalInput
-          value="Listen and select English word"
+          value={title}
           label="Title"
-          type="readonly"
-          placeholder="enter the option"
+          placeholder="Enter the option"
+          onChange={handleTitleChange}
         />
-        <section>
-          <DropzoneContainer>
-            <UploadAudioButton onDrop={handleUploadAudio}>Upload audio</UploadAudioButton>
+
+        <SelectedAudioSection>
+          <DropzoneContainer onDrop={handleUploadAudio}>
+            <UploadAudioButton>{audioFile ? "Change file" : "Upload file"}</UploadAudioButton>
           </DropzoneContainer>
-        </section>
+          {audioFile && <FileName file={audioFile} />}
+          {audioFile && audioFile.size > 5 * 1024 * 1024 && (
+            <ErrorMessageTag>file is too big</ErrorMessageTag>
+          )}
+          {inputError && <ErrorMessageTag>{inputError}</ErrorMessageTag>}
+        </SelectedAudioSection>
       </>
     </Modal>
   );
@@ -103,4 +129,17 @@ const SaveButton = styled(Button)(({ theme }) => ({
     backgroundColor: theme.palette.success.light,
     color: "#fff"
   }
+}));
+
+const SelectedAudioSection = styled("section")(() => ({
+  display: "flex",
+  alignItems: "center",
+  textAlign: "center"
+}));
+
+const ErrorMessageTag = styled("span")(({ theme }) => ({
+  color: theme.palette.error.main,
+  padding: "0.5rem",
+  fontSize: "1rem",
+  marginLeft: "1rem"
 }));

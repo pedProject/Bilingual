@@ -32,7 +32,12 @@ export const ListenAndSelectEnglishWords = () => {
 
       <StyledSelectWordsBlock>
         {options?.map((option, index) => (
-          <SelectWordItem key={index} indexNumber={index} title={option.title} withSound />
+          <SelectWordItem
+            key={index}
+            indexNumber={index}
+            title={option.title}
+            sound={option.audio}
+          />
         ))}
       </StyledSelectWordsBlock>
 

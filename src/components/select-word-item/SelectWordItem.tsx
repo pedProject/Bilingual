@@ -5,23 +5,27 @@ import { IconButton } from "../UI/Button/IconButton";
 
 type SelectWordItemProps = {
   title: string;
-  withSound: boolean;
+  sound?: HTMLAudioElement | null;
   indexNumber: number;
 };
 
-export default function SelectWordItem({ title, withSound, indexNumber }: SelectWordItemProps) {
+export default function SelectWordItem({ title, sound, indexNumber }: SelectWordItemProps) {
+  const handlePlay = () => {
+    sound?.play();
+  };
+
+  const handleDeleteItem = () => {
+    console.log("delete");
+  };
+
   return (
-    <Main key={1}>
+    <Main>
       <Content>
         <span>{indexNumber + 1}</span>
-
-        {withSound && <IconButton icon={<VoiceIcon />} onClick={() => console.log("here i am")} />}
-
+        <IconButton icon={<VoiceIcon />} onClick={handlePlay} />
         <span>{title}</span>
       </Content>
-      <div>
-        <IconButton icon={<DeleteIcon />} onClick={() => console.log("hello")} />
-      </div>
+      <IconButton icon={<DeleteIcon />} onClick={handleDeleteItem} />
     </Main>
   );
 }
@@ -34,15 +38,15 @@ const Main = styled("div")`
   border-radius: 8px;
   padding: 6px;
 
-  div {
-    display: flex;
-    align-items: center;
+  > :last-child {
+    margin-left: auto;
   }
 `;
 
 const Content = styled("div")`
   width: inherit;
-  span {
+
+  > span {
     max-width: 97px;
     word-wrap: break-word;
     text-transform: uppercase;
