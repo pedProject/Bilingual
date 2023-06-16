@@ -3,16 +3,7 @@ import { styled } from "@mui/material/styles";
 
 import type { SwitchProps } from "@mui/material/Switch";
 
-interface ISwitcherProps {
-  value: boolean | undefined;
-  onChange: () => (event: React.ChangeEvent<HTMLInputElement>) => void;
-}
-
-export const Switcher = ({
-  value,
-  onChange,
-  ...props
-}: ISwitcherProps & SwitchProps): JSX.Element => {
+export const Switcher = ({ value, onChange, ...props }: SwitchProps): JSX.Element => {
   const IOSSwitch = styled((props: SwitchProps) => (
     <Switch focusVisibleClassName=".Mui-focusVisible" disableRipple {...props} />
   ))(({ theme }) => ({
@@ -64,7 +55,7 @@ export const Switcher = ({
     <IOSSwitch
       {...props}
       sx={{ m: 1 }}
-      checked={value}
+      checked={Boolean(value)}
       onChange={onChange}
       inputProps={{ "aria-label": "controlled" }}
     />
