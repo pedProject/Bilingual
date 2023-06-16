@@ -1,18 +1,14 @@
 import type { SVGProps } from "react";
 
-import { styled } from "@mui/material";
+import { IconButton as MuiIconButton } from "@mui/material";
 
-interface IIconButtonProps {
+import type { IconButtonProps } from "@mui/material";
+
+type IIconButtonProps = IconButtonProps & {
   icon: React.ReactNode | React.ReactElement<SVGProps<SVGSVGElement>>;
   onClick: () => void;
-}
-
-export const IconButton = ({ icon, onClick }: IIconButtonProps) => {
-  return <Button onClick={onClick}>{icon}</Button>;
 };
 
-const Button = styled("button")`
-  cursor: pointer;
-  border: none;
-  background: none;
-`;
+export const IconButton = ({ icon, onClick }: IIconButtonProps) => {
+  return <MuiIconButton onClick={onClick}>{icon}</MuiIconButton>;
+};

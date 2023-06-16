@@ -30,6 +30,7 @@
     "linebreak-style": "off",
     "quotes": ["error", "double"],
     "semi": ["error", "always"],
+    "no-console": "warn",
     "react/react-in-jsx-scope": "off",
     "react/jsx-uses-react": 0,
     "no-unused-vars": "off",
