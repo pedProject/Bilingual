@@ -2,6 +2,8 @@
 
 // import { RouterProvider } from "react-router-dom";
 
+import { BrowserRouter } from "react-router-dom";
+
 import { CreateTestForm } from "./components/create-test-form/CreateTestForm";
 // import { routes } from "./routes/AppRoutes";
 
@@ -10,6 +12,8 @@ export const App = (): JSX.Element => {
     // <Suspense fallback={<>...Loading</>}>
     //   <RouterProvider router={routes} />
     // </Suspense>
-    <CreateTestForm />
+    <BrowserRouter>
+      <CreateTestForm />
+    </BrowserRouter>
   );
 };

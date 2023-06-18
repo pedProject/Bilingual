@@ -1,8 +1,8 @@
 import { styled } from "@mui/material";
 
-import { Accordions } from "../components/Accordions";
-import { Header } from "../landing/components/Header";
 import { AdvantagesSection } from "../landing/sections/AdvantagesSection";
+import { Footer } from "../landing/sections/Footer";
+import { Header } from "../landing/sections/Header";
 import { Hero } from "../landing/sections/Hero";
 import { Statistics } from "../landing/sections/Statistics";
 import { Team } from "../landing/sections/Team";
@@ -25,7 +25,7 @@ export const LandingPage = (): JSX.Element => {
         <Feedbacks />
         <Partners />
       </StyledMain>
-      <Accordions />
+      <Footer />
     </>
   );
 };

@@ -45,7 +45,7 @@ export const CreateTestForm = () => {
   const methods = useForm();
   const { handleSubmit, register } = methods;
 
-  const [selectedType, setSelectedType] = useState(QUESTION_TYPE_OPTIONS[6]);
+  const [selectedType, setSelectedType] = useState(QUESTION_TYPE_OPTIONS[7]);
   const CurrentQuestionType = RENDERED_COMPONENTS_BY_QUESTION_TYPE[selectedType.value];
 
   const questionTypeChangeHandler = (option: OptionData) => {
@@ -118,6 +118,9 @@ const ButtonSave = styled(Button)(() => ({
   background: "#2ab930",
   marginLeft: "1rem",
   "&:hover": {
-    background: "#2ab930"
+    background: "#31CF38"
+  },
+  "&:active": {
+    background: "#08AF10"
   }
 }));

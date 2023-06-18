@@ -5,6 +5,7 @@
   "dependencies": {
     "@emotion/react": "^11.11.0",
     "@emotion/styled": "^11.11.0",
+    "@hookform/resolvers": "^3.1.1",
     "@mui/material": "^5.12.3",
     "@types/node": "^16.18.25",
     "@types/react": "^18.2.5",

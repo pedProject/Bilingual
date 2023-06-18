@@ -14,7 +14,7 @@ export const Input = forwardRef(
   ({ label, error, fullWidth = true, ...props }: TextFieldProps, ref: Ref<HTMLInputElement>) => {
     return (
       <InputWrapper fullWidth={fullWidth}>
-        <InputLabel>{label}</InputLabel>
+        <InputLabel className="label">{label}</InputLabel>
         <InputStyled
           {...props}
           InputProps={{ classes: { root: "input-wrapper", input: "input" }, ...props.InputProps }}
@@ -56,7 +56,6 @@ const InputStyled = styled(TextField)(() => ({
   "& .MuiInputLabel-root:active": {
     color: "#757575"
   },
-
   "& .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline": {
     borderColor: "transparent",
     border: "1px solid #3A10E5"
