@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import { styled } from "@mui/material";
 import { useForm, FormProvider } from "react-hook-form";
 
-import { SelectRealWords } from "../../pages/admin/select-real-words/SelectRealWords";
 import { QUESTION_TYPES } from "../../utils/constants/general";
 import { Button } from "../UI/Button/Button";
 import { Wrapper } from "../UI/Wrapper";
@@ -11,6 +10,7 @@ import { AutoComplete } from "../UI/dropdown/AutoComplete";
 import { Input } from "../UI/input/Input";
 import { InputNumber } from "../UI/input/InputNumber";
 import { DescribeImage } from "../question-types/admin/DescribeImage";
+import { SelectRealWords } from "../question-types/admin/SelectRealWords";
 import { TypeWhatYouHear } from "../question-types/admin/TypeWhatYouHear";
 
 import { RecordSayingStatement } from "./TestComponents/RecordSayingStatement";

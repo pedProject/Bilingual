@@ -3,13 +3,30 @@ import { useState } from "react";
 import { Box, styled } from "@mui/material";
 
 import { DeleteIcon, PlusIcon } from "../../../assets";
-import { Button } from "../../../components/UI/Button/Button";
-import { Checkbox } from "../../../components/UI/checkbox/Checkbox";
-import { Input } from "../../../components/UI/input/Input";
-import { Modal } from "../../../components/UI/modal/Modal";
+import { Button } from "../../UI/Button/Button";
+import { Checkbox } from "../../UI/checkbox/Checkbox";
+import { Input } from "../../UI/input/Input";
+import { Modal } from "../../UI/modal/Modal";
+
+interface Option {
+  id: number;
+  value: string;
+  isOption: boolean;
+}
 
 export const SelectRealWords = () => {
   const [showModal, setShowModal] = useState(false);
+
+  const [valueOption, setValueOption] = useState("");
+
+  const [valueOptionError, setValueOptionError] = useState({
+    text: "",
+    error: false
+  });
+
+  const [isOption, setIsOption] = useState(false);
+
+  const [options, setOptions] = useState<Option[]>([]);
 
   const closeModalHandler = () => {
     setShowModal(false);
@@ -17,6 +34,32 @@ export const SelectRealWords = () => {
 
   const openModalHandler = () => {
     setShowModal(true);
+  };
+
+  const addOptionHandler = () => {
+    if (valueOption.trim()) {
+      const option = {
+        id: Date.now(),
+        value: valueOption,
+        isOption: isOption
+      };
+
+      setOptions([...options, option]);
+
+      setValueOption("");
+      setValueOptionError({
+        text: "",
+        error: false
+      });
+      closeModalHandler();
+    } else {
+      setValueOptionError({ text: "Заполните поле!", error: true });
+    }
+  };
+
+  const deleteOption = (id: number) => {
+    const filteredOptions = options.filter((option) => option.id !== id);
+    setOptions(filteredOptions);
   };
 
   return (
@@ -27,17 +70,24 @@ export const SelectRealWords = () => {
         onClose={closeModalHandler}
         actionsElement={
           <StyledButtons>
-            <StyledBackBtn>GO BACK</StyledBackBtn>
+            <StyledBackBtn onClick={closeModalHandler}>GO BACK</StyledBackBtn>
 
-            <StyledSaveBtn>SAVE</StyledSaveBtn>
+            <StyledSaveBtn onClick={addOptionHandler}>SAVE</StyledSaveBtn>
           </StyledButtons>
         }
       >
         <StyledModal>
-          <Input label="Title" />
+          <Input
+            label="Title"
+            value={valueOption}
+            error={valueOptionError.error}
+            helperText={valueOptionError.text}
+            onChange={(e) => setValueOption(e.target.value)}
+          />
 
           <Box className="variant">
-            Is true option? <Checkbox />
+            Is true option?
+            <Checkbox value={isOption} onChange={(e) => setIsOption(e.target.checked)} />
           </Box>
         </StyledModal>
       </Modal>
@@ -48,17 +98,18 @@ export const SelectRealWords = () => {
         </StyledButton>
 
         <Box className="words">
-          {/* Будет так! Пока статично. {data.map((word) => ( */}
-          <Box className="word">
-            <Box>
-              <p>1</p> <p>advantage</p>
-            </Box>
+          {options.map((option, i) => (
+            <Box key={option.id} className="word">
+              <Box>
+                <p>{i + 1}</p> <p>{option.value}</p>
+              </Box>
 
-            <Box>
-              <Checkbox /> <DeleteIcon />
+              <Box className="actions">
+                <Checkbox checked={option.isOption} readOnly />
+                <DeleteIcon className="dlt" onClick={() => deleteOption(option.id)} />
+              </Box>
             </Box>
-          </Box>
-          {/* ))} */}
+          ))}
         </Box>
       </StyledBox>
     </>
@@ -73,7 +124,6 @@ const StyledBox = styled(Box)(() => ({
 
   "& > .words": {
     display: "flex",
-    justifyContent: "space-between",
     gap: "18px",
     flexWrap: "wrap",
     width: "100%",
@@ -86,12 +136,25 @@ const StyledBox = styled(Box)(() => ({
       display: "flex",
       justifyContent: "space-between",
       width: "32%",
+      height: "fit-content",
       flexWrap: "wrap",
 
       "& > div": {
         display: "flex",
         gap: "10px",
         alignItems: "center"
+      },
+
+      "& > .actions": {
+        paddingLeft: "10px"
+      },
+
+      "& > .actions > .dlt ": {
+        cursor: "pointer"
+      },
+
+      "& > div > p": {
+        wordBreak: "break-all"
       }
     }
   }
