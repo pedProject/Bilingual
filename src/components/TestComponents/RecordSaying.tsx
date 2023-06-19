@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 
 import { styled } from "@mui/material";
 import { AudioRecorder, useAudioRecorder } from "react-audio-voice-recorder";
@@ -22,21 +22,20 @@ export const RecordSaying = () => {
     //there can send url file to server
   };
 
-  function onStartRecording() {
+  const onStartRecording = useCallback(() => {
     recorderControls.startRecording();
     setRecord("start");
-  }
-
-  function onStopRecording() {
+  }, [recorderControls]);
+  const onStopRecording = useCallback(() => {
     recorderControls.stopRecording();
     setRecord("next");
-  }
+  }, [recorderControls]);
 
-  function onNextHandler() {
+  const onNextHandler = useCallback(() => {
     console.log("next");
-  }
+  }, []);
 
-  function changeButton() {
+  const changeButton = useCallback(() => {
     if (record === "stop") {
       return (
         <Button variant="contained" onClick={onStartRecording}>
@@ -58,7 +57,7 @@ export const RecordSaying = () => {
         </Button>
       );
     }
-  }
+  }, [record, onNextHandler, onStopRecording, onStartRecording]);
 
   return (
     <div>
