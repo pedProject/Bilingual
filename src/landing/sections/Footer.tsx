@@ -3,11 +3,7 @@ import Accordion from "@mui/material/Accordion";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import AccordionSummary from "@mui/material/AccordionSummary";
 
-<<<<<<<< HEAD:src/landing/sections/Footer.tsx
 import { AddIcon, FacebookIcon, InstaIcon, LogoIcon, YoutubeIcon } from "../../assets/index";
-========
-import { AddIcon, FacebookIcon, InstaIcon, LogoIcon, YoutubeIcon } from "../../../assets/index";
->>>>>>>> f61c9edcf25d16ac705941cb0963af451a46b612:src/landing/components/accordions/Accordions.tsx
 
 const Footerdata = [
   {
