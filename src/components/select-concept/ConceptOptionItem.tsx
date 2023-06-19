@@ -6,15 +6,23 @@ import type { OptionItem } from "../../types/testVerification";
 
 type Props = OptionItem & {
   index: number;
+  onDeleteOption: (index: number) => void;
+  onChangeOption: (index: number, option: OptionItem) => void;
 };
 
-export const ConceptOptionItem = ({ index, title, isTrue }: Props) => {
+export const ConceptOptionItem = ({
+  index,
+  title,
+  isTrue,
+  onDeleteOption,
+  onChangeOption
+}: Props) => {
   return (
     <Card>
-      <span>{index}</span>
+      <span>{index + 1}</span>
       <OptionTitle>{title}</OptionTitle>
-      <StyledRadio checked={isTrue} />
-      <StyledIconButton>
+      <StyledRadio checked={isTrue} onChange={() => onChangeOption(index, { title, isTrue })} />
+      <StyledIconButton onClick={() => onDeleteOption(index)}>
         <DeleteIcon />
       </StyledIconButton>
     </Card>

@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 
+import { zodResolver } from "@hookform/resolvers/zod";
 import { styled } from "@mui/material";
 import { useForm, FormProvider } from "react-hook-form";
 
+import { testValidationSchema, type OptionData } from "../../types/testVerification";
 import { QUESTION_TYPES } from "../../utils/constants/general";
 import { Button } from "../UI/Button/Button";
 import { Wrapper } from "../UI/Wrapper";
@@ -15,7 +17,7 @@ import TypeWhatYouHear from "../question-types/admin/TypeWhatYouHear";
 import { RecordSayingStatement } from "./TestComponents/RecordSayingStatement";
 import { RespondNWords } from "./TestComponents/RespondNWords";
 
-import type { OptionData } from "../../types/testVerification";
+import type { z } from "zod";
 
 const RENDERED_COMPONENTS_BY_QUESTION_TYPE: { [key: string]: React.ComponentType } = {
   [QUESTION_TYPES.SELECT_ENGLISH_WORDS]: () => <div>SELECT_ENGLISH_WORDS</div>,
@@ -41,12 +43,20 @@ const QUESTION_TYPE_OPTIONS: OptionData[] = [
   { value: QUESTION_TYPES.SELECT_BEST_TITLE, id: "e9", label: "Select best title" }
 ];
 
-export const CreateTestForm = () => {
-  const methods = useForm();
-  const { handleSubmit, register } = methods;
+type TestFields = z.infer<typeof testValidationSchema>;
 
+export const CreateTestForm = () => {
   const [selectedType, setSelectedType] = useState(QUESTION_TYPE_OPTIONS[7]);
   const CurrentQuestionType = RENDERED_COMPONENTS_BY_QUESTION_TYPE[selectedType.value];
+
+  const methods = useForm<TestFields>({
+    resolver: zodResolver(testValidationSchema)
+  });
+  const {
+    handleSubmit,
+    register,
+    formState: { isValid }
+  } = methods;
 
   const questionTypeChangeHandler = (option: OptionData) => {
     setSelectedType(option);
@@ -77,7 +87,9 @@ export const CreateTestForm = () => {
           <CurrentQuestionType />
           <ButtonWrapper>
             <ButtonBack type="button">GO BACK</ButtonBack>
-            <ButtonSave type="submit">SAVE</ButtonSave>
+            <ButtonSave type="submit" disabled={!isValid}>
+              SAVE
+            </ButtonSave>
           </ButtonWrapper>
         </Form>
       </FormProvider>

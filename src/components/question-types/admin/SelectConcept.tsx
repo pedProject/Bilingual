@@ -21,23 +21,47 @@ const SelectConcept = () => {
 
   const options: OptionItem[] = watch(FIELDS.OPTIONS) || [];
 
-  const { append } = useFieldArray({
+  const { replace, append, remove } = useFieldArray({
     control,
     name: FIELDS.OPTIONS,
     shouldUnregister: true,
-    rules: { minLength: 4 }
+    rules: {
+      minLength: 2,
+      maxLength: 5
+      // validate: () => {} @TODO validate options array, that should have at least one positive option
+    }
   });
 
   const addOptionHandler = (option: OptionItem) => {
-    append(option);
+    if (!option.isTrue) {
+      append(option);
+    } else {
+      const transformedOptions = options.map((o) => ({ ...o, isTrue: false }));
+      replace([...transformedOptions, option]);
+    }
     onCloseModal();
+  };
+
+  const deleteOptionHandler = (index: number) => {
+    remove(index);
+  };
+
+  const changeOptionHandler = (index: number, option: OptionItem) => {
+    const transformedOptions = options.map((o, idx) => {
+      return idx === index ? { ...o, isTrue: !option.isTrue } : { ...o, isTrue: false };
+    });
+    replace(transformedOptions);
   };
 
   return (
     <Container>
       <PassageFieldWrapper>
         <Label htmlFor="passage">Passage</Label>
-        <StyledTextArea id="passage" {...register(FIELDS.PASSAGE)} minRows={3} />
+        <StyledTextArea
+          id="passage"
+          {...register(FIELDS.PASSAGE, { shouldUnregister: true })}
+          minRows={3}
+        />
       </PassageFieldWrapper>
       <StyledButton
         startIcon={<AddIcon />}
@@ -50,7 +74,13 @@ const SelectConcept = () => {
       <ConceptOptionModal open={isOpen} onClose={onCloseModal} onAddOption={addOptionHandler} />
 
       {options.map((option, index) => (
-        <ConceptOptionItem key={index} index={index + 1} {...option} />
+        <ConceptOptionItem
+          key={index}
+          index={index}
+          {...option}
+          onDeleteOption={deleteOptionHandler}
+          onChangeOption={changeOptionHandler}
+        />
       ))}
     </Container>
   );
