@@ -11,6 +11,7 @@ import { Wrapper } from "../UI/Wrapper";
 import { AutoComplete } from "../UI/dropdown/AutoComplete";
 import { Input } from "../UI/input/Input";
 import { InputNumber } from "../UI/input/InputNumber";
+import { DescribeImage } from "../question-types/admin/DescribeImage";
 import { SelectBestTitle, SelectTheMainIdea } from "../question-types/admin/SelectConcept";
 import { TypeWhatYouHear } from "../question-types/admin/TypeWhatYouHear";
 
@@ -23,7 +24,7 @@ const RENDERED_COMPONENTS_BY_QUESTION_TYPE: { [key: string]: React.ComponentType
   [QUESTION_TYPES.SELECT_ENGLISH_WORDS]: () => <div>SELECT_ENGLISH_WORDS</div>,
   [QUESTION_TYPES.LISTEN_AND_SELECT_WORD]: () => <div>LISTEN_AND_SELECT_WORD</div>,
   [QUESTION_TYPES.TYPE_WHAT_YOU_HEAR]: TypeWhatYouHear,
-  [QUESTION_TYPES.DESCRIBE_THE_IMAGE]: () => <div>DESCRIBE_THE_IMAGE</div>,
+  [QUESTION_TYPES.DESCRIBE_THE_IMAGE]: DescribeImage,
   [QUESTION_TYPES.RECORD_SAYING_STATEMENT]: RecordSayingStatement,
   [QUESTION_TYPES.RESPOND_N_WORDS]: RespondNWords,
   [QUESTION_TYPES.HIGHLIGHT_THE_ANSWER]: () => <div>HIGHLIGHT_THE_ANSWER</div>,
