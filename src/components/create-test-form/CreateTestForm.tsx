@@ -12,7 +12,7 @@ import { AutoComplete } from "../UI/dropdown/AutoComplete";
 import { Input } from "../UI/input/Input";
 import { InputNumber } from "../UI/input/InputNumber";
 import { SelectBestTitle, SelectTheMainIdea } from "../question-types/admin/SelectConcept";
-import TypeWhatYouHear from "../question-types/admin/TypeWhatYouHear";
+import { TypeWhatYouHear } from "../question-types/admin/TypeWhatYouHear";
 
 import { RecordSayingStatement } from "./TestComponents/RecordSayingStatement";
 import { RespondNWords } from "./TestComponents/RespondNWords";
@@ -46,7 +46,7 @@ const QUESTION_TYPE_OPTIONS: OptionData[] = [
 type TestFields = z.infer<typeof testValidationSchema>;
 
 export const CreateTestForm = () => {
-  const [selectedType, setSelectedType] = useState(QUESTION_TYPE_OPTIONS[7]);
+  const [selectedType, setSelectedType] = useState(QUESTION_TYPE_OPTIONS[0]);
   const CurrentQuestionType = RENDERED_COMPONENTS_BY_QUESTION_TYPE[selectedType.value];
 
   const methods = useForm<TestFields>({
