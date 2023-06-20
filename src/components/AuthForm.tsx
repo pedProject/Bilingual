@@ -5,7 +5,7 @@ import { styled } from "@mui/material";
 import { Link } from "react-router-dom";
 
 import { BookIcon, GoogleIcon } from "../assets/index";
-import FlexBoxContainer from "../layout/FlexBoxContainer";
+import { FlexBoxContainer } from "../layout/FlexBoxContainer";
 
 import { Button } from "./UI/Button/Button";
 

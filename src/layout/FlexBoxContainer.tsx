@@ -1,4 +1,4 @@
-import React from "react";
+/* eslint-disable react/prop-types */
 import type { ReactNode, CSSProperties, MouseEvent } from "react";
 
 import { styled } from "@mui/material";
@@ -18,7 +18,7 @@ type FlexBoxContainerProps = {
   onClick?: (event: MouseEvent<HTMLDivElement>) => void;
 };
 
-const FlexBoxContainer: React.FC<FlexBoxContainerProps> = ({
+export const FlexBoxContainer: React.FC<FlexBoxContainerProps> = ({
   children,
   width,
   height,
@@ -51,22 +51,7 @@ const FlexBoxContainer: React.FC<FlexBoxContainerProps> = ({
   );
 };
 
-export default React.memo(FlexBoxContainer);
-
-type StyledFlexBoxContainerProps = {
-  height?: string;
-  width?: string;
-  JK?: CSSProperties["justifyContent"];
-  AI?: CSSProperties["alignItems"];
-  FD?: CSSProperties["flexDirection"];
-  FW?: CSSProperties["flexWrap"];
-  gap?: CSSProperties["gap"];
-  border?: CSSProperties["border"];
-  margin?: CSSProperties["margin"];
-  padding?: CSSProperties["padding"];
-};
-
-const StyledFlexBoxContainer = styled("div")<StyledFlexBoxContainerProps>`
+const StyledFlexBoxContainer = styled("div")<FlexBoxContainerProps>`
   display: flex;
   position: relative;
   width: ${(props) => props.width};

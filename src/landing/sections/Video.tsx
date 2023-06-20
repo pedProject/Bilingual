@@ -33,21 +33,23 @@ export const Video = () => {
         <VideoWrapper>
           {DUMMY_VIDEO_DATA.map((video) => {
             return (
-              <VideoContainer key={video.id}>
-                <CustomIframe
-                  width="100%"
-                  height="100%"
-                  src={`https://www.youtube.com/embed/${video.link}?autoplay=0&mute=1`}
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  title="Embedded youtube"
-                />
-                <DescriptionContainer className="descContainer">
-                  <Description>{video.description}</Description>
-                  <Duration>{video.duration}</Duration>
-                </DescriptionContainer>
-              </VideoContainer>
+              <Wrapper key={video.id}>
+                <VideoContainer>
+                  <CustomIframe
+                    width="100%"
+                    height="100%"
+                    src={`https://www.youtube.com/embed/${video.link}?autoplay=0&mute=1`}
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    title="Embedded youtube"
+                  />
+                  <DescriptionContainer className="descContainer">
+                    <Description>{video.description}</Description>
+                    <Duration>{video.duration}</Duration>
+                  </DescriptionContainer>
+                </VideoContainer>
+              </Wrapper>
             );
           })}
         </VideoWrapper>
@@ -63,20 +65,26 @@ const Title = styled(SectionHeading)(() => ({
 
 const VideoWrapper = styled("div")(() => ({
   display: "flex",
-  justifyContent: "space-between"
+  justifyContent: "space-between",
+  flexWrap: "wrap"
 }));
-const VideoContainer = styled("div")(() => ({
+const Wrapper = styled("div")(() => ({
   margin: "15px",
   transition: "transform 0.2s ease-in-out",
   "&:hover": {
-    transform: "scale(1.15)",
-    transition: "transform 0.4s ease-in-out"
+    transform: "scale(1.1)",
+    transition: "transform 0.5s ease-in-out"
   }
 }));
 
+const VideoContainer = styled("div")`
+  height: "400px";
+`;
+
 const CustomIframe = styled("iframe")(() => ({
   borderTopLeftRadius: "16px",
-  borderTopRightRadius: "16px"
+  borderTopRightRadius: "16px",
+  height: "261px"
 }));
 const DescriptionContainer = styled("div")(() => ({
   height: "87px",

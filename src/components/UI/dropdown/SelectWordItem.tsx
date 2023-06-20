@@ -10,14 +10,14 @@ export default function SelectWordItem() {
       <Content>
         <span>{1}</span>
 
-        <IconButton Icon={VoiceIcon} onClick={() => console.log("hello")} />
+        <IconButton icon={<VoiceIcon />} onClick={() => console.log("hello")} />
 
         <span>WORD {1}</span>
       </Content>
       <Actions>
         <Checkbox value={false} />
 
-        <IconButton Icon={DeleteIcon} onClick={() => console.log("hello")} />
+        <IconButton icon={<DeleteIcon />} onClick={() => console.log("hello")} />
       </Actions>
     </Main>
   );
