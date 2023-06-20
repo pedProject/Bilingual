@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { type ChangeEvent } from "react";
 
 import { Box, styled } from "@mui/material";
+import { useFormContext } from "react-hook-form";
 
 import { DeleteIcon, PlusIcon } from "../../../assets";
 import { Button } from "../../UI/Button/Button";
@@ -15,24 +16,18 @@ interface Option {
   isOption: boolean;
 }
 
-interface Props {
-  options: Option[];
-  setOptions: React.Dispatch<React.SetStateAction<Option[]>>;
-}
-
-export const SelectRealWords = ({ options, setOptions }: Props) => {
+export const SelectRealWords = () => {
   const [showModal, setShowModal] = useState(false);
-
   const [valueOption, setValueOption] = useState("");
-
   const [valueOptionError, setValueOptionError] = useState({
     text: "",
     error: false
   });
-
+  const [options, setOptions] = useState<Option[]>([]);
   const [isOption, setIsOption] = useState(false);
-
   const isDisabled = Boolean(valueOption.trim());
+
+  const { setValue } = useFormContext();
 
   const closeModalHandler = () => {
     setShowModal(false);
@@ -75,6 +70,10 @@ export const SelectRealWords = ({ options, setOptions }: Props) => {
     const filteredOptions = options.filter((option) => option.id !== id);
     setOptions(filteredOptions);
   };
+
+  useEffect(() => {
+    setValue("options", JSON.stringify(options));
+  }, [options, setValue]);
 
   return (
     <>

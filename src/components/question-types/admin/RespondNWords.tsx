@@ -1,7 +1,7 @@
 import { useFormContext } from "react-hook-form";
 
-import { FlexBoxContainer } from "../../layout/FlexBoxContainer";
-import { Input } from "../UI/input/Input";
+import { FlexBoxContainer } from "../../../layout/FlexBoxContainer";
+import { Input } from "../../UI/input/Input";
 
 export const RespondNWords = () => {
   const { getValues, register } = useFormContext();
