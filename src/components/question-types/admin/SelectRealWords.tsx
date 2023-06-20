@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { type ChangeEvent } from "react";
 
 import { Box, styled } from "@mui/material";
-import { useFormContext } from "react-hook-form";
+import { useFieldArray } from "react-hook-form";
 
 import { DeleteIcon, PlusIcon } from "../../../assets";
 import { Button } from "../../UI/Button/Button";
@@ -18,16 +18,23 @@ interface Option {
 
 export const SelectRealWords = () => {
   const [showModal, setShowModal] = useState(false);
+
   const [valueOption, setValueOption] = useState("");
+
   const [valueOptionError, setValueOptionError] = useState({
     text: "",
     error: false
   });
+
   const [options, setOptions] = useState<Option[]>([]);
+
   const [isOption, setIsOption] = useState(false);
+
   const isDisabled = Boolean(valueOption.trim());
 
-  const { setValue } = useFormContext();
+  const { append } = useFieldArray({
+    name: "options"
+  });
 
   const closeModalHandler = () => {
     setShowModal(false);
@@ -72,8 +79,8 @@ export const SelectRealWords = () => {
   };
 
   useEffect(() => {
-    setValue("options", JSON.stringify(options));
-  }, [options, setValue]);
+    append(options);
+  }, [append, options]);
 
   return (
     <>
