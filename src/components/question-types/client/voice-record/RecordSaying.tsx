@@ -3,8 +3,8 @@ import { useCallback, useState } from "react";
 import { styled } from "@mui/material";
 import { AudioRecorder, useAudioRecorder } from "react-audio-voice-recorder";
 
-import { RecordCircleIcon } from "../../assets";
-import { Button } from "../UI/Button/Button";
+import { RecordCircleIcon } from "../../../../assets";
+import { Button } from "../../../UI/Button/Button";
 
 type AudioRecorderWrapperProps = {
   record: string;

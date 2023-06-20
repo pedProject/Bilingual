@@ -4,30 +4,21 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { styled } from "@mui/material";
 import { useForm, FormProvider } from "react-hook-form";
 
-import { testValidationSchema, type OptionData } from "../../types/testVerification";
-import { QUESTION_TYPES } from "../../utils/constants/general";
-import { Button } from "../UI/Button/Button";
-import { Wrapper } from "../UI/Wrapper";
-import { AutoComplete } from "../UI/dropdown/AutoComplete";
-import { Input } from "../UI/input/Input";
-import { InputNumber } from "../UI/input/InputNumber";
-import { DescribeImage } from "../question-types/admin/DescribeImage";
-<<<<<<< HEAD:src/components/TestComponents/CreateTestForm.tsx
-import { TypeWhatYouHear } from "../question-types/admin/TypeWhatYouHear";
+import { testValidationSchema, type OptionData } from "../types/testVerification";
+import { QUESTION_TYPES } from "../utils/constants/general";
 
-import { RecordSayingStatement } from "./RecordSayingInput";
-import { RespondNWords } from "./RespondNWords";
-
-import type { OptionData } from "../../types/testVerification";
-=======
-import { SelectBestTitle, SelectTheMainIdea } from "../question-types/admin/SelectConcept";
-import { TypeWhatYouHear } from "../question-types/admin/TypeWhatYouHear";
-
-import { RecordSayingStatement } from "./TestComponents/RecordSayingStatement";
-import { RespondNWords } from "./TestComponents/RespondNWords";
+import { Button } from "./UI/Button/Button";
+import { Wrapper } from "./UI/Wrapper";
+import { AutoComplete } from "./UI/dropdown/AutoComplete";
+import { Input } from "./UI/input/Input";
+import { InputNumber } from "./UI/input/InputNumber";
+import { DescribeImage } from "./question-types/admin/DescribeImage";
+import { RecordSayingStatement } from "./question-types/admin/RecordSayingInput";
+import { RespondNWords } from "./question-types/admin/RespondNWords";
+import { SelectBestTitle, SelectTheMainIdea } from "./question-types/admin/SelectConcept";
+import { TypeWhatYouHear } from "./question-types/admin/TypeWhatYouHear";
 
 import type { z } from "zod";
->>>>>>> d6c26f9de5b8956a57f6f9e9b11aa97e9730f267:src/components/create-test-form/CreateTestForm.tsx
 
 const RENDERED_COMPONENTS_BY_QUESTION_TYPE: { [key: string]: React.ComponentType } = {
   [QUESTION_TYPES.SELECT_ENGLISH_WORDS]: () => <div>SELECT_ENGLISH_WORDS</div>,

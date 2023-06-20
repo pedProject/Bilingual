@@ -1,7 +1,8 @@
 import { styled } from "@mui/material";
 
 import { VoiceRecordIcon } from "../../../../assets";
-import { TestInprogressCard } from "../TestInProgressCard";
+
+import { TestInprogressCard } from "./TestInProgressCard";
 export const VoiceRecord = () => {
   return (
     <Container>

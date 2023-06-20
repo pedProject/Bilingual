@@ -2,8 +2,9 @@ import type { ReactNode } from "react";
 
 import { styled } from "@mui/material";
 
-import { TimerProgressBar } from "../../UI/timer-progress-bar/TimerProgressBar";
-import { RecordSaying } from "../RecordSaying";
+import { TimerProgressBar } from "../../../UI/timer-progress-bar/TimerProgressBar";
+
+import { RecordSaying } from "./RecordSaying";
 
 type Props = {
   title: string;
