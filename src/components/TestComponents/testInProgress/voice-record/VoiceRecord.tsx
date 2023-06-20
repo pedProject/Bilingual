@@ -20,7 +20,7 @@ const Container = styled("div")`
 `;
 
 const Title = styled("h3")`
-  font-size: 18px;
+  font-size: 1.1rem;
   line-height: 124%;
   color: #4c4859;
 `;

@@ -104,7 +104,7 @@ const TitleWrapper = styled("div")`
   width: 8.5rem;
 `;
 const Title = styled("h2")(() => ({
-  fontSize: "16px",
+  fontSize: "1rem",
   lineHeight: "124%",
   letterSpacing: "0.075em",
   textTransform: "uppercase",

@@ -34,7 +34,7 @@ const Container = styled("div")`
 
 const Title = styled("h2")`
   font-weight: 400;
-  font-size: 28px;
+  font-size: 1.75rem;
   line-height: 32px;
   color: #4c4859;
   margin-top: 50px;
