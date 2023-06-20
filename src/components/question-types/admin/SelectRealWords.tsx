@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { type ChangeEvent } from "react";
 
 import { Box, styled } from "@mui/material";
 
@@ -14,7 +15,12 @@ interface Option {
   isOption: boolean;
 }
 
-export const SelectRealWords = () => {
+interface Props {
+  options: Option[];
+  setOptions: React.Dispatch<React.SetStateAction<Option[]>>;
+}
+
+export const SelectRealWords = ({ options, setOptions }: Props) => {
   const [showModal, setShowModal] = useState(false);
 
   const [valueOption, setValueOption] = useState("");
@@ -26,7 +32,7 @@ export const SelectRealWords = () => {
 
   const [isOption, setIsOption] = useState(false);
 
-  const [options, setOptions] = useState<Option[]>([]);
+  const isDisabled = Boolean(valueOption.trim());
 
   const closeModalHandler = () => {
     setShowModal(false);
@@ -34,6 +40,14 @@ export const SelectRealWords = () => {
 
   const openModalHandler = () => {
     setShowModal(true);
+  };
+
+  const changeOptionValueHandler = (e: ChangeEvent<HTMLInputElement>) => {
+    setValueOption(e.target.value);
+  };
+
+  const changeOptionCheckedHandler = (e: ChangeEvent<HTMLInputElement>) => {
+    setIsOption(e.target.checked);
   };
 
   const addOptionHandler = () => {
@@ -72,7 +86,9 @@ export const SelectRealWords = () => {
           <StyledButtons>
             <StyledBackBtn onClick={closeModalHandler}>GO BACK</StyledBackBtn>
 
-            <StyledSaveBtn onClick={addOptionHandler}>SAVE</StyledSaveBtn>
+            <StyledSaveBtn disabled={!isDisabled} onClick={addOptionHandler}>
+              SAVE
+            </StyledSaveBtn>
           </StyledButtons>
         }
       >
@@ -82,12 +98,12 @@ export const SelectRealWords = () => {
             value={valueOption}
             error={valueOptionError.error}
             helperText={valueOptionError.text}
-            onChange={(e) => setValueOption(e.target.value)}
+            onChange={changeOptionValueHandler}
           />
 
           <Box className="variant">
             Is true option?
-            <Checkbox value={isOption} onChange={(e) => setIsOption(e.target.checked)} />
+            <Checkbox value={isOption} onChange={changeOptionCheckedHandler} />
           </Box>
         </StyledModal>
       </Modal>
