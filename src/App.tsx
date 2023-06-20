@@ -1,5 +1,13 @@
-import { CreateTestForm } from "./components/create-test-form/CreateTestForm";
+import { Suspense } from "react";
+
+import { RouterProvider } from "react-router-dom";
+
+import { routes } from "./routes/AppRoutes";
 
 export const App = (): JSX.Element => {
-  return <CreateTestForm />;
+  return (
+    <Suspense fallback={<>...Loading</>}>
+      <RouterProvider router={routes} />
+    </Suspense>
+  );
 };
