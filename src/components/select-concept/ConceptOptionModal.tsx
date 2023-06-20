@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { zodResolver } from "@hookform/resolvers/zod";
 import { FormControl, FormControlLabel, InputLabel, styled } from "@mui/material";
 import { useForm } from "react-hook-form";
