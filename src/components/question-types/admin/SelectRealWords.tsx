@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { type ChangeEvent } from "react";
 
 import { Box, styled } from "@mui/material";
-import { useFieldArray } from "react-hook-form";
+import { useFieldArray, useForm } from "react-hook-form";
 
 import { DeleteIcon, PlusIcon } from "../../../assets";
 import { Button } from "../../UI/Button/Button";
@@ -32,8 +32,11 @@ export const SelectRealWords = () => {
 
   const isDisabled = Boolean(valueOption.trim());
 
+  const { control } = useForm();
+
   const { append } = useFieldArray({
-    name: "options"
+    name: "options",
+    control
   });
 
   const closeModalHandler = () => {
@@ -62,6 +65,8 @@ export const SelectRealWords = () => {
 
       setOptions([...options, option]);
 
+      append(option);
+
       setValueOption("");
       setValueOptionError({
         text: "",
@@ -77,10 +82,6 @@ export const SelectRealWords = () => {
     const filteredOptions = options.filter((option) => option.id !== id);
     setOptions(filteredOptions);
   };
-
-  useEffect(() => {
-    append(options);
-  }, [append, options]);
 
   return (
     <>
