@@ -2,6 +2,9 @@ export enum ROLES {
   CLIENT = "CLIENT",
   ADMIN = "ADMIN"
 }
+
+export const BASE_URL = "http://bilingual.peaksoftprojects.com/graphql";
+
 export enum QUESTION_TYPES {
   SELECT_ENGLISH_WORDS = "SELECT_ENGLISH_WORDS",
   LISTEN_AND_SELECT_WORD = "LISTEN_AND_SELECT_WORD",
