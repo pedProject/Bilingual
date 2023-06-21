@@ -6,8 +6,10 @@ import { routes } from "./routes/AppRoutes";
 
 export const App = (): JSX.Element => {
   return (
-    <Suspense fallback={<>...Loading</>}>
-      <RouterProvider router={routes} />
-    </Suspense>
+    <>
+      <Suspense fallback={<>...Loading</>}>
+        <RouterProvider router={routes} />
+      </Suspense>
+    </>
   );
 };

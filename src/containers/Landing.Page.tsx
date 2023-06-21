@@ -1,9 +1,9 @@
 import { styled } from "@mui/material";
 
-import { Header } from "../landing/components/Header";
-import { Accordions } from "../landing/components/accordions/Accordions";
 import { AdvantagesSection } from "../landing/sections/AdvantagesSection";
 import { Feedbacks } from "../landing/sections/Feedbacks";
+import { Footer } from "../landing/sections/Footer";
+import { Header } from "../landing/sections/Header";
 import { Hero } from "../landing/sections/Hero";
 import { Partners } from "../landing/sections/Partners";
 import { Statistics } from "../landing/sections/Statistics";
@@ -25,7 +25,7 @@ export const LandingPage = (): JSX.Element => {
         <Feedbacks />
         <Partners />
       </StyledMain>
-      <Accordions />
+      <Footer />
     </>
   );
 };
