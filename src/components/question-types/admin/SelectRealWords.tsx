@@ -26,18 +26,20 @@ export const SelectRealWords = () => {
     error: false
   });
 
-  const [options, setOptions] = useState<Option[]>([]);
+  // const [options, setOptions] = useState<Option[]>([]);
 
   const [isOption, setIsOption] = useState(false);
 
   const isDisabled = Boolean(valueOption.trim());
 
-  const { control } = useForm();
+  const { control, watch } = useForm();
 
-  const { append } = useFieldArray({
+  const { append, remove } = useFieldArray({
     name: "options",
     control
   });
+
+  const { options } = watch();
 
   const closeModalHandler = () => {
     setShowModal(false);
@@ -63,8 +65,6 @@ export const SelectRealWords = () => {
         isOption: isOption
       };
 
-      setOptions([...options, option]);
-
       append(option);
 
       setValueOption("");
@@ -78,9 +78,8 @@ export const SelectRealWords = () => {
     }
   };
 
-  const deleteOption = (id: number) => {
-    const filteredOptions = options.filter((option) => option.id !== id);
-    setOptions(filteredOptions);
+  const deleteOption = (index: number) => {
+    remove(index);
   };
 
   return (
@@ -121,7 +120,7 @@ export const SelectRealWords = () => {
         </StyledButton>
 
         <Box className="words">
-          {options.map((option, i) => (
+          {options?.map((option: Option, i: number) => (
             <Box key={option.id} className="word">
               <Box>
                 <p>{i + 1}</p> <p>{option.value}</p>
@@ -129,7 +128,7 @@ export const SelectRealWords = () => {
 
               <Box className="actions">
                 <Checkbox checked={option.isOption} readOnly />
-                <DeleteIcon className="dlt" onClick={() => deleteOption(option.id)} />
+                <DeleteIcon className="dlt" onClick={() => deleteOption(i)} />
               </Box>
             </Box>
           ))}
