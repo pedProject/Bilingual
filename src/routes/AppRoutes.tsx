@@ -9,7 +9,7 @@ import { Layout } from "../layout/Layout";
 import { NewTest } from "../pages/admin/tests/NewTest.Page";
 import { TestDetails } from "../pages/admin/tests/TestDetails.Page";
 import { ROLES } from "../utils/constants/general";
-import { ROUTES } from "../utils/routes";
+import { ROUTES } from "../utils/constants/routes";
 
 import { PrivateRoute } from "./ProtectedRoute";
 
