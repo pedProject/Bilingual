@@ -2,7 +2,7 @@ import { useState } from "react";
 import { type ChangeEvent } from "react";
 
 import { Box, styled } from "@mui/material";
-import { useFieldArray, useForm } from "react-hook-form";
+import { useFieldArray, useFormContext } from "react-hook-form";
 
 import { DeleteIcon, PlusIcon } from "../../../assets";
 import { Button } from "../../UI/Button/Button";
@@ -26,20 +26,18 @@ export const SelectRealWords = () => {
     error: false
   });
 
-  // const [options, setOptions] = useState<Option[]>([]);
-
   const [isOption, setIsOption] = useState(false);
 
   const isDisabled = Boolean(valueOption.trim());
 
-  const { control, watch } = useForm();
+  const { control, watch } = useFormContext();
 
   const { append, remove } = useFieldArray({
     name: "options",
     control
   });
 
-  const { options } = watch();
+  const options = watch("options");
 
   const closeModalHandler = () => {
     setShowModal(false);
