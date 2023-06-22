@@ -16,12 +16,13 @@ import { DescribeImage } from "./question-types/admin/DescribeImage";
 import { RecordSayingStatement } from "./question-types/admin/RecordSayingInput";
 import { RespondNWords } from "./question-types/admin/RespondNWords";
 import { SelectBestTitle, SelectTheMainIdea } from "./question-types/admin/SelectConcept";
+import { SelectRealWords } from "./question-types/admin/SelectRealWords";
 import { TypeWhatYouHear } from "./question-types/admin/TypeWhatYouHear";
 
 import type { z } from "zod";
 
 const RENDERED_COMPONENTS_BY_QUESTION_TYPE: { [key: string]: React.ComponentType } = {
-  [QUESTION_TYPES.SELECT_ENGLISH_WORDS]: () => <div>SELECT_ENGLISH_WORDS</div>,
+  [QUESTION_TYPES.SELECT_ENGLISH_WORDS]: SelectRealWords,
   [QUESTION_TYPES.LISTEN_AND_SELECT_WORD]: () => <div>LISTEN_AND_SELECT_WORD</div>,
   [QUESTION_TYPES.TYPE_WHAT_YOU_HEAR]: TypeWhatYouHear,
   [QUESTION_TYPES.DESCRIBE_THE_IMAGE]: DescribeImage,
@@ -68,7 +69,7 @@ export const CreateTestForm = () => {
   };
 
   return (
-    <Wrapper width="66%">
+    <Wrapper width="100%">
       <FormProvider {...methods}>
         <Form onSubmit={handleSubmit(onSubmit)}>
           <InputWrapperContainer>

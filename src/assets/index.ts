@@ -22,6 +22,7 @@ export { default as FifthAdvantage } from "./images/advantage-fifth.png";
 export { default as HeroBubblesImage } from "./images/hero/bubbles.png";
 export { default as HeroBooksImage } from "./images/hero/books.png";
 export { default as PhotoSlider } from "./images/slider.png";
+
 //@TODO Icons
 export { default as RoadMapIcon } from "./icons/roadmap-icon.svg";
 export { ReactComponent as UserExperienceDocumentIcon } from "./icons/user-experience/document.svg";
