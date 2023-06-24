@@ -3,30 +3,35 @@ import { styled } from "@mui/material";
 import { DeleteIcon, VoiceIcon } from "../../assets";
 import { IconButton } from "../UI/Button/IconButton";
 
+import type { modalData } from "../create-option-modal/CreateOptionModal";
+
 type SelectWordItemProps = {
-  title: string;
-  sound?: HTMLAudioElement | null;
-  indexNumber: number;
+  options: modalData[];
+  setOptions: React.Dispatch<React.SetStateAction<modalData[]>>;
 };
 
-export default function SelectWordItem({ title, sound, indexNumber }: SelectWordItemProps) {
-  const handlePlay = () => {
-    sound?.play();
+export default function SelectWordItem({ options, setOptions }: SelectWordItemProps) {
+  const handlePlay = (audio: HTMLAudioElement | null) => {
+    audio?.play();
   };
 
-  const handleDeleteItem = () => {
-    console.log("delete");
+  const handleDeleteItem = (deletedAudioId: number) => {
+    setOptions((prev) => prev.filter((option) => option.audioId !== deletedAudioId));
   };
 
   return (
-    <Main>
-      <Content>
-        <span>{indexNumber + 1}</span>
-        <IconButton icon={<VoiceIcon />} onClick={handlePlay} />
-        <span>{title}</span>
-      </Content>
-      <IconButton icon={<DeleteIcon />} onClick={handleDeleteItem} />
-    </Main>
+    <>
+      {options.map((option, indexNumber) => (
+        <Main key={option.audioId}>
+          <Content>
+            <span>{indexNumber + 1}</span>
+            <IconButton icon={<VoiceIcon />} onClick={() => handlePlay(option.audio)} />
+            <span>{option.title}</span>
+          </Content>
+          <IconButton icon={<DeleteIcon />} onClick={() => handleDeleteItem(option.audioId)} />
+        </Main>
+      ))}
+    </>
   );
 }
 

@@ -31,14 +31,7 @@ export const ListenAndSelectEnglishWords = () => {
       </ButtonBlock>
 
       <StyledSelectWordsBlock>
-        {options?.map((option, index) => (
-          <SelectWordItem
-            key={index}
-            indexNumber={index}
-            title={option.title}
-            sound={option.audio}
-          />
-        ))}
+        <SelectWordItem options={options} setOptions={setOptions} />
       </StyledSelectWordsBlock>
 
       <CreateOptionModal open={open} handleClose={handleToggleModal} handleSave={handleSave} />

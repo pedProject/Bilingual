@@ -2,6 +2,7 @@ import { useState } from "react";
 
 import { styled } from "@mui/material";
 
+import { MAX_AUDIO_SIZE_IN_BYTES } from "../../utils/constants/general";
 import { Button } from "../UI/Button/Button";
 import { DropzoneContainer } from "../UI/dropzone/DropzoneContainer";
 import { FileName } from "../UI/dropzone/FileName";
@@ -10,7 +11,8 @@ import { Modal } from "../UI/modal/Modal";
 
 export interface modalData {
   title: string;
-  audio?: HTMLAudioElement | null;
+  audio: HTMLAudioElement | null;
+  audioId: number;
 }
 
 interface CreateOptionModalProps {
@@ -30,12 +32,9 @@ export const CreateOptionModal = ({ handleClose, open, handleSave }: CreateOptio
       return;
     }
 
-    const maxAudioSizeInBytes = 5 * 1024 * 1024; // 5 MB
-    const uploadedAudioSize = audioFile.size;
+    if (audioFile.size > MAX_AUDIO_SIZE_IN_BYTES) return;
 
-    if (uploadedAudioSize > maxAudioSizeInBytes) return;
-
-    handleSave({ title, audio: new Audio(URL.createObjectURL(audioFile)) });
+    handleSave({ title, audio: new Audio(URL.createObjectURL(audioFile)), audioId: Date.now() });
     setTitle("");
     setAudioFile(null);
     setInputError("");
@@ -76,7 +75,7 @@ export const CreateOptionModal = ({ handleClose, open, handleSave }: CreateOptio
             <UploadAudioButton>{audioFile ? "Change file" : "Upload file"}</UploadAudioButton>
           </DropzoneContainer>
           {audioFile && <FileName file={audioFile} />}
-          {audioFile && audioFile.size > 5 * 1024 * 1024 && (
+          {audioFile && audioFile.size > MAX_AUDIO_SIZE_IN_BYTES && (
             <ErrorMessageTag>file is too big</ErrorMessageTag>
           )}
           {inputError && <ErrorMessageTag>{inputError}</ErrorMessageTag>}
