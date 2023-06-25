@@ -77,7 +77,8 @@ const InputStyled = styled(TextField)(() => ({
 
     "& .MuiInputBase-input": {
       padding: "0",
-      paddingLeft: "20px"
+      paddingLeft: "20px",
+      height: "100%"
     }
   }
 }));

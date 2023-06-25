@@ -13,6 +13,7 @@ import { AutoComplete } from "./UI/dropdown/AutoComplete";
 import { Input } from "./UI/input/Input";
 import { InputNumber } from "./UI/input/InputNumber";
 import { DescribeImage } from "./question-types/admin/DescribeImage";
+import { HighlightAnswer } from "./question-types/admin/HighlightAnswer";
 import { RecordSayingStatement } from "./question-types/admin/RecordSayingInput";
 import { RespondNWords } from "./question-types/admin/RespondNWords";
 import { SelectBestTitle, SelectTheMainIdea } from "./question-types/admin/SelectConcept";
@@ -28,7 +29,7 @@ const RENDERED_COMPONENTS_BY_QUESTION_TYPE: { [key: string]: React.ComponentType
   [QUESTION_TYPES.DESCRIBE_THE_IMAGE]: DescribeImage,
   [QUESTION_TYPES.RECORD_SAYING_STATEMENT]: RecordSayingStatement,
   [QUESTION_TYPES.RESPOND_N_WORDS]: RespondNWords,
-  [QUESTION_TYPES.HIGHLIGHT_THE_ANSWER]: () => <div>HIGHLIGHT_THE_ANSWER</div>,
+  [QUESTION_TYPES.HIGHLIGHT_THE_ANSWER]: HighlightAnswer,
   [QUESTION_TYPES.SELECT_THE_MAIN_IDEA]: SelectTheMainIdea,
   [QUESTION_TYPES.SELECT_BEST_TITLE]: SelectBestTitle
 };
@@ -48,7 +49,7 @@ const QUESTION_TYPE_OPTIONS: OptionData[] = [
 type TestFields = z.infer<typeof testValidationSchema>;
 
 export const CreateTestForm = () => {
-  const [selectedType, setSelectedType] = useState(QUESTION_TYPE_OPTIONS[0]);
+  const [selectedType, setSelectedType] = useState(QUESTION_TYPE_OPTIONS[6]);
   const CurrentQuestionType = RENDERED_COMPONENTS_BY_QUESTION_TYPE[selectedType.value];
 
   const methods = useForm<TestFields>({
