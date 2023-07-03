@@ -37,7 +37,12 @@ const Footerdata = [
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
   }
 ];
+
 export const Footer = () => {
+  const goToTopHandler = () => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  };
+
   return (
     <StyledFooter>
       <StyledContainer>
@@ -56,7 +61,12 @@ export const Footer = () => {
         })}
       </StyledContainer>
       <StyledFooterInline>
-        <LogoIcon />
+        <LogoIcon
+          style={{
+            cursor: "pointer"
+          }}
+          onClick={goToTopHandler}
+        />
         <IconContainer>
           <FacebookIcon />
           <YoutubeIcon />
@@ -87,6 +97,7 @@ const Text = styled("h3")`
   color: #98a2b3;
   text-align: center;
 `;
+
 const StyledAccordionSummary = styled(AccordionSummary)(() => ({
   background: "#262626",
   borderTop: "1px solid #4A4A4A",
